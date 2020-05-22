@@ -17,7 +17,7 @@ public class VariableMutation {
         System.out.println(d);
 
         int e = 8;
-        e *= 8;
+        e *= e *= e;
         System.out.println(e);
 
         int f1 = 123;
@@ -36,6 +36,19 @@ public class VariableMutation {
 
         boolean h1 = (h%11 == 0);
         System.out.println(h1);
+
+        int i1 = 10;
+        int i2 = 3;
+
+        boolean i = (i2 * i2 * i2 > i1) && (i1 > i2 * i2);
+        System.out.println(i);
+
+        int j = 1521;
+
+        boolean j1 = ( j%3 == 0 ) || (j%5 == 0);
+        System.out.println(j1);
+
+
 
 
 
