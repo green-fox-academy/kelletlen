@@ -9,7 +9,24 @@ public class GuessTheNumber {
 
         int b = 7;
 
+        while (a != b) {
 
+            if (a < b) {
+                System.out.println("The stored number is higher");
+
+            } else if (a > b) {
+                System.out.println("The stored number is lower");
+            }
+            System.out.println("Guess the number:");
+            a = scanner.nextInt();
+
+        }
+
+        System.out.println("You found the number:" + b);
+
+    }
+
+}
         //if (a<b) {
             //System.out.println("The stored number is higher");
         //} else if (a>b) {
@@ -18,5 +35,3 @@ public class GuessTheNumber {
             //System.out.println("You found the number:" + b );
        // }
 
-    }
-}
