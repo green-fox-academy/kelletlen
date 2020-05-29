@@ -24,10 +24,10 @@ public class RainbowBoxFunction {
         Colors.add (5, new Color(10,0,130,150));
         Colors.add (6, new Color(75,10,75,150));
 
-        int a = 40;
-        for (int i = Colors.size(); i >= 0; i--) {
+        int a = 320;
+        for (int i = 0; i < Colors.size(); i++) {
             centerBox(a, graphics, Colors.get(i));
-            a += 20;
+            a -= 40;
         }
 
 
