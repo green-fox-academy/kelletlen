@@ -27,6 +27,8 @@ public class PurpleSteps {
     public static void Steps (int x, int y, Graphics g) {
         g.setColor(Color.MAGENTA);
         g.fillRect(x, y, 10, 10);
+        g.setColor(Color.black);
+        g.drawRect(x, y, 10, 10);
     }
 
     // Don't touch the code below
