@@ -28,7 +28,7 @@ public class CenterBoxFunction {
 
     public static void centerBox (int a,  Graphics g) {
 
-        g.drawRect(160 - (a/2), 160 - (a/2), a, a);
+        g.drawRect(WIDTH/2 - (a/2), WIDTH/2 - (a/2), a, a);
     }
 
     // Don't touch the code below

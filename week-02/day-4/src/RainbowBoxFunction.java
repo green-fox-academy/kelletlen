@@ -55,7 +55,7 @@ public class RainbowBoxFunction {
     public static void centerBox (int a, Graphics g, Color c) {
 
         g.setColor(c);
-        g.fillRect(160 - (a/2), 160 - (a/2), a, a);
+        g.fillRect(WIDTH/2 - (a/2), HEIGHT/2 - (a/2), a, a);
 
 
 

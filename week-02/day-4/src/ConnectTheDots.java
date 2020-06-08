@@ -6,6 +6,14 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class ConnectTheDots {
     public static void mainDraw(Graphics graphics) {
+
+        int [][] points = new int [][] {
+            {50, 60},
+            {70, 40}
+        };
+
+        connectTheDots(points, graphics);
+
         // Create a function that takes 2 parameters:
         // An array of {x, y} points and graphics
         // and connects them with green lines.
@@ -15,6 +23,11 @@ public class ConnectTheDots {
 
 
 
+    }
+
+    public static void connectTheDots (int [][] points, Graphics g) {
+        g.setColor(Color.GREEN);
+        g.drawLine(points[0][0], points[0][1], points[1][0], points[1][1]);
     }
 
     // Don't touch the code below

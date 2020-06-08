@@ -45,7 +45,7 @@ public class FunctionToCenter {
         int green = (int)(Math.random() * 255);
         int b = (int)(Math.random() * 255);
         g.setColor(new Color(r, b, green,150));
-        g.drawLine(x, y, 160, 160);
+        g.drawLine(x, y, WIDTH/2, HEIGHT/2);
     }
 
     // Don't touch the code below
