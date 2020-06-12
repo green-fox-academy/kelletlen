@@ -19,14 +19,6 @@ public class DrawChessTable {
 
 
 
-            /* if (j % 2 == 0) {
-                System.out.print("% ");
-            } else {
-                System.out.println(" %");
-            }
-            } */
-
-
 
 
 

@@ -13,11 +13,7 @@ public class DrawPyramid {
             for(int k=0; k < (j + (j-1)); k++) {
                 System.out.print("*");
             }
-            for(int l=1; l<= (a-j); l++){
-                System.out.print(" ");
-            }
             System.out.println();
         }
-
 }
 }
