@@ -9,10 +9,11 @@ public class PurpleSteps {
 
         int x =10;
         int y = 10;
+
         //Steps(x, y, graphics);
 
         for (int i = 0; i < 20; i++) {
-            Steps(x, y, graphics);
+            drawPurpleRectangles(x, y, graphics);
             x = x+10;
             y = y+10;
         }
@@ -24,7 +25,7 @@ public class PurpleSteps {
 
     }
 
-    public static void Steps (int x, int y, Graphics g) {
+    public static void drawPurpleRectangles (int x, int y, Graphics g) {
         g.setColor(Color.MAGENTA);
         g.fillRect(x, y, 10, 10);
         g.setColor(Color.black);

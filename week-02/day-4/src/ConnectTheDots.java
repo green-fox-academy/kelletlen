@@ -7,12 +7,27 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class ConnectTheDots {
     public static void mainDraw(Graphics graphics) {
 
-        int [][] points = new int [][] {
-            {50, 60},
-            {70, 40}
+        int [][] box = new int [][] {
+            {10, 10},
+            {290, 10},
+            {290, 290},
+            {10, 290}
         };
 
-        connectTheDots(points, graphics);
+        connectTheDots(box, graphics);
+
+        int [][]  polygon = new int [][] {
+            {50, 100},
+            {70, 70},
+            {80, 90},
+            {90, 90},
+            {100, 70},
+            {120, 100},
+            {85, 130},
+            {50, 100},
+        };
+        connectTheDots(polygon, graphics);
+
 
         // Create a function that takes 2 parameters:
         // An array of {x, y} points and graphics
@@ -26,9 +41,25 @@ public class ConnectTheDots {
     }
 
     public static void connectTheDots (int [][] points, Graphics g) {
+        int [] xPoints = new int [points.length];
+        int [] yPoints = new int [points.length];
+
+        for (int i = 0; i < points.length; i++) {
+            int [] point = points[i];
+            for (int j = 0; j <point.length; j++) {
+                if (j == 0) {
+                    point [j] = xPoints [i];
+                } else {
+                    point [j] = yPoints [i];
+                }
+            }
+        }
+
         g.setColor(Color.GREEN);
-        g.drawLine(points[0][0], points[0][1], points[1][0], points[1][1]);
+        Polygon polygon1 = new Polygon(xPoints, yPoints, xPoints.length);
+        g.drawPolygon(polygon1);
     }
+
 
     // Don't touch the code below
     static int WIDTH = 320;
