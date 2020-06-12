@@ -29,14 +29,7 @@ public class RainbowBoxFunction {
             centerBox(a, graphics, Colors.get(i));
             a -= 40;
         }
-
-
-
-
-        //centerBox(a, graphics, red);
-
-
-        }
+    }
 
 
 
@@ -49,12 +42,8 @@ public class RainbowBoxFunction {
 
 
     public static void centerBox (int a, Graphics g, Color c) {
-
         g.setColor(c);
         g.fillRect(WIDTH/2 - (a/2), HEIGHT/2 - (a/2), a, a);
-
-
-
     }
 
         // Don't touch the code below
