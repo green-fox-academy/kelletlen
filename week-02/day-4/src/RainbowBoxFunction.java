@@ -42,10 +42,6 @@ public class RainbowBoxFunction {
 
         // String[] colors = {"red", "orange", "yellow", "green", "blue", "indigo", "violet"};
         // centerBox(a, graphics, Color.green);
-
-
-
-
         // Create a square drawing function that takes 3 parameters:
         // The square size, the fill color, graphics
         // and draws a square of that size and color to the center of the canvas.

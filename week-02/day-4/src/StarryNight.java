@@ -8,17 +8,10 @@ public class StarryNight {
     public static void mainDraw(Graphics graphics) {
 
         for (int i= 0; i < 50; i++) {
-            int x = (int)(Math.random() * 320);
-            int y = (int)(Math.random() * 320);
-            int size = (int)(Math.random() * 5);
-            int r = 105 + (int)(Math.random() * 90);
-            int g = 105 + (int)(Math.random() * 90);
-            int b = 105 + (int)(Math.random() * 90);
-            graphics.setColor(new Color(r, b, g,150));
-            graphics.fillRect(x, y, size, size);
-
-
+            drawRandomRectangle(graphics);
         }
+
+
         // Draw the night sky:
         //  - The background should be black
         //  - The stars can be small squares
@@ -26,6 +19,17 @@ public class StarryNight {
         //  - The stars should have random color (some shade of grey)
 
 
+
+    }
+    public static void drawRandomRectangle (Graphics graphics) {
+        int x = (int)(Math.random() * 320);
+        int y = (int)(Math.random() * 320);
+        int size = (int)(Math.random() * 5);
+        int r = 105 + (int)(Math.random() * 90);
+        int g = 105 + (int)(Math.random() * 90);
+        int b = 105 + (int)(Math.random() * 90);
+        graphics.setColor(new Color(r, b, g,150));
+        graphics.fillRect(x, y, size, size);
 
     }
 

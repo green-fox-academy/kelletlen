@@ -20,7 +20,6 @@ public class Checkerboard {
                 //b = b + 40;
             }
             System.out.println();
-
         }
 
 
