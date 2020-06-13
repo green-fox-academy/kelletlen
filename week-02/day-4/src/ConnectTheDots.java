@@ -46,14 +46,10 @@ public class ConnectTheDots {
 
         for (int i = 0; i < points.length; i++) {
             int [] point = points[i];
-            for (int j = 0; j <point.length; j++) {
-                if (j == 0) {
-                    point [j] = xPoints [i];
-                } else {
-                    point [j] = yPoints [i];
-                }
-            }
+           xPoints[i] = point [0];
+           yPoints[i] = point [1];
         }
+
 
         g.setColor(Color.GREEN);
         Polygon polygon1 = new Polygon(xPoints, yPoints, xPoints.length);
