@@ -50,7 +50,6 @@ public class ConnectTheDots {
            yPoints[i] = point [1];
         }
 
-
         g.setColor(Color.GREEN);
         Polygon polygon1 = new Polygon(xPoints, yPoints, xPoints.length);
         g.drawPolygon(polygon1);
