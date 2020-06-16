@@ -5,14 +5,18 @@ import java.util.List;
 
 public class CountLines {
     public static void main(String[] args) {
-        try { // Required by Files.readAllLines(filePath);
-            // Reads the content from `lorem-ipsum.txt` in the `assets` folder line by line to a String List
-            Path filePath = Paths.get("./assets/countlines");
+        System.out.println(countLines("my-file.txt"));
+
+    }
+
+    public static int countLines (String fileName) {
+        try { Path filePath = Paths.get("assets/" + fileName);
             List<String> lines = Files.readAllLines(filePath);
-            System.out.println(lines.get(0)); // Prints the first line of the file
+            return (lines.size());
         } catch (Exception e) {
-            System.out.println("Uh-oh, could not read the file!");
+            return 0;
         }
+
     }
 
 }

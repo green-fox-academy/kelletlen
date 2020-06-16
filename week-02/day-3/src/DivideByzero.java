@@ -11,8 +11,9 @@ public class DivideByzero {
             int result = 10 / divisor;
             System.out.println(result);
         } catch (ArithmeticException e) {
-            System.out.println("Can't divide by zero!");
+            System.out.println("fail");
         }
+        // floattal miért nem működik az exception?
 
     }
 
