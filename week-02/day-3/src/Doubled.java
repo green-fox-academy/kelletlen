@@ -18,16 +18,14 @@ public class Doubled {
         for (int j = 0; j < line.length(); j++) {
           if (j%2 == 0) {
             sb.append(line.charAt(j));
-
           }
         }
+        sb.append("\n");
       }
-      newContent.add(sb.toString().replace(".", ".\n").replace("Python", "python\n").replace("Peters", "Peters\n\n"));
+      newContent.add(sb.toString());
       Files.write(filePath2, newContent);
     } catch (Exception e) {
       System.out.println("fail");
     }
-
-
   }
 }
