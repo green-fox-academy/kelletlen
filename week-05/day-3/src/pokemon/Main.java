@@ -24,7 +24,6 @@ public class Main {
     }
 
 
-
   }
 
   private static List<Pokemon> initializePokemons() {
