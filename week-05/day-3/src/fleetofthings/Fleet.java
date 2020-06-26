@@ -6,6 +6,7 @@ public class Fleet {
   private ArrayList<Thing> things;
 
   public Fleet() {
+
     things = new ArrayList<>();
   }
 
