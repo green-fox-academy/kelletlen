@@ -7,6 +7,7 @@ public class SharpieSet {
   private ArrayList <Sharpie> SharpieSet;
 
   public SharpieSet() {
+
     SharpieSet = new ArrayList<>();
   }
   public void add (Sharpie sharpie) {
