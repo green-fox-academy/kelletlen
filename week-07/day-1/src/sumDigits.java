@@ -1,5 +1,6 @@
 public class sumDigits {
   public static void main(String[] args) {
+    //Given a non-negative integer n, return the sum of its digits recursively (without loops).
     System.out.println(getSumOfDigits(145));
 
   }
