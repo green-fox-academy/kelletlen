@@ -6,7 +6,6 @@ public class stringsAgainAndAgain {
   public static String separate (String input) {
     if (input.isEmpty()) return "";
     char c = input.charAt(0);
-    return c + '*' + separate(input.substring(1));
+    return Character.toString(c) + '*' + separate(input.substring(1));
     }
 }
-// it's printing numbers instead of string
