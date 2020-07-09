@@ -14,7 +14,7 @@ public class Student extends Person {
     this("Jane Doe", 30, "female", "The SchoolOfLife");
   }
   public void getGoal() {
-    System.out.println("Be a junior software developer");
+    System.out.println("My goal is: Be a junior software developer");
 
   }
   @Override

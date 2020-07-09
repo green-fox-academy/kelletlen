@@ -24,6 +24,6 @@ public class Person {
     System.out.println("My goal is: live for the moment!");
   }
   protected String getIntroductionString() {
-    return "Hi, I'm " + name + ", a " + age + " year old " + gender + ".";
+    return "Hi, I'm " + name + ", a " + age + " year old " + gender;
   }
 }

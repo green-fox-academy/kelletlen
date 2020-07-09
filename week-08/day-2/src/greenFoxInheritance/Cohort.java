@@ -4,23 +4,27 @@ import java.util.ArrayList;
 
 public class Cohort {
   private String name;
-  private ArrayList students;
-  private ArrayList mentors;
+  private ArrayList<Student> students;
+  private ArrayList<Mentor> mentors;
 
 
   public Cohort(String name) {
     this.name = name;
-    ArrayList<Student> students = new ArrayList();
-    ArrayList <Mentor> mentors = new ArrayList ();
+    this.students = new ArrayList<>();
+    this.mentors = new ArrayList<>();
+
   }
-  public void addStudent (Student student) {
+
+  public void addStudent(Student student) {
     students.add(student);
   }
-  public void addMentor (Mentor mentor) {
+
+  public void addMentor(Mentor mentor) {
     mentors.add(mentor);
   }
+
   public void info() {
-    System.out.println("The " + name + " cohort has " + students.size() + " students and " + mentors.size() + " mentors." );
+    System.out.println("The " + name + " cohort has " + students.size() + " students and " + mentors.size() + " mentors.");
 
   }
 }

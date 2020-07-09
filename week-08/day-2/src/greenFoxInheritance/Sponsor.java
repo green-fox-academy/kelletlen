@@ -11,13 +11,16 @@ public class Sponsor extends Person {
   }
 
   public Sponsor() {
+
     this("Jane Doe", 30, "female", "Google");
   }
   public void hire() {
+
     hiredStudents +=1;
   }
   public void getGoal() {
-    System.out.println("Hire brilliant junior software developers.");
+
+    System.out.println("My goal is: Hire brilliant junior software developers.");
   }
   @Override
   protected String getIntroductionString() {

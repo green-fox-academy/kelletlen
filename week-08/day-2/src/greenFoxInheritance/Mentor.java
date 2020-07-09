@@ -12,7 +12,7 @@ public class Mentor extends Person {
     this("Jane Doe", 30, "female", "intermediate");
   }
   public void getGoal () {
-    System.out.println("Educate brilliant junior software developers.");
+    System.out.println("My goal is: Educate brilliant junior software developers.");
   }
   @Override
   protected String getIntroductionString() {

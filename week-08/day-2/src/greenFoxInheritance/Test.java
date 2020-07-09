@@ -45,5 +45,4 @@ public class Test {
     awesome.addMentor(gandhi);
     awesome.info();
   }
-  //Cohortban még valami nem stimmel
 }
