@@ -18,9 +18,11 @@ public class Person {
   }
 
   public void introduce() {
+
     System.out.println(getIntroductionString());
   }
   public void getGoal() {
+
     System.out.println("My goal is: live for the moment!");
   }
   protected String getIntroductionString() {

@@ -11,6 +11,7 @@ public class Student extends Person {
   }
 
   public Student() {
+
     this("Jane Doe", 30, "female", "The SchoolOfLife");
   }
   public void getGoal() {
@@ -22,6 +23,7 @@ public class Student extends Person {
     return super.getIntroductionString() + " from " + previousOrganization + " who skipped " + skippedDays + " days from the course already.";
   }
   public void skipDays (int numberOfDays) {
+
     skippedDays += numberOfDays;
   }
 }
