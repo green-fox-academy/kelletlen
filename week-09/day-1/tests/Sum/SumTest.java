@@ -23,8 +23,8 @@ public class SumTest {
     numbers.add(1);
     int result = sum.sum(numbers);
     assertEquals(1, result);
-
   }
+
   @Test
   public void testSumofArrayWithMultipleElements () {
     ArrayList<Integer> numbers = new ArrayList();
@@ -32,6 +32,12 @@ public class SumTest {
     numbers.add(2);
     int result = sum.sum(numbers);
     assertEquals(3, result);
-
+  }
+  @Test
+  public void testSumofArrayWithNull () {
+    ArrayList<Integer> numbers = new ArrayList();
+    numbers.add(0);
+    int result = sum.sum(numbers);
+    assertEquals(0, result);
   }
 }
