@@ -18,6 +18,7 @@ public class Sponsor extends Person {
 
     hiredStudents +=1;
   }
+  @Override
   public void getGoal() {
 
     System.out.println("My goal is: Hire brilliant junior software developers.");

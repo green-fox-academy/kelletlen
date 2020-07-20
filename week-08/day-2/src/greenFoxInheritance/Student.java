@@ -11,13 +11,12 @@ public class Student extends Person implements Cloneable {
   }
 
   public Student() {
-
     this("Jane Doe", 30, "female", "The SchoolOfLife");
   }
 
+  @Override
   public void getGoal() {
     System.out.println("My goal is: Be a junior software developer");
-
   }
 
   @Override
@@ -25,17 +24,17 @@ public class Student extends Person implements Cloneable {
     return super.getIntroductionString() + " from " + previousOrganization + " who skipped " + skippedDays + " days from the course already.";
   }
 
-  public void skipDays (int numberOfDays) {
+  public void skipDays(int numberOfDays) {
 
     skippedDays += numberOfDays;
   }
 
-  @Override
   protected Student clone() {
     return new Student(name, age, gender, previousOrganization);
   }
+
   @Override
-  public String toString () {
+  public String toString() {
     return name;
   }
 }

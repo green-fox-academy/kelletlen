@@ -5,6 +5,5 @@ public class Main {
     Student john = new Student("John", 20, "male", "BME");
     Student johnTheClone = john.clone();
     System.out.println(johnTheClone);
-
   }
 }
