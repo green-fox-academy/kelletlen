@@ -6,8 +6,8 @@ public class Violin extends StringedInstrument {
     name = "Violin";
   }
   public Violin (int Strings) {
-    this.numberOfStrings = Strings;
-    name= "Bass Guitar";
+    numberOfStrings = Strings;
+    name= "Violin";
   }
 
   @Override

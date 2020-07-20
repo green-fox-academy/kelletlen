@@ -13,6 +13,7 @@ public class BassGuitar extends StringedInstrument{
 
   @Override
   protected String sound() {
+
     return "Duum-duum-duum";
   }
 }

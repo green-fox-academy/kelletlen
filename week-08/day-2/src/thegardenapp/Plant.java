@@ -1,7 +1,9 @@
 package thegardenapp;
 
+import java.awt.*;
+
 public class Plant {
-  private String color;
+  protected String color;
   protected float waterAmount;
 
   public Plant(String color) {
@@ -13,12 +15,19 @@ public class Plant {
 
     return waterAmount;
   }
+  public String getColor() {
+    return color;
+  }
   public boolean needsWater() {
    return waterAmount < 1;
   }
 
-  public void absorb (int water) {
+  public void absorb (float water) {
     waterAmount += water;
+  }
+
+  public String getKind () {
+    return "Plant";
   }
 
 }

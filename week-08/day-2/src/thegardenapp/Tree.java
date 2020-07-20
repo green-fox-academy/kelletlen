@@ -6,6 +6,10 @@ public class Tree extends Plant {
     super(color);
     this.waterAmount = 0;
   }
+  @Override
+  public String getKind () {
+    return "Tree";
+  }
 
   @Override
    public boolean needsWater() {
@@ -13,8 +17,8 @@ public class Tree extends Plant {
    }
 
    @Override
-   public void absorb (int water) {
-      waterAmount += (water/100)*40;
+   public void absorb (float water) {
+    waterAmount += (water/100)*40;
     }
 }
 
