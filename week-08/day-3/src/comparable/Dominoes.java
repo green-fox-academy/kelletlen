@@ -8,9 +8,6 @@ import java.util.List;
 public class Dominoes<dominoes> {
   public static void main(String[] args) {
     List<Domino> dominoes = initializeDominoes();
-    // You have the list of Dominoes
-    // Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
-    // eg: [2, 4], [4, 3], [3, 5] ...
     Collections.sort(dominoes);
     System.out.println(dominoes);
   }

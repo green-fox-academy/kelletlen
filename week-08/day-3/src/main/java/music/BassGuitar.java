@@ -8,12 +8,10 @@ public class BassGuitar extends StringedInstrument{
   public BassGuitar(int Strings) {
     this.numberOfStrings = Strings;
     name= "Bass Guitar";
-
   }
 
   @Override
   protected String sound() {
-
     return "Duum-duum-duum";
   }
 }

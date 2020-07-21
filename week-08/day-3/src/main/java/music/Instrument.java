@@ -6,5 +6,4 @@ public abstract class Instrument {
   protected abstract String sound();
 
   protected abstract void play();
-
 }

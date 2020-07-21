@@ -11,11 +11,13 @@ public class Shifter implements CharSequence {
 
   @Override
   public int length() {
+
     return toBeShifted.length()- shiftWith;
   }
 
   @Override
   public char charAt(int index) {
+
     return toBeShifted.charAt(index + shiftWith);
   }
 
