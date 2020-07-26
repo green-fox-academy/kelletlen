@@ -1,13 +1,10 @@
 public class Greet {
-    public static void main(String[] args) {
-        String al = "Green Fox";
+  public static void main(String[] args) {
+    String al = "Green Fox";
+    greetFunction(al);
+  }
 
-        greetFunction(al);
-
-
-    }
-    public static void greetFunction(String name) {
-        System.out.println("Greetings, dear " + name);
-
-    }
+  public static void greetFunction(String name) {
+    System.out.println("Greetings, dear " + name);
+  }
 }

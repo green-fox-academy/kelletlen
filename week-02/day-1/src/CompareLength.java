@@ -1,13 +1,10 @@
 public class CompareLength {
-    public static void main(String[] args) {
-        int [] FirstArrayOfNumbers = {1,2,3};
+  public static void main(String[] args) {
+    int[] firstArrayOfNumbers = {1, 2, 3};
+    int[] secondArrayOfNumbers = {4, 5};
 
-        int [] SecondArrayOfNumbers = {4,5};
-
-        if (SecondArrayOfNumbers.length > FirstArrayOfNumbers.length ) {
-            System.out.println("SecondArrayofNumbers is longer");
-
-        }
-
+    if (secondArrayOfNumbers.length > firstArrayOfNumbers.length) {
+      System.out.println("secondArrayOfNumbers is longer");
     }
+  }
 }
