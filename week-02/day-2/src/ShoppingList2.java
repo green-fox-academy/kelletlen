@@ -15,40 +15,87 @@ public class ShoppingList2 {
     products.put("Potato", 1.75);
     products.put("Onion", 1.10);
 
-    HashMap<String, Integer> BobsList = new HashMap<>();
+    HashMap<String, Integer> bobsList = new HashMap<>();
 
-    BobsList.put("Milk", 3);
-    BobsList.put("Rice", 2);
-    BobsList.put("Eggs", 2);
-    BobsList.put("Cheese", 1);
-    BobsList.put("Chicken Breasts", 4);
-    BobsList.put("Apples", 1);
-    BobsList.put("Tomato", 2);
-    BobsList.put("Potato", 1);
+    bobsList.put("Milk", 3);
+    bobsList.put("Rice", 2);
+    bobsList.put("Eggs", 2);
+    bobsList.put("Cheese", 1);
+    bobsList.put("Chicken Breasts", 4);
+    bobsList.put("Apples", 1);
+    bobsList.put("Tomato", 2);
+    bobsList.put("Potato", 1);
 
-    HashMap<String, Integer> AlicesList = new HashMap<>();
+    HashMap<String, Integer> alicesList = new HashMap<>();
 
-    AlicesList.put("Rice", 1);
-    AlicesList.put("Eggs", 5);
-    AlicesList.put("Chicken Breasts", 2);
-    AlicesList.put("Apples", 1);
-    AlicesList.put("Tomato", 10);
+    alicesList.put("Rice", 1);
+    alicesList.put("Eggs", 5);
+    alicesList.put("Chicken Breasts", 2);
+    alicesList.put("Apples", 1);
+    alicesList.put("Tomato", 10);
 
-    double sum = 0;
+    double bobsBill = 0;
 
-    for (Map.Entry<String, Integer> entry: BobsList.entrySet()) {
+    for (Map.Entry<String, Integer> entry: bobsList.entrySet()) {
       for (Map.Entry<String, Double> product : products.entrySet()) {
         if (entry.getKey().equals(product.getKey())) {
           double partAmount = entry.getValue() * product.getValue();
-          sum = sum + partAmount;
+          bobsBill = bobsBill + partAmount;
         }
       }
     }
-    System.out.println("Bob has to pay " + sum);
+    System.out.println("Bob has to pay " + bobsBill);
 
+    double alicesBill = 0;
 
+    for (Map.Entry<String, Integer> entry : alicesList.entrySet()) {
+      for (Map.Entry<String, Double> product: products.entrySet()) {
+        if (entry.getKey().equals(product.getKey())) {
+          double partAmount = entry.getValue()*product.getValue();
+          alicesBill = alicesBill + partAmount;
+        }
+      }
+    }
+    System.out.println("Alice has to pay " + alicesBill);
 
-
+    if (alicesList.get("Rice") > bobsList.get("Rice")) {
+      System.out.println("Alice buys more rice.");
+    } else if (bobsList.get("Rice") > alicesList.get("Rice")) {
+      System.out.println("Bob buys more rice.");
+    }
+    if (alicesList.containsKey("Potato") && bobsList.containsKey("Potato")) {
+      if (alicesList.get("Potato") > bobsList.get("Potato")) {
+        System.out.println("Alice buys more potato.");
+      } else if (bobsList.get("Potato") > alicesList.get("Potato")) {
+        System.out.println("Bob buys more potato.");
+      }
+    } else {
+      if (alicesList.containsKey("Potato")) {
+        System.out.println("Alice buys more potato.");
+      } else if (bobsList.containsKey("Potato")) {
+        System.out.println("Bob buys more potato.");
+      }
+    }
+    if (alicesList.size() < bobsList.size()) {
+      System.out.println("Bob buys more different products");
+    } else if (alicesList.size() > bobsList.size()) {
+      System.out.println("Alice buys more different products");
+    }
+    int billsProducts = 0;
+    for (Map.Entry<String, Integer> entry : bobsList.entrySet()) {
+      billsProducts += entry.getValue();
+    }
+    int alicesProducts = 0;
+    for (Map.Entry<String, Integer> entry: alicesList.entrySet()) {
+      alicesProducts += entry.getValue();
+    }
+    if (billsProducts > alicesProducts) {
+      System.out.println("Bill buys more products");
+    } else if (alicesProducts > billsProducts) {
+      System.out.println("Alice buys more products");
+    } else {
+      System.out.println("They buy the equal amount of products");
+    }
   }
 }
 

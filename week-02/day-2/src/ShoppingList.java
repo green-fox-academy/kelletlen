@@ -19,6 +19,5 @@ public class ShoppingList<i> {
     } else {
       System.out.println("We do not have bananas on the list, just a bunch of dead animals and the breast milk of a cow.");
     }
-
   }
 }

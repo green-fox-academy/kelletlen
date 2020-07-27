@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class PersonalFinance {
   public static void main(String[] args) {
-    int[] expenses =  new int [] {500, 1000, 1250, 175, 800, 120};
+    int[] expenses = new int[]{500, 1000, 1250, 175, 800, 120};
 
     int sum = 0;
 
@@ -14,20 +14,17 @@ public class PersonalFinance {
 
     Arrays.sort(expenses);
 
-    int greatestExpense = expenses[expenses.length -1];
+    int greatestExpense = expenses[expenses.length - 1];
 
     System.out.println("Our greatest expense: " + greatestExpense);
 
-
-    int cheapest = expenses [0];
-
+    int cheapest = expenses[0];
 
     System.out.println("Our cheapest spending was: " + cheapest);
 
     int average = sum / expenses.length;
 
     System.out.println("The average amount of our spending was: " + average);
-
-    }
   }
+}
 
