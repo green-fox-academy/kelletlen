@@ -17,24 +17,21 @@ public class ReversedLines {
         String line = content.get(i);
         sb.append(reverseString(line));
         sb.append("\n");
-        }
+      }
       newContent.add(sb.toString());
       Files.write(filePath2, newContent);
-      }
-      catch(Exception e){
-        System.out.println("fail");
-      }
+    } catch (Exception e) {
+      System.out.println("fail");
     }
-
-    public static String reverseString (String toBeReversed){
-      String reversed = "";
-
-      for (int i = 0; i < toBeReversed.length(); i++) {
-        char lastChar = toBeReversed.charAt(toBeReversed.length() - 1 - i);
-        reversed += lastChar;
-      }
-      return reversed;
-
-    }
-
   }
+
+  public static String reverseString(String toBeReversed) {
+    String reversed = "";
+
+    for (int i = 0; i < toBeReversed.length(); i++) {
+      char lastChar = toBeReversed.charAt(toBeReversed.length() - 1 - i);
+      reversed += lastChar;
+    }
+    return reversed;
+  }
+}

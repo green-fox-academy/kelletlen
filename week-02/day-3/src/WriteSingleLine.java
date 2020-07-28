@@ -18,9 +18,7 @@ public class WriteSingleLine {
   public static void writeNameToFile (String fileName) {
     List<String> content = new ArrayList();
     content.add("kelletlen");
-    try { // Required by Files.write(filePath, content)
-      // Creates a new file if not exists and overwrites it's content
-      // The elements of the content lists will become the lines of the file
+    try {
       Path filePath = Paths.get("assets/" + fileName);
       Files.write(filePath, content);
     } catch (Exception e) {
