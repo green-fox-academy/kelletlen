@@ -25,7 +25,5 @@ slaughter() -> removes the least hungry animal*/
         break;
       }
     }
-    // breed funkció valamiért nem működik
-
   }
 }

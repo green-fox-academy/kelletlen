@@ -20,10 +20,7 @@ public class Main {
       if (pokemonOfAsh.get(i).isEffectiveAgainst(wildPokemon) == true) {
         System.out.print("I choose you, " + pokemonOfAsh.get(i).getName());
       }
-
     }
-
-
   }
 
   private static List<Pokemon> initializePokemons() {

@@ -15,6 +15,7 @@ public class Pokemon {
     return this.effectiveAgainst.equals(anotherPokemon.type);
   }
   public String getName () {
+
     return name;
   }
 }

@@ -15,8 +15,6 @@ public class PostIt {
   private String text;
   private Color textColor;
 
-
-
   public PostIt(Color backgroundColor, String text, Color textColor) {
     this.backgroundColor =backgroundColor;
     this.text = text;

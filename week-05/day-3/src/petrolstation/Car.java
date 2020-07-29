@@ -17,6 +17,7 @@ public class Car {
     return gasAmount;
   }
   public void getGas() {
+
     gasAmount += capacity;
   }
 }

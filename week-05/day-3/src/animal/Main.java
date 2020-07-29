@@ -1,7 +1,9 @@
 package animal;
 
 public class Main {
-  Farm farm = new Farm(3);
-
-
+  public static void main(String[] args) {
+    Farm farm = new Farm(3);
+    Animal animal = new Animal();
+    farm.breed(animal);
+  }
 }
