@@ -34,11 +34,11 @@ public class Main {
     armada2.addShip(ship4);
     armada2.addShip(ship5);
     armada2.addShip(ship6);
-    System.out.println(armada1.armadaWar(armada2));
     Ship ship7 = new Ship();
     Ship ship8 = new Ship();
     armada1.addShip(ship7);
     armada1.addShip(ship8);
+    System.out.println(armada1.armadaWar(armada2));
 
 
   }

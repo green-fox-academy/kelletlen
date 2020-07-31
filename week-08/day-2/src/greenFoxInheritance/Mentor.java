@@ -19,6 +19,7 @@ public class Mentor extends Person {
 
   @Override
   protected String getIntroductionString() {
+
     return super.getIntroductionString() + level + " mentor.";
   }
 }

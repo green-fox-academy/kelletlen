@@ -1,6 +1,7 @@
 package fleetofthings;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class FleetOfThings {
   public static void main(String[] args) {
@@ -23,16 +24,23 @@ public class FleetOfThings {
     Thing thing4 = new Thing("Eat lunch");
 
 
-    Fleet fleet1 = new Fleet();
-    fleet1.add(thing1);
-    fleet1.add(thing2);
-    fleet1.add(thing3);
-    fleet1.add(thing4);
+    //Fleet fleet1 = new Fleet();
+    //fleet1.add(thing1);
+    //fleet1.add(thing2);
+    //fleet1.add(thing3);
+    //fleet1.add(thing4);
 
     thing3.complete();
     thing4.complete();
 
-    System.out.println(fleet1.toString());
+    ArrayList <Thing> things = new ArrayList<>();
+    things.add(thing1);
+    things.add(thing2);
+    things.add(thing3);
+
+    //System.out.println(fleet1.toString());
+    Collections.sort(things);
+    System.out.println(things);
 
 
   }

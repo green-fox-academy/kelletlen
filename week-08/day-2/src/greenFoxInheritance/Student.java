@@ -30,6 +30,7 @@ public class Student extends Person implements Cloneable {
   }
 
   protected Student clone() {
+
     return new Student(name, age, gender, previousOrganization);
   }
 

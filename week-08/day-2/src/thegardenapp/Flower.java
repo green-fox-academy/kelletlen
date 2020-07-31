@@ -8,6 +8,7 @@ public class Flower extends Plant {
   }
   @Override
   public String getKind () {
+
     return "Flower";
   }
   @Override
