@@ -53,14 +53,14 @@ public class Ship {
     } return false;
   }
 
-  private void lose() {
+  public void lose() {
     int numberOfDeaths = (int) (Math.random() * pirates.size() + 1);
     for (int i = 0; i < numberOfDeaths; i++) {
       pirates.get(i).die();
     }
   }
 
-  private void win() {
+  public void win() {
     int numberOfRum = (int) (Math.random() * 20 + 1);
     for (int i = 0; i < pirates.size(); i++) {
       for (int j = 0; j < numberOfRum; j++) {

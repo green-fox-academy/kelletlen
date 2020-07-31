@@ -32,6 +32,7 @@ public class SharpieSet {
     }
   }
   public int getSharpieSetSize() {
+
     return SharpieSet.size();
   }
   public void getSharpies() {

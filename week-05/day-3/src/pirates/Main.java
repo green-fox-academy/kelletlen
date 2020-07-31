@@ -36,8 +36,6 @@ public class Main {
     armada2.addShip(ship6);
     Ship ship7 = new Ship();
     Ship ship8 = new Ship();
-    armada1.addShip(ship7);
-    armada1.addShip(ship8);
     System.out.println(armada1.armadaWar(armada2));
 
 
