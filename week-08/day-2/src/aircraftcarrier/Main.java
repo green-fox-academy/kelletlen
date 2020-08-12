@@ -31,6 +31,6 @@ public class Main {
     } catch (Exception e) {
       System.out.println("Ammo storage is empty.");
     }
-    
+
   }
 }
