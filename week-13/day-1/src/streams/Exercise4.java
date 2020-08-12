@@ -11,7 +11,7 @@ public class Exercise4 {
 
     List<Integer> numbers = Arrays.asList(1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14);
 
-    IntSummaryStatistics stats = numbers.stream().filter(p -> p%2 ==1).mapToInt((p) ->p).summaryStatistics();
+    IntSummaryStatistics stats = numbers.stream().filter(p -> p%2 ==1 || p%2 == -1).mapToInt((p) ->p).summaryStatistics();
     System.out.println(stats.getAverage());
 
   }
