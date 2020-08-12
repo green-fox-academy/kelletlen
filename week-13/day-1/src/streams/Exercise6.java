@@ -10,6 +10,5 @@ public class Exercise6 {
         .filter(Character::isUpperCase)
         .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
         .toString());
-
   }
 }

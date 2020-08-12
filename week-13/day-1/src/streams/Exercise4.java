@@ -13,6 +13,5 @@ public class Exercise4 {
 
     IntSummaryStatistics stats = numbers.stream().filter(p -> p%2 ==1 || p%2 == -1).mapToInt((p) ->p).summaryStatistics();
     System.out.println(stats.getAverage());
-
   }
 }
