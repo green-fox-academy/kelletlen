@@ -1,5 +1,6 @@
 package streams;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,9 +14,12 @@ import java.util.stream.Stream;
 public class Exercise11 {
   public static void main(String[] args) throws IOException {
 
-    Files.lines(Paths.get("assets/text.txt"))
+    List<String[]> strings = Files.lines(Paths.get("assets/text.txt"))
         .map(line -> line.split(" "))
         .collect(Collectors.toList());
+
+    ArrayList <String> words = new ArrayList<>();
+
 
     /*Path filePath = Paths.get("assets/text.txt");
     ArrayList <String> words = new ArrayList<>();
