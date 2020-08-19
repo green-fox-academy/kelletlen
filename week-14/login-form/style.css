@@ -7,13 +7,13 @@ div {
     height: 300px;
     background-color:white;
     padding: 100px;
-    color: grey;
+    color: #283747;
     font-family: 'Poppins', sans-serif;
     
 }
 p {
     font-size: 8px;
-    color: grey;
+    color: #283747;
     font: bold;
 }
 h1 {
