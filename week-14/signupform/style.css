@@ -1,0 +1,95 @@
+body {
+    background-color: #dddddd;
+}
+input {
+    display: block;
+    margin-bottom: 20px;
+    height: 25px;
+    width: 200px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid grey;
+    outline: none;
+    font-size: 16px;
+}
+input:focus {
+    border-color: transparent;
+    border-bottom: 2px solid #16a086;
+}
+a {
+    display: block;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 240px;
+    border: 1px solid black;
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.facebook {
+    background-color: #31538b;
+}
+.twitter {
+    background-color: #57aaf7;
+}
+.google {
+    background-color: #dd4c39;
+}
+.full {
+    border: none;
+    background: white;
+    width: 700px;
+    height: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -225px;
+    margin-left:-350px;
+    box-sizing: border-box;
+    padding: 50px;
+    box-shadow: 1px 1px 1px 1px grey;
+    border-radius: 3px;
+    font-family: sans-serif;
+}
+div {
+    display: inline-block;
+}
+button {
+    margin-top: 30px;
+    width: 120px;
+    height: 35px;
+    background-color: #16a086;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.or {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: #dddddd;
+    text-align: center;
+    box-shadow: 1px 1px 1px 1px grey;
+
+}
+.log {
+    float: right;
+    margin-top: 100px;
+}
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+    color: #212F3C;
+    margin-bottom: 30px;
+}
