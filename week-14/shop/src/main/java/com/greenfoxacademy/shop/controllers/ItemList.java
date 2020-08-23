@@ -34,6 +34,8 @@ public class ItemList {
   }
   public String getMostExpensive() {
     return shopItems.stream().sorted().map(p ->p.getName()).reduce((first, second) -> second).orElse(null);
-
+  }
+  public ArrayList <ShopItem> search(String searchWord) {
+    return shopItems.stream().filter(p -> p.getName().contains(searchWord) || p.getDescription().contains(searchWord)).collect(Collectors.toCollection(ArrayList:: new));
   }
 }
