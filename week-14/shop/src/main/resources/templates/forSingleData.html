@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>SingleData</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
@@ -13,24 +13,6 @@
     <a href="/webshop/stockaverage">AVERAGE STOCK</a>
     <a href="/webshop/mostexpensive">MOST EXPENSIVE AVAILABLE</a>
 </header>
-<table>
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Quantity of Stock</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="item : ${item}">
-        <td th:text="${item.getName()}"></td>
-        <td th:text="${item.getDescription()}"></td>
-        <td th:text="${item.getPrice()}"></td>
-        <td th:text="${item.getQuantityOfStock()}"></td>
-    </tr>
-    </tbody>
-
-</table>
+<p th:text= "${item}"/>
 </body>
 </html>
