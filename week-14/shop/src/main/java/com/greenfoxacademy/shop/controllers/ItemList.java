@@ -26,4 +26,7 @@ public class ItemList {
   public ArrayList <ShopItem> orderByCheapest() {
     return shopItems.stream().sorted().collect(Collectors.toCollection(ArrayList::new));
   }
+  public ArrayList <ShopItem> containsNike() {
+    return shopItems.stream().filter(p -> p.getName().contains("Nike") || p.getDescription().contains("Nike")).collect(Collectors.toCollection(ArrayList:: new));
+  }
 }
