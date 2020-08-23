@@ -14,17 +14,21 @@ public class Greeting {
   }
 
   public long getId() {
+
     return id;
   }
 
   public String getContent() {
+
     return content;
   }
 
   public AtomicLong getGreetCount() {
+
     return greetCount;
   }
   public static void incrementGreetCount () {
+
     greetCount.getAndIncrement();
   }
 }

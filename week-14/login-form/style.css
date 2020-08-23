@@ -2,50 +2,58 @@ body {
     background-color: #F9EBEA;
     margin: 50px;
 }
+
 div {
     width: 300px;
     height: 300px;
-    background-color:white;
+    background-color: white;
     padding: 100px;
     color: #283747;
     font-family: 'Poppins', sans-serif;
-    
+
 }
+
 p {
     font-size: 8px;
     color: #283747;
     font: bold;
 }
+
 h1 {
-    font-size:25px;
-    margin-bottom: 20px; 
+    font-size: 25px;
+    margin-bottom: 20px;
 }
+
 input {
     width: 100%;
     height: 35px;
     border: 1px solid #F9EBEA;
     border-radius: 2px;
-    
+
     background-color: white;
 
 }
+
 #password {
     background: url(https://icon-library.com/images/visible-icon/visible-icon-17.jpg) no-repeat;
     background-size: 15px;
     background-position: 280px 12px;
 }
+
 input:focus {
-    outline-color:#27AE60;
+    outline-color: #27AE60;
 }
+
 button {
-width: 100px;
-height: 30px;
-border-radius: 15px;
-border:none;
-color: white;
-background-color: #212F3D;
-margin-top: 20px;
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    background-color: #212F3D;
+    margin-top: 20px;
 }
+
 #username {
     margin-bottom: 20px;
 }

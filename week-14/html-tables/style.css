@@ -1,11 +1,12 @@
 table {
-    margin:auto;
+    margin: auto;
     width: 90%;
     height: 90%;
     padding: 10px;
-    border-collapse:collapse;
+    border-collapse: collapse;
     border: none;
 }
+
 th, td {
     border: 1px solid grey;
     padding: 20px;
@@ -14,48 +15,58 @@ th, td {
     font-family: Arial, Helvetica, sans-serif;
 
 }
+
 tr:nth-child(even) {
-background-color: #F9EBEA;
+    background-color: #F9EBEA;
 }
+
 tr:nth-child(odd) {
     background-color: white;
 }
+
 td:nth-child(odd) {
     border-left: none;
 }
+
 td:nth-child(even) {
     border-right: none;
 }
+
 table tr:first-child th:first-child {
     border-top-left-radius: 5px;
     border-top: none;
     border-left: none;
 }
+
 table tr:first-child th:last-child {
     border-top-right-radius: 5px;
     border-top: none;
     border-right: none;
 }
+
 table tr:last-child td:first-child {
     border-bottom: none;
     border-left: none;
     border-bottom-left-radius: 5px;
 }
+
 table tr:last-child td:last-child {
     border-bottom: none;
     border-right: none;
     border-bottom-right-radius: 5px;
 }
+
 th {
-background-color: #1C2833;
-color: white;
-text-align: left;
-font-family: 'Open Sans', sans-serif;
-font-size: 25px;
-border-bottom: 5px solid grey;
+    background-color: #1C2833;
+    color: white;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    border-bottom: 5px solid grey;
 }
+
 div {
-    background-color:#3498DB;
+    background-color: #3498DB;
     padding: 20px;
     width: 700px;
 

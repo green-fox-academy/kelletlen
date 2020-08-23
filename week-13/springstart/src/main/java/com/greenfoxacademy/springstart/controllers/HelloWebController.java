@@ -12,6 +12,7 @@ public class HelloWebController {
 
   private static AtomicLong loadCounter = new AtomicLong();
   public static void incrementLoadCounter () {
+
     loadCounter.getAndIncrement();
   }
 
