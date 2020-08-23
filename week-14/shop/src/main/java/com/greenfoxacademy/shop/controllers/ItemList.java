@@ -3,6 +3,7 @@ package com.greenfoxacademy.shop.controllers;
 import com.greenfoxacademy.shop.models.ShopItem;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class ItemList {
   ArrayList <ShopItem> shopItems = new ArrayList();
@@ -18,5 +19,11 @@ public class ItemList {
 
   public ArrayList<ShopItem> getShopItems() {
     return shopItems;
+  }
+  public ArrayList<ShopItem> getAvailableItems() {
+    return shopItems.stream().filter(p ->p.getQuantityOfStock() > 0).collect(Collectors.toCollection(ArrayList:: new));
+  }
+  public ArrayList <ShopItem> orderByCheapest() {
+    return shopItems.stream().sorted().collect(Collectors.toCollection(ArrayList::new));
   }
 }

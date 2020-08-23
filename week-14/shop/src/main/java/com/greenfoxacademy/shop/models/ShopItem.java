@@ -1,6 +1,6 @@
 package com.greenfoxacademy.shop.models;
 
-public class ShopItem {
+public class ShopItem implements Comparable <ShopItem> {
   private String name;
   private String description;
   private double price;
@@ -27,5 +27,16 @@ public class ShopItem {
 
   public int getQuantityOfStock() {
     return quantityOfStock;
+  }
+
+  @Override
+  public int compareTo(ShopItem other) {
+    if (this.price < other.price) {
+      return -1;
+    }
+    if (this.price == other.price) {
+      return 0;
+    }
+    return 1;
   }
 }
