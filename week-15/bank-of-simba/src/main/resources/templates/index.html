@@ -15,10 +15,10 @@
        </tr>
        </thead>
        <tbody>
-       <tr>
-           <td th:text="${name}"></td>
-           <td th:text="${balance}" ></td>
-           <td th:text="${type}"></td>
+       <tr th:each="account: ${account} ">
+           <td th:text="${account.getName()}"></td>
+           <td th:text="${account.getBalance()}" ></td>
+           <td th:text="${account.getAnimalType() + ' Zebra'}"></td>
        </tr>
        </tbody>
 

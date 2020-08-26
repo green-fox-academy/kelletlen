@@ -18,6 +18,7 @@ public class ItemList {
   }
 
   public ArrayList<ShopItem> getShopItems() {
+
     return shopItems;
   }
   public ArrayList<ShopItem> getAvailableItems() {
