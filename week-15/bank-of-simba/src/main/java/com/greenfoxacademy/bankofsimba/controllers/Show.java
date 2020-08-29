@@ -12,8 +12,8 @@ import java.text.DecimalFormat;
 public class Show {
 
   BankAccountList list = new BankAccountList();
-  private static DecimalFormat df2 = new DecimalFormat("0.00");
-  //ezt nem tudom, hova kéne tenni
+
+
 
 
   @GetMapping(path="/show")

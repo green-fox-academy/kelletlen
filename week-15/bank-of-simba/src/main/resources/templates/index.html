@@ -3,27 +3,38 @@
 <head>
     <title>Account</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{/style.css}"/>
 </head>
 <body>
 <div>
+    <h1>BANK OF SIMBA</h1>
    <table>
        <thead>
        <tr>
+           <th>Index</th>
            <th>Name</th>
            <th>Balance</th>
            <th>Type</th>
+           <th>King</th>
+           <th>Good or Bad</th>
        </tr>
        </thead>
        <tbody>
        <tr th:each="account: ${account} ">
+           <td th:text="${accountStat.index}"></td>
            <td th:text="${account.getName()}"></td>
-           <td th:text="${account.getBalance()}" ></td>
-           <td th:text="${account.getAnimalType() + ' Zebra'}"></td>
+           <td th:text="${account.getBalance()+ ' Zebra'}" ></td>
+           <td th:text="${account.getAnimalType()}"></td>
+           <td th:text="${account.isKing()} ? 'KING' : 'civilian'"></td>
+           <td th:switch="${account.getMoralAttitude()}">
+               <span th:case="'good'">Good one</span>
+               <span th:case="'bad'">Bad guy</span>
+           </td>
        </tr>
        </tbody>
-
    </table>
 </div>
+
     <p th:text="${string}"></p>
     <p th:utext="${string}"></p>
 
