@@ -20,7 +20,7 @@
        </tr>
        </thead>
        <tbody>
-       <tr th:each="account: ${account} ">
+       <tr th:each="account: ${accounts} ">
            <td th:text="${accountStat.index}"></td>
            <td th:text="${account.getName()}"></td>
            <td th:text="${account.getBalance()+ ' Zebra'}" ></td>
@@ -33,10 +33,36 @@
        </tr>
        </tbody>
    </table>
-</div>
+    <form method="post" action="/raise" id="raiseBalance">
+        <label for="selector">Choose an account to raise:</label>
+        <div class="selector">
+            <select th:name="name" id="selector">
+                <option value="">---</option>
+                <option th:each="account : ${accounts}" th:value="${account.getName()}" th:text="${account.getName()}">
+                </option>
+            </select>
+        </div>
+        <button type="submit">Raise</button>
+    </form>
+    <form method="post" action="" id="addAcount">
+        <h2>Add new account</h2>
+        <input type="text" id="name" placeholder="Name"><br>
+        <input type="number" id="balance" placeholder="Balance"><br>
+        <input type="text" id="type" placeholder="Type"><br>
+        <label>King?</label><br>
+        <input type="radio" id="king" name="isKing">
+        <label for="king">King</label><br>
+        <input type="radio" id="notKing" name="isKing">
+        <label for="notKing">Civilian</label><br>
+        <label>Good or bad?</label><br>
+        <input type="radio" id="good" name="moral">
+        <label for="good">Good one</label><br>
+        <input type="radio" id="bad" name="moral">
+        <label for="bad">Bad guy</label><br>
+    </form>
 
+</div>
     <p th:text="${string}"></p>
     <p th:utext="${string}"></p>
-
 </body>
 </html>

@@ -35,10 +35,15 @@ public class BankAccount {
     return animalType;
   }
   public boolean isKing() {
+
     return isKing;
   }
 
   public String getMoralAttitude() {
     return moralAttitude;
+  }
+
+  public void setBalance(double balance) {
+    this.balance = balance;
   }
 }
