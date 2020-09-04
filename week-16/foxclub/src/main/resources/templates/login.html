@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +7,7 @@
 </head>
 <body>
 <h1>Welcome to Programmer Fox Club!</h1>
+<p th:if="${warn}" style="color: #ff0000">You have provided a name that has not been used before, add it as a new one!</p>
 <p>Please provide a name, so you can associate it to your pet!</p>
 <form method="POST" action="/login">
     <label for="name">Name</label>

@@ -14,24 +14,38 @@ import java.util.ArrayList;
 public class MainController {
   ArrayList<Fox> foxes = new ArrayList<>();
 
+  private Fox getFox(String name) {
+    return foxes.stream()
+        .filter(fox -> fox.getName().equalsIgnoreCase(name))
+        .findFirst()
+        .orElse(null);
+  }
+
   @GetMapping(path="/")
-  public String show (Model model, @RequestParam(name="name", required = false) String name) {
+  public String root (Model model, @RequestParam(name="name", required = false) String name) {
     if (name == null || name.isEmpty()) {
       return "redirect:/login";
     } else {
-      model.addAttribute("name", name);
+      Fox fox = getFox(name);
+      if(fox == null) {
+        return "redirect:/login?warn=true";
+      }
+      model.addAttribute("fox", fox);
       return "index";
     }
   }
 
   @GetMapping(path="/login")
-  public String getLogin () {
-
+  public String getLogin (@RequestParam(name = "warn", required = false, defaultValue = "false") boolean warn, Model model) {
+    model.addAttribute("warn", warn);
     return "login";
   }
 
   @PostMapping(path="/login")
   public String postLogin (@RequestParam(name="name") String name) {
+    if (getFox(name) == null) {
+      foxes.add(new Fox(name, "pizza", "lemonade"));
+    }
     return "redirect:/?name=" + name;
   }
 }
