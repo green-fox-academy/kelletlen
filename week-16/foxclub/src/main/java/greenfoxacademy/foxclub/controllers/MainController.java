@@ -48,4 +48,15 @@ public class MainController {
     }
     return "redirect:/?name=" + name;
   }
+  @GetMapping(path="/nutritionStore")
+  public String getNutritionStore (@RequestParam(name="name", required = false) String name) {
+    return "nutritionStore";
+  }
+  @PostMapping(path="/nutritionStore")
+  public String postNutritionStore (@RequestParam(name="name", required = false) String name, @RequestParam(name="food") String food, @RequestParam(name="drink") String drink) {
+    Fox fox = getFox(name);
+    getFox(name).setFood(food);
+    getFox(name).setDrink(drink);
+    return "redirect:/?name=" + name;
+  }
 }

@@ -14,6 +14,7 @@ public class Fox {
     this.drink = drink;
     this.tricks = new ArrayList<>();
   }
+
   public String getName() {
     return name;
   }
@@ -28,5 +29,13 @@ public class Fox {
 
   public ArrayList<String> getTricks() {
     return tricks;
+  }
+
+  public void setFood(String food) {
+    this.food = food;
+  }
+
+  public void setDrink(String drink) {
+    this.drink = drink;
   }
 }
