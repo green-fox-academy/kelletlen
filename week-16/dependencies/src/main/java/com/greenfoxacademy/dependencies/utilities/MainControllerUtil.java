@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class MainController {
+public class MainControllerUtil {
   private UtilityService utilityService;
 
   @Autowired
-  MainController(UtilityService utilityService) {
+  MainControllerUtil(UtilityService utilityService) {
     this.utilityService = utilityService;
   }
 
