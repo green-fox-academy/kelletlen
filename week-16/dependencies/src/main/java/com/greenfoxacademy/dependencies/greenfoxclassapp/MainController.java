@@ -15,11 +15,13 @@ public class MainController {
 
   @Autowired
   MainController(StudentService studentService) {
+
     this.studentService = studentService;
   }
 
   @GetMapping(path="/gfa")
-  public String main () {
+  public String main (Model model) {
+    model.addAttribute("number", studentService.count());
     return "gfa";
   }
   @GetMapping(path="/gfa/list")
@@ -31,10 +33,23 @@ public class MainController {
   public String addStudent () {
     return "add";
   }
+
   @PostMapping(path="/gfa/save")
-  public String saveStudent (@ModelAttribute String name) {
+  public String saveStudent (@RequestParam(name="name") String name) {
     studentService.save(name);
-    return "add";
+    return "redirect:/gfa/list";
+  }
+  @GetMapping(path="/gfa/check")
+  public String studentChecker () {
+    return "checker";
+  }
+  @PostMapping(path="/gfa/check")
+  public String checkStudent (@RequestParam(name="name") String name, Model model) {
+    if (studentService.checkIfInList(name)) {
+      model.addAttribute("result", "The student is on the list.");
+    } else {
+      model.addAttribute("result", "The student is not on the list.");
+    }
+    return "checker";
   }
 }
-//nem listázza ki rendesen, csak a bulletpointok vannak ott név nélkül

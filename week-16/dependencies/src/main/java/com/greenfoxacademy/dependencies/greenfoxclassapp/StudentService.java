@@ -17,10 +17,18 @@ public class StudentService {
   }
 
   public List<String> findAll() {
+
     return names;
   }
 
   public void save(String student) {
+
     names.add(student);
+  }
+  public int count() {
+    return names.size();
+  }
+  public boolean checkIfInList (String student) {
+    return names.contains(student);
   }
 }

@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>GFA</title>
 </head>
 <body>
+<header>
+    <p th:text="'Current number of students: ' + ${number}"></p>
+</header>
 <ul>
     <li><a href="/gfa/list">Students</a></li>
     <li><a href="/gfa/add">Add students</a></li>
+    <li><a href="/gfa/check">Check students</a></li>
 </ul>
 </body>
 </html>
