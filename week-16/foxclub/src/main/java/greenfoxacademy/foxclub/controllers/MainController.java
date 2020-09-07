@@ -3,10 +3,7 @@ package greenfoxacademy.foxclub.controllers;
 import greenfoxacademy.foxclub.models.Fox;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -49,14 +46,17 @@ public class MainController {
     return "redirect:/?name=" + name;
   }
   @GetMapping(path="/nutritionStore")
-  public String getNutritionStore (@RequestParam(name="name", required = false) String name) {
+  public String getNutritionStore (Model model, @RequestParam(name="name", required = false) String name) {
+    Fox fox = getFox(name);
+    model.addAttribute("fox", fox);
+    model.addAttribute("name", name);
     return "nutritionStore";
   }
   @PostMapping(path="/nutritionStore")
-  public String postNutritionStore (@RequestParam(name="name", required = false) String name, @RequestParam(name="food") String food, @RequestParam(name="drink") String drink) {
-    Fox fox = getFox(name);
-    getFox(name).setFood(food);
-    getFox(name).setDrink(drink);
+  public String postNutritionStore (Model model, @RequestParam(name="name", required = false) String name, @ModelAttribute("fox") Fox fox) {
+    model.addAttribute("fox", fox);
+    model.addAttribute("name", name);
     return "redirect:/?name=" + name;
   }
 }
+//whitelabel error a nutritionStorenál

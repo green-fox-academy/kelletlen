@@ -6,23 +6,17 @@
     <title>Nutrition Store</title>
 </head>
 <body>
-<ul>
-    <li><a href="">Information</a></li>
-    <li><a href="">Nutrition Store</a></li>
-    <li><a href="">Trick Center</a></li>
-    <li><a href="">Action History</a></li>
-</ul>
+<div th:insert="fragments/navbar.html :: navbar"></div>
 <div>
-<form method="POST" action="">
-    <input type="hidden" name="name" th:value=""/>
+<form method="POST" th:action="@{/nutritionStore(name=${name})}" th:object="${fox}">
 <label for ="food">Food</label>
-<select name="food" id="food">
+<select th:field="*{food}" id="food">
     <option value="pizza">Pizza</option>
     <option value="salad">Salad</option>
     <option value="falafel">Falafel</option>
 </select>
 <label for="drink">Drink</label>
-<select name="drink" id="drink">
+<select th:field="*{drink}" id="drink">
     <option value="lemonade">Lemonade</option>
     <option value="water">Water</option>
     <option value="beer">Beer</option>
