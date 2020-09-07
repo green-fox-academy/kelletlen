@@ -15,6 +15,10 @@ public class Fox {
     this.tricks = new ArrayList<>();
   }
 
+  public Fox() {
+    this.tricks = new ArrayList<>();
+  }
+
   public String getName() {
     return name;
   }

@@ -22,16 +22,22 @@ public class NutritionStoreController {
   @GetMapping(path="/nutritionStore")
   public String getNutritionStore (Model model, @RequestParam(name="name", required = false) String name) {
     Fox fox = foxService.getFox(name);
-    model.addAttribute("fox", fox);
-    model.addAttribute("name", name);
-    return "nutritionStore";
+    if (fox!= null) {
+      model.addAttribute("fox", fox);
+      model.addAttribute("name", name);
+      return "nutritionStore";
+    } else {
+      return "redirect:/login";
+    }
   }
   @PostMapping(path="/nutritionStore")
   public String postNutritionStore (Model model, @RequestParam(name="name", required = false) String name, @ModelAttribute("fox") Fox fox) {
+    Fox fox1 = foxService.getFox(name);
+    fox1.setDrink(fox.getDrink());
+    fox1.setFood(fox.getFood());
     model.addAttribute("fox", fox);
     model.addAttribute("name", name);
     return "redirect:/?name=" + name;
   }
 }
-//whitelabel error
 
