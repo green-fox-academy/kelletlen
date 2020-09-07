@@ -6,7 +6,6 @@ public class BankAccount {
   private String name;
   private double balance;
   private String animalType;
-  private static DecimalFormat df2 = new DecimalFormat("0.00");
   private boolean isKing;
   private String moralAttitude;
 
@@ -25,9 +24,8 @@ public class BankAccount {
     return name;
   }
 
-  public String getBalance() {
-
-    return df2.format(balance);
+  public double getBalance() {
+    return balance;
   }
 
   public String getAnimalType() {
@@ -44,6 +42,7 @@ public class BankAccount {
   }
 
   public void setBalance(double balance) {
+
     this.balance = balance;
   }
 }

@@ -15,7 +15,7 @@ public class Show {
 
   BankAccountList list = new BankAccountList();
 
-  @GetMapping(path="/show")
+  @GetMapping(path="/")
   public String showAccount (Model model) {
     model.addAttribute("accounts", list.getAccounts());
     return "index";

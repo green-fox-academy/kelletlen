@@ -26,7 +26,7 @@ public class BankAccountList {
     for(BankAccount animal: accounts) {
       if(!animal.getName().equals(input))
         continue;
-      animal.setBalance(Integer.parseInt(animal.getBalance()) + (animal.isKing() ? 100 : 10));
+      animal.setBalance(animal.getBalance() + (animal.isKing() ? 100 : 10));
     }
   }
 }
