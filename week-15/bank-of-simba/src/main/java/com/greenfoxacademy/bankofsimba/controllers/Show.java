@@ -27,4 +27,15 @@ public class Show {
     model.addAttribute("accounts", list.getAccounts());
     return "index";
   }
+  @PostMapping(path="/add")
+  public String addAccount (@RequestParam(name="name") String name,
+                            @RequestParam(name="balance") double balance,
+                            @RequestParam(name="animalType") String animalType,
+                            @RequestParam(name="isKing") boolean isKing,
+                            @RequestParam(name="moral") String moral) {
+    list.add(new BankAccount(name, balance, animalType, isKing, moral));
+    return "index";
+  }
+  //nem rendereli rendesen az indexet az account hozzáadás után + kinget és good/bad-et nem adja hozzá, valami a radiokkal lehet
+
 }

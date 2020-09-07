@@ -44,21 +44,24 @@
         </div>
         <button type="submit">Raise</button>
     </form>
-    <form method="post" action="" id="addAcount">
+    <form method="post" action="/add" id="addAcount">
         <h2>Add new account</h2>
-        <input type="text" id="name" placeholder="Name"><br>
-        <input type="number" id="balance" placeholder="Balance"><br>
-        <input type="text" id="type" placeholder="Type"><br>
+        <input th:name="name" type="text" id="name" placeholder="Name"><br>
+        <input th:name="balance" type="number" id="balance" placeholder="Balance"><br>
+        <input th:name="animalType" type="text" id="type" placeholder="Type"><br>
+
         <label>King?</label><br>
-        <input type="radio" id="king" name="isKing">
+        <input type="radio" id="king" th:name="isKing">
         <label for="king">King</label><br>
-        <input type="radio" id="notKing" name="isKing">
+        <input type="radio" id="notKing" th:name="isKing">
         <label for="notKing">Civilian</label><br>
+
         <label>Good or bad?</label><br>
-        <input type="radio" id="good" name="moral">
+        <input type="radio" id="good" th:name="moral">
         <label for="good">Good one</label><br>
-        <input type="radio" id="bad" name="moral">
+        <input type="radio" id="bad" th:name="moral">
         <label for="bad">Bad guy</label><br>
+        <button type="submit">Add</button>
     </form>
 </div>
     <p th:text="${string}"></p>
