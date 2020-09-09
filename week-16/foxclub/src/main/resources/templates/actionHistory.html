@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ActionHistory</title>
+</head>
+<body>
+<div th:insert="fragments/navbar.html :: navbar(name=${fox.getName()})"></div>
+<p th:if="${listSize} < 1">No actions have been made, yet.</p>
+<ul th:if="${listSize} > 0">
+    <li th:each= "action: ${actions}" th:text="${action}"></li>
+</ul>
+</body>
+</html>

@@ -17,6 +17,13 @@
             <li th:each="trick : *{tricks}" th:text="${trick}"/>
         </ul>
     </div>
+<div>
+    <h1>Action history</h1>
+    <p th:if="${listSize} < 1">No actions have been made, yet.</p>
+    <ul th:if="${listSize} > 0">
+        <li th:each= "action: ${actions}" th:text="${action}"></li>
+    </ul>
+</div>
     </p>
 </div>
 </body>

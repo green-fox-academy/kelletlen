@@ -1,6 +1,7 @@
 package greenfoxacademy.foxclub.controllers;
 
 import greenfoxacademy.foxclub.models.Fox;
+import greenfoxacademy.foxclub.services.ActionService;
 import greenfoxacademy.foxclub.services.FoxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,13 @@ public class MainController {
   final
   FoxService foxService;
 
-  public MainController(FoxService foxService) {
+  public MainController(FoxService foxService, ActionService actionService) {
+
     this.foxService = foxService;
+    this.actionService = actionService;
   }
+  final
+  ActionService actionService;
 
   @GetMapping(path = "/")
   public String root(Model model, @RequestParam(name = "name", required = false) String name) {
@@ -29,6 +34,8 @@ public class MainController {
         return "redirect:/login?warn=true";
       }
       model.addAttribute("fox", fox);
+      model.addAttribute("actions", actionService.getActionList());
+      model.addAttribute("listSize", actionService.getActionList().size());
       return "index";
     }
   }
