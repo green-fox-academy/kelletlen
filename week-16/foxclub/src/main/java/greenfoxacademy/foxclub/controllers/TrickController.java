@@ -35,6 +35,11 @@ public class TrickController {
   @PostMapping(path="/trickCenter")
   public String postTrickCenter (Model model, @RequestParam(name="name", required = false) String name, @RequestParam(name="trick") String trick) {
     Fox fox1 = foxService.getFox(name);
+    for(String item: fox1.getTricks()) {
+      if (item.equals(trick)) {
+        return "redirect:/?name=" + name;
+      } else continue;
+    }
     fox1.addTrick(trick);
     actionService.addToList("Learned to: " + trick);
     return "redirect:/?name=" + name;
