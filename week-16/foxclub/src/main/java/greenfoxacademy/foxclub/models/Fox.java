@@ -20,26 +20,35 @@ public class Fox {
   }
 
   public String getName() {
+
     return name;
   }
 
   public String getFood() {
+
     return food;
   }
 
   public String getDrink() {
+
     return drink;
   }
 
   public ArrayList<String> getTricks() {
+
     return tricks;
   }
 
   public void setFood(String food) {
+
     this.food = food;
   }
 
   public void setDrink(String drink) {
+
     this.drink = drink;
+  }
+  public void addTrick(String trick) {
+    tricks.add(trick);
   }
 }
