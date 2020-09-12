@@ -5,9 +5,7 @@ import com.greenfoxacademy.mysql.models.Todo;
 import com.greenfoxacademy.mysql.repositories.TodoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -36,8 +34,17 @@ public class TodoController {
       model.addAttribute("todos", todoRepository.findAll());
     }
     return "todoList";
-
-
-
   }
+
+  @GetMapping(value="add")
+  public String addTask () {
+    return "add";
+  }
+  @PostMapping(value="add")
+  public String postAddTask (@RequestParam(name="task") String task, @RequestParam(name="urgency") boolean urgency) {
+    Todo newTodo = new Todo(task, urgency);
+    todoRepository.save(newTodo);
+    return "redirect:/todo/list?isActive=false";
+  }
+
 }

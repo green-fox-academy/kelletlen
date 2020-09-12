@@ -27,6 +27,12 @@ public class Todo {
     this.done = done;
   }
 
+  public Todo(String title, boolean urgent) {
+    this.title = title;
+    this.urgent = urgent;
+    this.done = false;
+  }
+
   public Todo() {
   }
 

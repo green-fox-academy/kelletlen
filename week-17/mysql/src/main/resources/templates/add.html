@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AddTodo</title>
+</head>
+<body>
+<form method="post" th:action="@{/todo/add}">
+   <h1>Add new task</h1>
+    <label for="task">Task: </label>
+    <input th:name="task" type="text" id="task"><br>
+
+    <label>Urgency: </label>
+    <input th:name="urgency" type="radio" id="urgent" value="true">
+    <label for="urgent">Urgent</label>
+    <input th:name="urgency" type="radio" id="notUrgent" value="false">
+    <label for="notUrgent">Not urgent</label><br>
+    <button type="submit">Add</button>
+</form>
+</body>
+</html>
