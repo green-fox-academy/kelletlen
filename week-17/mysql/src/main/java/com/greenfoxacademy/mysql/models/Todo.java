@@ -21,10 +21,10 @@ public class Todo {
   @Column
   boolean done;
 
-  public Todo(String title, boolean urgent) {
+  public Todo(String title, boolean urgent, boolean done) {
     this.title = title;
     this.urgent = urgent;
-    this.done = false;
+    this.done = done;
   }
 
   public Todo() {

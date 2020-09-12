@@ -23,11 +23,11 @@ public class MysqlApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    todoRepository.save(new Todo("make the beds", true));
-    todoRepository.save(new Todo("do the washing up", false));
-    todoRepository.save(new Todo("clean the bathroom", false));
-    todoRepository.save(new Todo("tidy up", true));
-    todoRepository.save(new Todo("mop", true));
-     
+    todoRepository.save(new Todo("make the beds", true, true));
+    todoRepository.save(new Todo("do the washing up", false, false));
+    todoRepository.save(new Todo("clean the bathroom", false, true));
+    todoRepository.save(new Todo("tidy up", true, true));
+    todoRepository.save(new Todo("mop", true, false));
+
   }
 }
