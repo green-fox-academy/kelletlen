@@ -49,4 +49,12 @@ public class TodoController {
     todoRepository.save(newTodo);
     return "redirect:/todo/list?isActive=false";
   }
+
+  @PostMapping(value="search")
+  public String searchTodo (@RequestParam(name="title") String title, Model model) {
+    todoRepository.findAllByTitleContainingIgnoreCase(title);
+    model.addAttribute("todos",todoRepository.findAllByTitleContainingIgnoreCase(title));
+    return "searchResult";
+  }
+
 }

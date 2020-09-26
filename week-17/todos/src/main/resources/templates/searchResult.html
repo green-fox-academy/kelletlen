@@ -3,15 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TodoList</title>
+    <title>SearchResult</title>
 </head>
 <body>
-<h1>Todos for today:</h1>
-<form method="post" th:action="@{/todo/search}">
-    <label for="search">Search:</label>
-    <input th:name="title" type="text" id="search">
-</form>
-<a href="/todo/add">Add new todo</a>
 <table>
     <thead>
     <tr>
@@ -30,5 +24,6 @@
     </tr>
     </tbody>
 </table>
+<a href="/todo/list">Go back</a>
 </body>
 </html>
