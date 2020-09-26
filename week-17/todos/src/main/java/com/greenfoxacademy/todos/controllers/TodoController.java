@@ -7,10 +7,7 @@ import com.greenfoxacademy.todos.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -75,6 +72,18 @@ public class TodoController {
   public String addAssignee (@RequestParam(name="name") String name, @RequestParam(name="email") String email) {
     assigneeRepository.save(new Assignee(name, email));
     return "assignees";
+  }
+  @GetMapping(value="editAssignee/{id}")
+  public String getEditAssignee (@PathVariable long id, Model model) {
+    model.addAttribute("assignee", assigneeRepository.findAllById(id));
+    return "editAssignee";
+  }
+  @PostMapping(value="editAssignee/{id}")
+  public String postEditAssignee (@PathVariable long id, @RequestParam(name="new") String newName) {
+    Assignee assignee = assigneeRepository.findAllById(id);
+    assignee.setName(newName);
+    assigneeRepository.save(assignee);
+    return "redirect:/todo/assignees";
   }
 
 }
