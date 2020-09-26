@@ -71,7 +71,7 @@ public class TodoController {
   @PostMapping(value="addAssignee")
   public String addAssignee (@RequestParam(name="name") String name, @RequestParam(name="email") String email) {
     assigneeRepository.save(new Assignee(name, email));
-    return "assignees";
+    return "redirect:/todo/assignees";
   }
   @GetMapping(value="editAssignee/{id}")
   public String getEditAssignee (@PathVariable long id, Model model) {
@@ -85,5 +85,17 @@ public class TodoController {
     assigneeRepository.save(assignee);
     return "redirect:/todo/assignees";
   }
+  @GetMapping(value="removeAssignee/{id}")
+  public String removeAssignee (@PathVariable long id) {
+    Assignee assignee = assigneeRepository.findAllById(id);
+    assigneeRepository.delete(assignee);
+    return "redirect:/todo/assignees";
+  }
 
+  @GetMapping(value="assignee/{id}")
+  public String getTodosOfAssignee (@PathVariable long id, Model model) {
+    model.addAttribute("assignee", assigneeRepository.findAllById(id).getName());
+    model.addAttribute("todos", assigneeRepository.findAllById(id).getTodoList());
+    return "assignee";
+  }
 }

@@ -1,9 +1,7 @@
 package com.greenfoxacademy.todos.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Assignee {
@@ -16,6 +14,9 @@ public class Assignee {
 
   @Column
   String email;
+
+  @OneToMany
+  List<Todo> todoList;
 
   public Assignee(String name, String email) {
     this.name = name;
@@ -43,5 +44,9 @@ public class Assignee {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public List<Todo> getTodoList() {
+    return todoList;
   }
 }

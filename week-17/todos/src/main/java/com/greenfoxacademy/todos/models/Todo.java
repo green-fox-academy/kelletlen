@@ -1,10 +1,14 @@
 package com.greenfoxacademy.todos.models;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.annotation.Generated;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 public class Todo {
@@ -21,6 +25,18 @@ public class Todo {
 
   @Column
   boolean done;
+
+  @CreationTimestamp
+  @Temporal(TemporalType.DATE)
+  @Column
+  java.util.Date creation;
+
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  @Column
+  java.util.Date dueDate;
+
+  @OneToOne
+  Assignee assignee;
 
   public Todo(String title, boolean urgent) {
     this.title = title;
@@ -62,4 +78,17 @@ public class Todo {
   public void setDone(boolean done) {
     this.done = done;
   }
+
+  public Date getCreation() {
+    return creation;
+  }
+
+  public Date getDueDate() {
+    return dueDate;
+  }
+
+  public Assignee getAssignee() {
+    return assignee;
+  }
+
 }

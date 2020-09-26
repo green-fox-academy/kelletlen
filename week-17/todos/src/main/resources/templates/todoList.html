@@ -4,32 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <title>TodoList</title>
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        .add-button {
+            color: white;
+            margin: 20px;
+        }
+        .manage-button {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-<h1>Todos for today:</h1>
+<div class ="container justify-content-center">
+<h1 class="text-center m-3">TODOS FOR TODAY</h1>
+    <a class="btn btn-warning add-button" href="/todo/add">Add new todo</a><br>
+    <a class="btn btn-info manage-button" href="/todo/assignees">Manage Assignees</a>
 <form method="post" th:action="@{/todo/search}">
     <label for="search">Search:</label>
     <input th:name="title" type="text" id="search">
+    <button class="btn btn-success search-button" type="submit">Search</button>
 </form>
-<a href="/todo/add">Add new todo</a><br>
-<a href="/todo/assignees">Manage Assignees</a>
 <table>
     <thead>
-    <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Urgent</th>
-        <th>Done</th>
+    <tr class="row">
+        <th class="col">ID</th>
+        <th class="col">Title</th>
+        <th class="col">Urgent</th>
+        <th class="col">Done</th>
+        <th class="col">Created</th>
+        <th class="col">Due</th>
+        <th class="col">Assignee</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="todo : ${todos}">
+    <tr class ="row" th:each="todo : ${todos}">
         <td th:text="${todo.getId()}"></td>
         <td th:text="${todo.getTitle()}"></td>
         <td th:text="${todo.isUrgent()}"></td>
         <td th:text="${todo.isDone()}"></td>
+        <td th:text="${todo.getCreation()}"></td>
+        <td th:text="${todo.getDueDate()}"></td>
+        <td th:text="${todo.getAssignee()}"></td>
     </tr>
     </tbody>
 </table>
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+</div>
 </body>
 </html>
