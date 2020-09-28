@@ -65,13 +65,15 @@ public class TodoController {
   @GetMapping(value="edit/{id}")
   public String editTodo (@PathVariable long id, Model model) {
     model.addAttribute("todo", todoRepository.findAllById(id));
+    model.addAttribute("assignees", assigneeRepository.findAll());
     return "editTodo";
   }
 
   @PostMapping(value="edit/{id}")
   public String editTodo (@PathVariable long id, @RequestParam(name="title") String title,
                           @RequestParam(name="urgent", defaultValue = "false") boolean urgent,
-                          @RequestParam(name="done", defaultValue = "false") boolean done) {
+                          @RequestParam(name="done", defaultValue = "false") boolean done,
+                          @RequestParam(name="assignee") String assignee) {
     Todo todo = todoRepository.findAllById(id);
     if (title.equals("")) {
       todo.setTitle(todo.getTitle());
@@ -80,6 +82,7 @@ public class TodoController {
     }
     todo.setUrgent(urgent);
     todo.setDone(done);
+    todo.setAssignee(assigneeRepository.findAllByName(assignee));
     todoRepository.save(todo);
     return "redirect:/todo/list?isActive=false";
   }

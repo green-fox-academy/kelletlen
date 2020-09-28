@@ -90,5 +90,12 @@ public class Todo {
   public Assignee getAssignee() {
     return assignee;
   }
+  public String getAssigneeName() {
+    return this.assignee.getName();
+  }
+
+  public void setAssignee(Assignee assignee) {
+    this.assignee = assignee;
+  }
 
 }

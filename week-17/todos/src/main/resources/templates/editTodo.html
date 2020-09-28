@@ -14,6 +14,13 @@
     <input th:name="urgent" type="radio" id="urgent" value="true"><br>
     <label for="done">Done</label>
     <input th:name="done" type="radio" id="done" value="true"><br>
+    <div class="selector">
+        <select th:name="assignee" id="selector">
+            <option value="">---</option>
+            <option th:each="assignee:${assignees}" th:value="${assignee.getName()}" th:text="${assignee.getName()}">
+            </option>
+        </select>
+    </div>
     <button type="submit">Submit</button>
     <a href="/todo/list">Cancel</a>
 
