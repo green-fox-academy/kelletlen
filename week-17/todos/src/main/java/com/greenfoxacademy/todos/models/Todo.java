@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
@@ -33,7 +34,7 @@ public class Todo {
 
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   @Column
-  java.util.Date dueDate;
+  Date dueDate;
 
   @OneToOne
   Assignee assignee;
@@ -98,4 +99,7 @@ public class Todo {
     this.assignee = assignee;
   }
 
+  public void setDueDate(Date dueDate) {
+    this.dueDate = dueDate;
+  }
 }

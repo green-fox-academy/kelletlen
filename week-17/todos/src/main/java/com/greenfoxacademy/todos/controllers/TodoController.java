@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 @Controller
 @RequestMapping("todo")
@@ -73,7 +74,8 @@ public class TodoController {
   public String editTodo (@PathVariable long id, @RequestParam(name="title") String title,
                           @RequestParam(name="urgent", defaultValue = "false") boolean urgent,
                           @RequestParam(name="done", defaultValue = "false") boolean done,
-                          @RequestParam(name="assignee") String assignee) {
+                          @RequestParam(name="assignee") String assignee,
+                          @RequestParam(name="dueDate") Date dueDate) {
     Todo todo = todoRepository.findAllById(id);
     if (title.equals("")) {
       todo.setTitle(todo.getTitle());
@@ -82,6 +84,7 @@ public class TodoController {
     }
     todo.setUrgent(urgent);
     todo.setDone(done);
+    todo.setDueDate(dueDate);
     todo.setAssignee(assigneeRepository.findAllByName(assignee));
     todoRepository.save(todo);
     return "redirect:/todo/list?isActive=false";
@@ -127,7 +130,8 @@ public class TodoController {
   @GetMapping(value="assignee/{id}")
   public String getTodosOfAssignee (@PathVariable long id, Model model) {
     model.addAttribute("assignee", assigneeRepository.findAllById(id).getName());
-    model.addAttribute("todos", assigneeRepository.findAllById(id).getTodoList());
+    Assignee assignee = assigneeRepository.findAllById(id);
+    model.addAttribute("todos", assignee.getTodoList());
     return "assignee";
   }
 }

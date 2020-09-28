@@ -19,7 +19,9 @@
             <option value="">---</option>
             <option th:each="assignee:${assignees}" th:value="${assignee.getName()}" th:text="${assignee.getName()}">
             </option>
-        </select>
+        </select><br>
+        <label for="dueDate">Due Date</label>
+        <input id="dueDate" type="date" th:name="dueDate"/><br>
     </div>
     <button type="submit">Submit</button>
     <a href="/todo/list">Cancel</a>
