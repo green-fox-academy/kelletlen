@@ -36,7 +36,7 @@ public class Todo {
   @Column
   Date dueDate;
 
-  @OneToOne
+  @ManyToOne
   Assignee assignee;
 
   public Todo(String title, boolean urgent) {
@@ -97,6 +97,7 @@ public class Todo {
 
   public void setAssignee(Assignee assignee) {
     this.assignee = assignee;
+    assignee.getTodoList().add(this);
   }
 
   public void setDueDate(Date dueDate) {
