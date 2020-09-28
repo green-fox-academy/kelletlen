@@ -7,6 +7,17 @@
 </head>
 <body>
 <h1>Trending posts</h1>
+<table>
+    <tbody>
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.getId()}"></td>
+        <td><a href="">+</a></td>
+        <td><a href="">-</a></td>
+        <td th:text="${post.getTitle()}"></td>
 
+
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
