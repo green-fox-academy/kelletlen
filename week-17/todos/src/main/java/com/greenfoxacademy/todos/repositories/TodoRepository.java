@@ -10,6 +10,6 @@ import java.util.List;
 public interface TodoRepository extends CrudRepository<Todo, Long> {
 
   List<Todo> findAllByTitleContainingIgnoreCase(String subString);
-
+  Todo findAllById(long id);
 
 }

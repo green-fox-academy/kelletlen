@@ -13,39 +13,52 @@
         .manage-button {
             margin-bottom: 20px;
         }
+        .delete-button {
+            color: white;
+            text-decoration: none;
+        }
+        .searchbar {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
 <div class ="container justify-content-center">
 <h1 class="text-center m-3">TODOS FOR TODAY</h1>
+    <div class="text-center">
     <a class="btn btn-warning add-button" href="/todo/add">Add new todo</a><br>
     <a class="btn btn-info manage-button" href="/todo/assignees">Manage Assignees</a>
+    </div>
+    <div class="searchbar">
 <form method="post" th:action="@{/todo/search}">
     <label for="search">Search:</label>
     <input th:name="title" type="text" id="search">
     <button class="btn btn-success search-button" type="submit">Search</button>
 </form>
-<table>
+    </div>
+<table class="table table-striped">
     <thead>
-    <tr class="row">
-        <th class="col">ID</th>
-        <th class="col">Title</th>
-        <th class="col">Urgent</th>
-        <th class="col">Done</th>
-        <th class="col">Created</th>
-        <th class="col">Due</th>
-        <th class="col">Assignee</th>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Urgent</th>
+        <th scope="col">Done</th>
+        <th scope="col">Created</th>
+        <th scope="col">Due</th>
+        <th scope="col">Assignee</th>
     </tr>
     </thead>
     <tbody>
-    <tr class ="row" th:each="todo : ${todos}">
-        <td th:text="${todo.getId()}"></td>
+    <tr th:each="todo : ${todos}">
+        <th scope="row" th:text="${todo.getId()}"></th>
         <td th:text="${todo.getTitle()}"></td>
         <td th:text="${todo.isUrgent()}"></td>
         <td th:text="${todo.isDone()}"></td>
         <td th:text="${todo.getCreation()}"></td>
         <td th:text="${todo.getDueDate()}"></td>
         <td th:text="${todo.getAssignee()}"></td>
+        <td><button type="submit" class="btn btn-danger"><a class="delete-button" th:href="@{/todo/delete/{id}(id=${todo.getId()})}">Delete</a></button></td>
+        <td><button type="submit"><a th:href="@{/todo/edit/{id}(id=${todo.getId()})}">Edit</a></button></td>
     </tr>
     </tbody>
 </table>

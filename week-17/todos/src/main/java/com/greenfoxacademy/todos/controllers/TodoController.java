@@ -55,6 +55,35 @@ public class TodoController {
     return "redirect:/todo/list?isActive=false";
   }
 
+  @GetMapping(value="delete/{id}")
+  public String deleteTodo (@PathVariable long id) {
+    Todo todo = todoRepository.findAllById(id);
+    todoRepository.delete(todo);
+    return "redirect:/todo/list?isActive=false";
+  }
+
+  @GetMapping(value="edit/{id}")
+  public String editTodo (@PathVariable long id, Model model) {
+    model.addAttribute("todo", todoRepository.findAllById(id));
+    return "editTodo";
+  }
+
+  @PostMapping(value="edit/{id}")
+  public String editTodo (@PathVariable long id, @RequestParam(name="title") String title,
+                          @RequestParam(name="urgent", defaultValue = "false") boolean urgent,
+                          @RequestParam(name="done", defaultValue = "false") boolean done) {
+    Todo todo = todoRepository.findAllById(id);
+    if (title.equals("")) {
+      todo.setTitle(todo.getTitle());
+    } else {
+      todo.setTitle(title);
+    }
+    todo.setUrgent(urgent);
+    todo.setDone(done);
+    todoRepository.save(todo);
+    return "redirect:/todo/list?isActive=false";
+  }
+
   @PostMapping(value="search")
   public String searchTodo (@RequestParam(name="title") String title, Model model) {
     todoRepository.findAllByTitleContainingIgnoreCase(title);
