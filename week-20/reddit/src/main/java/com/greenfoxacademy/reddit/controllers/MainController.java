@@ -1,8 +1,10 @@
 package com.greenfoxacademy.reddit.controllers;
 
 import com.greenfoxacademy.reddit.models.Post;
+import com.greenfoxacademy.reddit.models.User;
 import com.greenfoxacademy.reddit.services.PostService;
 import com.greenfoxacademy.reddit.services.PostServiceImpl;
+import com.greenfoxacademy.reddit.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +16,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
 
+  final
+  UserServiceImpl userService;
+
  final
  PostServiceImpl postService;
 
-  public MainController(PostServiceImpl postService) {
+  public MainController(PostServiceImpl postService, UserServiceImpl userService) {
     this.postService = postService;
+    this.userService = userService;
   }
 
 
@@ -54,12 +60,28 @@ public class MainController {
   }
   @GetMapping (value="/register")
   public String getRegister () {
-    return "";
+    return "register";
   }
   @PostMapping (value="/register")
   public String postRegister (@RequestParam(name="username") String name,
                               @RequestParam(name="password") String password) {
-
-    return "";
+    User user = new User(name, password);
+    userService.save(user);
+    return "register";
+  }
+  @GetMapping(value="/login")
+  public String getLogin () {
+    return "login";
+  }
+  @PostMapping(value="/login")
+  public String postLogin (@RequestParam(name="username") String name,
+                           @RequestParam(name="password") String password,
+                           Model model) {
+    if(userService.findByUsernameAndPassword(name, password) == null) {
+      model.addAttribute("fail", "Wrong username or password!");
+      return "login";
+    } else {
+      return "redirect:/";
+    }
   }
 }

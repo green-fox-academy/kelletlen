@@ -3,14 +3,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Registration</title>
+    <title>Login</title>
 </head>
 <body>
-<form method="post" action="/register">
-    <h1>Registration</h1>
+<p th:text="fail"></p>
+<form method="post" action="/login">
+    <h1>Sign in</h1>
     <input th:name="username" type="text" id="username" placeholder="Username"><br>
     <input th:name="password" type="text" id="password" placeholder="Password"><br>
-    <button type="submit">Register</button>
+    <button type="submit">Login</button>
 </form>
+<a href="/register">Create account</a>
 </body>
 </html>
