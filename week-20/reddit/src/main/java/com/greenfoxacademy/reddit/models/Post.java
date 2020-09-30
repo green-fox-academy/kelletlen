@@ -67,4 +67,8 @@ public class Post {
   public void decreaseScore () {
     this.score = this.score-1;
   }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
 }

@@ -4,15 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<p th:text="fail"></p>
+<p th:text="${fail}"></p>
 <form method="post" action="/login">
     <h1>Sign in</h1>
     <input th:name="username" type="text" id="username" placeholder="Username"><br>
-    <input th:name="password" type="text" id="password" placeholder="Password"><br>
+    <input th:name="password" type="password" id="password" placeholder="Password"><br>
     <button type="submit">Login</button>
 </form>
 <a href="/register">Create account</a>
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
 </body>
 </html>

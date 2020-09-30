@@ -29,22 +29,27 @@ public class MainController {
 
 
   @GetMapping(value="/")
-  public String getPosts (Model model) {
+  public String getPosts (Model model, @RequestParam(name="id") long id) {
     model.addAttribute("posts", postService.findAllByScoreDesc());
+    model.addAttribute("name", userService.findById(id).getUsername());
+    model.addAttribute("id", id);
     return "index";
   }
 
   @GetMapping(value="/submit")
-  public String getSubmit () {
+  public String getSubmit (@RequestParam(name="id") long id, Model model) {
+    model.addAttribute("id", id);
     return "submit";
   }
 
   @PostMapping(value="/submit")
   public String postSubmit (@RequestParam(name="title") String title,
-                            @RequestParam(name="url") String url) {
+                            @RequestParam(name="url") String url,
+                            @RequestParam(name="id") long id) {
     Post post = new Post(title, url);
+    post.setUser(userService.findById(id));
     postService.save(post);
-    return "redirect:/";
+    return "redirect:/?id=" + id;
   }
   @GetMapping(value="/upVote/{id}")
   public String upVote (@PathVariable long id) {
@@ -67,7 +72,7 @@ public class MainController {
                               @RequestParam(name="password") String password) {
     User user = new User(name, password);
     userService.save(user);
-    return "register";
+    return "redirect:/";
   }
   @GetMapping(value="/login")
   public String getLogin () {
@@ -81,7 +86,7 @@ public class MainController {
       model.addAttribute("fail", "Wrong username or password!");
       return "login";
     } else {
-      return "redirect:/";
+      return "redirect:/?id=" + userService.findIdByUsernameAndPassword(name, password);
     }
   }
 }
