@@ -34,11 +34,18 @@ public class PostServiceImpl implements PostService{
 
   @Override
   public void upVote(long id) {
-
+  Post post = postRepository.findAllById(id);
+  post.increaseScore();
   }
 
   @Override
   public void downVote(long id) {
+    Post post = postRepository.findAllById(id);
+    post.decreaseScore();
+  }
 
+  @Override
+  public List<Post> findAllByScoreDesc() {
+    return postRepository.findAllByOrderByScoreDesc();
   }
 }

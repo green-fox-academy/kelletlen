@@ -26,19 +26,25 @@ public class Post {
   @Column
   java.util.Date creation;
 
+  @ManyToOne
+  User user;
+
   public Post(String title, String url) {
     this.title = title;
     this.url = url;
+    this.score = 0;
   }
 
   public Post() {
   }
 
   public long getId() {
+
     return id;
   }
 
   public String getTitle() {
+
     return title;
   }
 
@@ -47,10 +53,18 @@ public class Post {
   }
 
   public int getScore() {
+
     return score;
   }
 
   public Date getCreation() {
+
     return creation;
+  }
+  public void increaseScore () {
+    this.score = this.score +1;
+  }
+  public void decreaseScore () {
+    this.score = this.score-1;
   }
 }
