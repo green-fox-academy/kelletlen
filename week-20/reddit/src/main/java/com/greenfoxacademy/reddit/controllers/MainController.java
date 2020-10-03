@@ -64,6 +64,7 @@ public class MainController {
       postService.upVote(postId);
       postService.save(postService.findById(postId));
       userService.addToUpVoted(postService.findById(postId), id);
+      userService.save(userService.findById(id));
     }
     return "redirect:/?id=" + id;
   }
@@ -77,6 +78,7 @@ public class MainController {
       postService.downVote(postId);
       postService.save(postService.findById(postId));
       userService.addToDownVoted(postService.findById(postId), id);
+      userService.save(userService.findById(id));
     }
     return "redirect:/?id=" + id;
   }
