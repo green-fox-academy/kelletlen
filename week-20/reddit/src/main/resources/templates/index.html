@@ -14,8 +14,8 @@
     <tbody>
     <tr th:each="post : ${posts}">
         <td th:text="${post.getScore()}"></td>
-        <td><a th:href="@{/upVote/{id} (id=${post.getId()})}">+</a></td>
-        <td><a th:href="@{/downVote/{id} (id=${post.getId()})}">-</a></td>
+        <td><a th:href="@{/upVote/{postId}(id=${id},postId=${post.getId()})}">+</a></td>
+        <td><a th:href="@{/downVote/{postId}(id=${id},postId=${post.getId()})}">-</a></td>
         <td th:text="${post.getTitle()}"></td>
         <td th:text="${post.getCreation()}"></td>
     </tr>

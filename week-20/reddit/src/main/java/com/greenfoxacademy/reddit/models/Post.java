@@ -4,6 +4,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Post {
@@ -28,6 +29,12 @@ public class Post {
 
   @ManyToOne
   User user;
+
+  @ManyToMany
+  List<User> upVoters;
+
+  @ManyToMany
+  List<User> downVoters;
 
   public Post(String title, String url) {
     this.title = title;

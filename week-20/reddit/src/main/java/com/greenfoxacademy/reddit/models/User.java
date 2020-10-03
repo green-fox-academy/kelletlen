@@ -17,7 +17,13 @@ public class User {
   String password;
 
   @OneToMany
-  List<Post> post;
+  List<Post> posts;
+
+  @OneToMany
+  List<Post> upVoted;
+
+  @OneToMany
+  List<Post> downVoted;
 
   public User(String username, String password) {
     this.username = username;
@@ -37,5 +43,23 @@ public class User {
 
   public String getPassword() {
     return password;
+  }
+
+  public List<Post> getPosts() {
+    return posts;
+  }
+
+  public List<Post> getUpVoted() {
+    return upVoted;
+  }
+
+  public List<Post> getDownVoted() {
+    return downVoted;
+  }
+  public void addToUpVoted (Post post) {
+    upVoted.add(post);
+  }
+  public void addToDownVoted (Post post) {
+    downVoted.add(post);
   }
 }

@@ -29,7 +29,10 @@ public class MainController {
 
 
   @GetMapping(value="/")
-  public String getPosts (Model model, @RequestParam(name="id") long id) {
+  public String getPosts (Model model, @RequestParam(name="id" , required= false) Long id) {
+    if(id==null) {
+      return "redirect:/login";
+    }
     model.addAttribute("posts", postService.findAllByScoreDesc());
     model.addAttribute("name", userService.findById(id).getUsername());
     model.addAttribute("id", id);
@@ -51,18 +54,33 @@ public class MainController {
     postService.save(post);
     return "redirect:/?id=" + id;
   }
-  @GetMapping(value="/upVote/{id}")
-  public String upVote (@PathVariable long id) {
-    postService.upVote(id);
-    postService.save(postService.findById(id));
-    return "redirect:/";
+  
+  @GetMapping(value="/upVote/{postId}")
+  public String upVote (@PathVariable long postId,
+                        @RequestParam(name="id") long id) {
+    if(userService.isInUpVoted(id, postId)) {
+      return "redirect:/?id=" + id;
+    } else {
+      postService.upVote(postId);
+      postService.save(postService.findById(postId));
+      userService.addToUpVoted(postService.findById(postId), id);
+    }
+    return "redirect:/?id=" + id;
   }
-  @GetMapping(value="/downVote/{id}")
-  public String downVote (@PathVariable long id) {
-    postService.downVote(id);
-    postService.save(postService.findById(id));
-    return "redirect:/";
+
+  @GetMapping(value="/downVote/{postId}")
+  public String downVote (@PathVariable long postId,
+                          @RequestParam(name="id") long id) {
+    if (userService.isInDownVoted(id, postId)) {
+      return "redirect:/?id=" + id;
+    } else {
+      postService.downVote(postId);
+      postService.save(postService.findById(postId));
+      userService.addToDownVoted(postService.findById(postId), id);
+    }
+    return "redirect:/?id=" + id;
   }
+
   @GetMapping (value="/register")
   public String getRegister () {
     return "register";
@@ -72,7 +90,8 @@ public class MainController {
                               @RequestParam(name="password") String password) {
     User user = new User(name, password);
     userService.save(user);
-    return "redirect:/";
+    long id = userService.findIdByUsernameAndPassword(name, password);
+    return "redirect:/?id=" + id;
   }
   @GetMapping(value="/login")
   public String getLogin () {
