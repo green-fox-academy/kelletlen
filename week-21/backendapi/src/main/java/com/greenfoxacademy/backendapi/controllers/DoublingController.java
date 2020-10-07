@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DoublingController {
 
 @GetMapping(value="/doubling")
-  public Object getDouble (@RequestParam(name="input") Integer input) {
+  public Object getDouble (@RequestParam(name="input", required = false) Integer input) {
   if (input != null) {
     Number number = new Number();
     number.setInput(input);
