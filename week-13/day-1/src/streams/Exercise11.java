@@ -15,7 +15,7 @@ public class Exercise11 {
   public static void main(String[] args) throws IOException {
 
     List<String[]> strings = Files.lines(Paths.get("assets/text.txt"))
-        .map(line -> line.split(" "))
+        .map(line -> line.replaceAll("[^a-zA-Z ]", "").split(" "))
         .collect(Collectors.toList());
 
     ArrayList <String> words = new ArrayList<>();

@@ -34,8 +34,6 @@ public class Show {
                             @RequestParam(name="isKing") boolean isKing,
                             @RequestParam(name="moral") String moral) {
     list.add(new BankAccount(name, balance, animalType, isKing, moral));
-    return "index";
+    return "redirect:/";
   }
-  //nem rendereli rendesen az indexet az account hozzáadás után + kinget és good/bad-et nem adja hozzá, valami a radiokkal lehet
-
 }
