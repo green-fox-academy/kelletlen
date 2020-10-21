@@ -19,11 +19,5 @@ public class DoublingControllerTest {
   @Autowired
   MockMvc mockMvc;
 
-  @Test
-  public void getDouble() throws Exception {
-    mockMvc.perform(get("/doubling"))
-        .contentType(MediaType.APPLICATION_JSON)
-        .
-  }
 }
 
