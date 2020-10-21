@@ -3,12 +3,8 @@ package com.greenfoxacademy.todos.models;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -32,9 +28,9 @@ public class Todo {
   @Column
   java.util.Date creation;
 
-  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  @Temporal(TemporalType.DATE)
   @Column
-  Date dueDate;
+  java.util.Date dueDate;
 
   @ManyToOne
   Assignee assignee;
@@ -84,7 +80,7 @@ public class Todo {
     return creation;
   }
 
-  public Date getDueDate() {
+  public java.util.Date getDueDate() {
     return dueDate;
   }
 
@@ -101,6 +97,12 @@ public class Todo {
   }
 
   public void setDueDate(Date dueDate) {
+
     this.dueDate = dueDate;
+  }
+
+  public String getDueDateString () {
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    return formatter.format(this.dueDate);
   }
 }

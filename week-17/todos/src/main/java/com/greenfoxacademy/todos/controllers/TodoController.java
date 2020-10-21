@@ -4,18 +4,14 @@ import com.greenfoxacademy.todos.models.Assignee;
 import com.greenfoxacademy.todos.models.Todo;
 import com.greenfoxacademy.todos.repositories.AssigneeRepository;
 import com.greenfoxacademy.todos.repositories.TodoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
 
 @Controller
 @RequestMapping("todo")
@@ -80,7 +76,7 @@ public class TodoController {
                           @RequestParam(name="urgent", defaultValue = "false") boolean urgent,
                           @RequestParam(name="done", defaultValue = "false") boolean done,
                           @RequestParam(name="assignee") String assignee,
-                          @RequestParam(name="dueDate") String dueDate) {
+                          @RequestParam(name="dueDate") String dueDate) throws ParseException {
     Todo todo = todoRepository.findAllById(id);
     if (title.equals("")) {
       todo.setTitle(todo.getTitle());
@@ -89,13 +85,8 @@ public class TodoController {
     }
     todo.setUrgent(urgent);
     todo.setDone(done);
-    DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-    try {
-      Date date = format.parse(dueDate);
-      todo.setDueDate(date);
-    } catch (ParseException e) {
-      e.printStackTrace();
-    }
+    Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dueDate);
+    todo.setDueDate(date);
     todo.setAssignee(assigneeRepository.findAllByName(assignee));
     todoRepository.save(todo);
     return "redirect:/todo/list?isActive=false";
