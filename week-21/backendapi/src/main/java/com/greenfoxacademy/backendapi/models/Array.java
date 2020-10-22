@@ -27,4 +27,8 @@ public class Array {
   public void setNumbers(int[] numbers) {
     this.numbers = numbers;
   }
+
+  public String numbersToString () {
+    return numbers.toString();
+  }
 }
