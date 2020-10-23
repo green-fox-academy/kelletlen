@@ -1,12 +1,27 @@
 package greenfoxacademy.foxclub.models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
-
+@Entity
 public class Fox {
+  @Id
+  @GeneratedValue
+  long id;
+
+  @Column
   private String name;
+
+  @Column
   private String food;
+
+  @Column
   private String drink;
+
+  @Column
   private ArrayList<String> tricks;
+
+  @OneToOne
+  User user;
 
   public Fox(String name, String food, String drink) {
     this.name = name;
