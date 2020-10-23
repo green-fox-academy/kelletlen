@@ -1,21 +1,27 @@
 package greenfoxacademy.foxclub.services;
 
 import greenfoxacademy.foxclub.models.Fox;
+import greenfoxacademy.foxclub.repositories.FoxRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
 @Service
 public class FoxService {
-  ArrayList<Fox> foxes = new ArrayList<>();
 
-  public Fox getFox(String name) {
-    return foxes.stream()
-        .filter(fox -> fox.getName().equalsIgnoreCase(name))
-        .findFirst()
-        .orElse(null);
+  final
+  FoxRepository foxRepository;
+
+  public FoxService(FoxRepository foxRepository) {
+    this.foxRepository = foxRepository;
   }
-  public void addFox(Fox fox) {
-    foxes.add(fox);
+
+  public Fox save(Fox fox) {
+
+    return foxRepository.save(fox);
+  }
+  public Fox findByName(String name) {
+    return foxRepository.findByName(name);
   }
 }

@@ -7,12 +7,15 @@
 </head>
 <body>
 <h1>Welcome to Programmer Fox Club!</h1>
-<p th:if="${warn}" style="color: #ff0000">You have provided a name that has not been used before, add it as a new one!</p>
-<p>Please provide a name, so you can associate it to your pet!</p>
+<p th:if="${warn}" style="color: #ff0000">Wrong username or password!</p>
+<p>Login</p>
 <form method="POST" action="/login">
-    <label for="name">Name</label>
-    <input id="name" type="text" name="name"/>
+    <label for="username">Username: </label>
+    <input id="username" type="text" th:name="name"/><br>
+    <label>Password: </label>
+    <input id="password" type="password" th:name="password">
     <button type="submit">GO</button>
 </form>
+<a href="/register">Don't have an account yet? Create one!</a>
 </body>
 </html>

@@ -26,7 +26,7 @@ public class TrickController {
 
   @GetMapping(path="/trickCenter")
   public String getTrickCenter (Model model, @RequestParam(name="name", required = false) String name) {
-    Fox fox = foxService.getFox(name);
+    Fox fox = foxService.findByName(name);
     model.addAttribute("fox", fox);
     model.addAttribute("name", name);
     return "trickCenter";
@@ -34,7 +34,7 @@ public class TrickController {
 
   @PostMapping(path="/trickCenter")
   public String postTrickCenter (Model model, @RequestParam(name="name", required = false) String name, @RequestParam(name="trick") String trick) {
-    Fox fox1 = foxService.getFox(name);
+    Fox fox1 = foxService.findByName(name);
     for(String item: fox1.getTricks()) {
       if (item.equals(trick)) {
         return "redirect:/?name=" + name;

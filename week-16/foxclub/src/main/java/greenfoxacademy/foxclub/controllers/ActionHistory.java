@@ -26,7 +26,7 @@ public class ActionHistory {
 
   @GetMapping(path="/actionHistory")
   public String getActionHistory(Model model, @RequestParam(name="name", required = false) String name) {
-    Fox fox = foxService.getFox(name);
+    Fox fox = foxService.findByName(name);
     model.addAttribute("fox", fox);
     model.addAttribute("name", name);
     model.addAttribute("actions", actionService.getActionList());

@@ -28,7 +28,7 @@ public class NutritionStoreController {
 
   @GetMapping(path="/nutritionStore")
   public String getNutritionStore (Model model, @RequestParam(name="name", required = false) String name) {
-    Fox fox = foxService.getFox(name);
+    Fox fox = foxService.findByName(name);
     if (fox!= null) {
       model.addAttribute("fox", fox);
       model.addAttribute("name", name);
@@ -39,7 +39,7 @@ public class NutritionStoreController {
   }
   @PostMapping(path="/nutritionStore")
   public String postNutritionStore (Model model, @RequestParam(name="name", required = false) String name, @ModelAttribute("fox") Fox fox) {
-    Fox fox1 = foxService.getFox(name);
+    Fox fox1 = foxService.findByName(name);
     String previousFood = fox1.getFood();
     String previousDrink = fox1.getDrink();
     fox1.setDrink(fox.getDrink());

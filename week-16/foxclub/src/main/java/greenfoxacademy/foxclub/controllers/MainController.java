@@ -24,12 +24,12 @@ public class MainController {
   final
   ActionService actionService;
 
-  @GetMapping(path = "/")
+  @GetMapping(path = "/main")
   public String root(Model model, @RequestParam(name = "name", required = false) String name) {
     if (name == null || name.isEmpty()) {
       return "redirect:/login";
     } else {
-      Fox fox = foxService.getFox(name);
+      Fox fox = foxService.findByName(name);
       if (fox == null) {
         return "redirect:/login?warn=true";
       }

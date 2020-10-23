@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Registration</h1>
+<p style="color: red" th:text="${fail}"></p>
+<form method="post" action="/register">
+    <label for="username">Username: </label>
+    <input th:name="username" type="text" id="username"><br>
+    <label for="password">Password: </label>
+    <input th:name="password" type="password" id="password"><br>
+    <label for="password2">Password again: </label>
+    <input th:name="password2" type="password" id="password2"><br>
+    <button type="submit">Submit</button>
+</form>
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+</body>
+</html>
