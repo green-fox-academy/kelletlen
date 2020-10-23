@@ -25,7 +25,8 @@ public class MainController {
   ActionService actionService;
 
   @GetMapping(path = "/main")
-  public String root(Model model, @RequestParam(name = "name", required = false) String name) {
+  public String root(Model model, @RequestParam(name = "name", required = false) String name,
+                     @RequestParam (name="username") String username) {
     if (name == null || name.isEmpty()) {
       return "redirect:/login";
     } else {

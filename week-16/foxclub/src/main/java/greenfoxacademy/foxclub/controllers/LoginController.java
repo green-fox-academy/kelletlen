@@ -30,14 +30,14 @@ public class LoginController {
     return "login";
   }
 
-  @PostMapping(path="/login")
+  @PostMapping(path="/")
   public String postLogin (@RequestParam(name="username") String username,
                            @RequestParam(name="password")String password) {
     User user = userService.findByUsernameAndPassword(username, password);
     if (user == null) {
       return "redirect:/?warn=true";
     }
-    return "redirect:/main?name=" + username;
+    return "redirect:/main?name=" + user.getFox().getName() + "&username=" + username;
   }
 }
 
