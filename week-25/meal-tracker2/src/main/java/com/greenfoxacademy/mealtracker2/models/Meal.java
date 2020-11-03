@@ -1,9 +1,6 @@
 package com.greenfoxacademy.mealtracker2.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -19,6 +16,7 @@ public class Meal {
   @Column
   int calories;
 
+  @Temporal(TemporalType.DATE)
   @Column
   Date date;
 
