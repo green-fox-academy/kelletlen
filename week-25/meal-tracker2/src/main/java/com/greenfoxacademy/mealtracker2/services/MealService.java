@@ -5,6 +5,8 @@ import com.greenfoxacademy.mealtracker2.repositories.MealRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,7 +35,9 @@ public class MealService {
   public List<Meal> findAllByDate(Date date) {
     return mealRepository.findAllByDate(date);
   }
-  public int getCaloriesForADay (Date date) {
+
+  public int getCaloriesForADay (Date date) throws ParseException {
+    //Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date);
     List<Meal> meals = mealRepository.findAllByDate(date);
     int sum = 0;
     for(Meal m : meals) {
