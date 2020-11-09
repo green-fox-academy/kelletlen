@@ -16,9 +16,9 @@ public class MainRestController {
     this.movieService = movieService;
   }
 
-  @GetMapping(path = "/movie")
-  public List<Movie> listMovies() throws IOException {
-    return movieService.getMovies();
+  @GetMapping(path = "/all")
+  public Result listMovies() throws IOException {
+    return this.movieService.getResponse();
   }
 }
 

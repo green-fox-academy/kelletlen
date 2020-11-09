@@ -5,109 +5,29 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class Movie {
+  Integer id;
+  String media_type;
+  String original_language;
+  String title;
+  String backdrop_path;
+  Double popularity;
+  Integer vote_count;
+  Boolean video;
+  Double vote_average;
 
-  @SerializedName("adult")
-  @Expose
-  private Boolean adult;
-  @SerializedName("backdrop_path")
-  @Expose
-  private String backdropPath;
-  @SerializedName("belongs_to_collection")
-  @Expose
-  private Object belongsToCollection;
-  @SerializedName("budget")
-  @Expose
-  private Integer budget;
-  @SerializedName("homepage")
-  @Expose
-  private String homepage;
-  @SerializedName("id")
-  @Expose
-  private Integer id;
-  @SerializedName("imdb_id")
-  @Expose
-  private String imdbId;
-  @SerializedName("original_language")
-  @Expose
-  private String originalLanguage;
-  @SerializedName("original_title")
-  @Expose
-  private String originalTitle;
-  @SerializedName("overview")
-  @Expose
-  private String overview;
-  @SerializedName("popularity")
-  @Expose
-  private Double popularity;
-  @SerializedName("poster_path")
-  @Expose
-  private String posterPath;
-  @SerializedName("release_date")
-  @Expose
-  private String releaseDate;
-  @SerializedName("revenue")
-  @Expose
-  private Integer revenue;
-  @SerializedName("runtime")
-  @Expose
-  private Integer runtime;
-  @SerializedName("status")
-  @Expose
-  private String status;
-  @SerializedName("tagline")
-  @Expose
-  private String tagline;
-  @SerializedName("title")
-  @Expose
-  private String title;
-  @SerializedName("video")
-  @Expose
-  private Boolean video;
-  @SerializedName("vote_average")
-  @Expose
-  private Double voteAverage;
-  @SerializedName("vote_count")
-  @Expose
-  private Integer voteCount;
-
-  public Boolean getAdult() {
-    return adult;
+  public Movie(Integer id, String media_type, String original_language, String title, String backdrop_path, Double popularity, Integer vote_count, Boolean video, Double vote_average) {
+    this.id = id;
+    this.media_type = media_type;
+    this.original_language = original_language;
+    this.title = title;
+    this.backdrop_path = backdrop_path;
+    this.popularity = popularity;
+    this.vote_count = vote_count;
+    this.video = video;
+    this.vote_average = vote_average;
   }
 
-  public void setAdult(Boolean adult) {
-    this.adult = adult;
-  }
-
-  public String getBackdropPath() {
-    return backdropPath;
-  }
-
-  public void setBackdropPath(String backdropPath) {
-    this.backdropPath = backdropPath;
-  }
-
-  public Object getBelongsToCollection() {
-    return belongsToCollection;
-  }
-
-  public void setBelongsToCollection(Object belongsToCollection) {
-    this.belongsToCollection = belongsToCollection;
-  }
-
-  public Integer getBudget() {
-    return budget;
-  }
-
-  public void setBudget(Integer budget) {
-    this.budget = budget;
-  }
-
-  public String getHomepage() {
-    return homepage;
-  }
-
-  public void setHomepage(String homepage) {
-    this.homepage = homepage;
+  public Movie() {
   }
 
   public Integer getId() {
@@ -118,93 +38,20 @@ public class Movie {
     this.id = id;
   }
 
-  public String getImdbId() {
-    return imdbId;
+  public String getMedia_type() {
+    return media_type;
   }
 
-  public void setImdbId(String imdbId) {
-    this.imdbId = imdbId;
+  public void setMedia_type(String media_type) {
+    this.media_type = media_type;
   }
 
-  public String getOriginalLanguage() {
-    return originalLanguage;
+  public String getOriginal_language() {
+    return original_language;
   }
 
-  public void setOriginalLanguage(String originalLanguage) {
-    this.originalLanguage = originalLanguage;
-  }
-
-  public String getOriginalTitle() {
-    return originalTitle;
-  }
-
-  public void setOriginalTitle(String originalTitle) {
-    this.originalTitle = originalTitle;
-  }
-
-  public String getOverview() {
-    return overview;
-  }
-
-  public void setOverview(String overview) {
-    this.overview = overview;
-  }
-
-  public Double getPopularity() {
-    return popularity;
-  }
-
-  public void setPopularity(Double popularity) {
-    this.popularity = popularity;
-  }
-
-  public String getPosterPath() {
-    return posterPath;
-  }
-
-  public void setPosterPath(String posterPath) {
-    this.posterPath = posterPath;
-  }
-
-
-  public String getReleaseDate() {
-    return releaseDate;
-  }
-
-  public void setReleaseDate(String releaseDate) {
-    this.releaseDate = releaseDate;
-  }
-
-  public Integer getRevenue() {
-    return revenue;
-  }
-
-  public void setRevenue(Integer revenue) {
-    this.revenue = revenue;
-  }
-
-  public Integer getRuntime() {
-    return runtime;
-  }
-
-  public void setRuntime(Integer runtime) {
-    this.runtime = runtime;
-  }
-
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public String getTagline() {
-    return tagline;
-  }
-
-  public void setTagline(String tagline) {
-    this.tagline = tagline;
+  public void setOriginal_language(String original_language) {
+    this.original_language = original_language;
   }
 
   public String getTitle() {
@@ -215,6 +62,30 @@ public class Movie {
     this.title = title;
   }
 
+  public String getBackdrop_path() {
+    return backdrop_path;
+  }
+
+  public void setBackdrop_path(String backdrop_path) {
+    this.backdrop_path = backdrop_path;
+  }
+
+  public Double getPopularity() {
+    return popularity;
+  }
+
+  public void setPopularity(Double popularity) {
+    this.popularity = popularity;
+  }
+
+  public Integer getVote_count() {
+    return vote_count;
+  }
+
+  public void setVote_count(Integer vote_count) {
+    this.vote_count = vote_count;
+  }
+
   public Boolean getVideo() {
     return video;
   }
@@ -223,21 +94,12 @@ public class Movie {
     this.video = video;
   }
 
-  public Double getVoteAverage() {
-    return voteAverage;
+  public Double getVote_average() {
+    return vote_average;
   }
 
-  public void setVoteAverage(Double voteAverage) {
-    this.voteAverage = voteAverage;
+  public void setVote_average(Double vote_average) {
+    this.vote_average = vote_average;
   }
-
-  public Integer getVoteCount() {
-    return voteCount;
-  }
-
-  public void setVoteCount(Integer voteCount) {
-    this.voteCount = voteCount;
-  }
-
 }
 

@@ -9,30 +9,27 @@ import java.io.IOException;
 import java.util.List;
 
 @Service
-public class MovieService implements ApiClient{
+public class MovieService{
 
-  MovieInterface service;
+  private final String token = "Bearer " + System.getenv("MOVIE_TOKEN");
+  private final String baseURL = "https://api.themoviedb.org/4/";
+  Retrofit retrofit = new Retrofit.Builder()
+      .baseUrl(baseURL)
+      .addConverterFactory(GsonConverterFactory.create())
+      .build();
 
-  public MovieService() {
-    Retrofit retrofit = new Retrofit.Builder()
-        .baseUrl(API_BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build();
+  MovieInterface movieService = retrofit.create(MovieInterface.class);
 
-    service = retrofit.create(MovieInterface.class);
+  public Result getResponse() throws IOException {
+    Call<Result> fetch = movieService.listMovies(this.token, 1);
+    Response<Result> result = fetch.execute();
+    return result.body();
   }
 
-  public List<Movie> getMovies() throws IOException {
-    Call<List<Movie>> retrofitCall = service.getMovies();
-
-    Response<List<Movie>> response = retrofitCall.execute();
-
-    if (!response.isSuccessful()) {
-      throw new IOException(response.errorBody() != null
-          ? response.errorBody().string() : "Unknown error");
-    }
-
-    return response.body();
+  public Result potPerson() throws IOException {
+    Call<Result> fetch = movieService.addMovie(this.token, new Movie());
+    Response<Result> result = fetch.execute();
+    return result.body();
   }
 }
 
