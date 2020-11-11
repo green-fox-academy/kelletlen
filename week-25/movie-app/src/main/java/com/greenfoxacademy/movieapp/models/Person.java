@@ -1,4 +1,4 @@
-package com.greenfoxacademy.movieapp;
+package com.greenfoxacademy.movieapp.models;
 
 public class Person {
   String name;

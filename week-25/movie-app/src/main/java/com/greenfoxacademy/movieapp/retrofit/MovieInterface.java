@@ -1,10 +1,9 @@
-package com.greenfoxacademy.movieapp;
+package com.greenfoxacademy.movieapp.retrofit;
 
-import org.springframework.web.bind.annotation.PostMapping;
+import com.greenfoxacademy.movieapp.models.Movie;
+import com.greenfoxacademy.movieapp.models.Result;
 import retrofit2.Call;
 import retrofit2.http.*;
-
-import java.util.List;
 
 public interface MovieInterface {
 

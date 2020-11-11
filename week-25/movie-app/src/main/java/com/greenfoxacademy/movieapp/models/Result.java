@@ -1,6 +1,7 @@
-package com.greenfoxacademy.movieapp;
+package com.greenfoxacademy.movieapp.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.greenfoxacademy.movieapp.models.Movie;
 
 import java.util.List;
 

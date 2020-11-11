@@ -1,11 +1,11 @@
-package com.greenfoxacademy.movieapp;
+package com.greenfoxacademy.movieapp.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.greenfoxacademy.movieapp.services.MovieService;
+import com.greenfoxacademy.movieapp.models.Result;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.util.List;
 
 @RestController
 public class MainRestController {
