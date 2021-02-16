@@ -25,7 +25,7 @@ public class Main {
     fleet1.add(red1);
     fleet1.add(blue1);
     fleet1.add(blue2);
-    Carrier carrier1 = new Carrier(fleet1,100, 30);
+    Carrier carrier1 = new Carrier(fleet1, 100, 30);
     try {
       carrier1.fill();
     } catch (Exception e) {

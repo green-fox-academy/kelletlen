@@ -16,9 +16,10 @@ public class LogService {
     this.logRepository = logRepository;
   }
 
-  public void save (Log entity) {
+  public void save(Log entity) {
     logRepository.save(entity);
   }
+
   public List<Log> findAll() {
     return logRepository.findAll();
   }

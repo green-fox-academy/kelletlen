@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Result {
 
-@JsonProperty("result")
+  @JsonProperty("result")
   private List<Movie> results;
 
   public Result(List<Movie> results) {

@@ -1,6 +1,6 @@
 package comparable;
 
-public class Domino implements Comparable <Domino> {
+public class Domino implements Comparable<Domino> {
   private final int left;
   private final int right;
 

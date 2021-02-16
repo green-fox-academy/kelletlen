@@ -21,21 +21,22 @@ public class TrickController {
     this.foxService = foxService;
     this.actionService = actionService;
   }
+
   final
   ActionService actionService;
 
-  @GetMapping(path="/trickCenter")
-  public String getTrickCenter (Model model, @RequestParam(name="name", required = false) String name) {
+  @GetMapping(path = "/trickCenter")
+  public String getTrickCenter(Model model, @RequestParam(name = "name", required = false) String name) {
     Fox fox = foxService.findByName(name);
     model.addAttribute("fox", fox);
     model.addAttribute("name", name);
     return "trickCenter";
   }
 
-  @PostMapping(path="/trickCenter")
-  public String postTrickCenter (Model model, @RequestParam(name="name", required = false) String name, @RequestParam(name="trick") String trick) {
+  @PostMapping(path = "/trickCenter")
+  public String postTrickCenter(Model model, @RequestParam(name = "name", required = false) String name, @RequestParam(name = "trick") String trick) {
     Fox fox1 = foxService.findByName(name);
-    for(String item: fox1.getTricks()) {
+    for (String item : fox1.getTricks()) {
       if (item.equals(trick)) {
         return "redirect:/?name=" + name;
       } else continue;

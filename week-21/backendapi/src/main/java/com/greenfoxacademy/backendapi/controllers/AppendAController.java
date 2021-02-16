@@ -20,12 +20,12 @@ public class AppendAController {
     this.logService = logService;
   }
 
-  @GetMapping(value="/appenda/{appendable}")
+  @GetMapping(value = "/appenda/{appendable}")
   public ResponseEntity<Object> getAppended(@PathVariable String appendable) {
     if (appendable != null) {
       Append append = new Append();
       append.setAppended(appendable.concat("a"));
-      logService.save(new Log("/appenda","input=" + appendable));
+      logService.save(new Log("/appenda", "input=" + appendable));
       return ResponseEntity.ok().body(append);
     } else {
       return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);

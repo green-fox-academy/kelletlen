@@ -12,7 +12,7 @@ public class HelloWebWorldController {
       "Sa-wat-dee", "Merhaba", "Selam", "Vitayu", "Xin chào", "Hylo", "Sut Mae", "Sholem Aleychem", "Sawubona"};
 
   @RequestMapping("/web/world/greeting")
-  public String worldGreeting (Model model) {
+  public String worldGreeting(Model model) {
     model.addAttribute("hello", hellos);
     return "worldGreeting";
   }

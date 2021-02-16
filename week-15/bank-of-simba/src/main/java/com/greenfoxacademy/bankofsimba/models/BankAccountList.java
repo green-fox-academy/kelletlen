@@ -3,7 +3,7 @@ package com.greenfoxacademy.bankofsimba.models;
 import java.util.ArrayList;
 
 public class BankAccountList {
- private ArrayList<BankAccount> accounts = new ArrayList<>();
+  private ArrayList<BankAccount> accounts = new ArrayList<>();
 
   public BankAccountList() {
     accounts.add(new BankAccount("Simba", 2000, "lion", true, "good"));
@@ -18,13 +18,15 @@ public class BankAccountList {
 
     return accounts;
   }
-  public void add (BankAccount bankAccount) {
+
+  public void add(BankAccount bankAccount) {
 
     accounts.add(bankAccount);
   }
-  public void raise (String input) {
-    for(BankAccount animal: accounts) {
-      if(!animal.getName().equals(input))
+
+  public void raise(String input) {
+    for (BankAccount animal : accounts) {
+      if (!animal.getName().equals(input))
         continue;
       animal.setBalance(animal.getBalance() + (animal.isKing() ? 100 : 10));
     }

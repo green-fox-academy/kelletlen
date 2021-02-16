@@ -10,7 +10,6 @@ public class BankAccount {
   private String moralAttitude;
 
 
-
   public BankAccount(String name, double balance, String animalType, boolean isKing, String moralAttitude) {
     this.name = name;
     this.balance = balance;
@@ -32,6 +31,7 @@ public class BankAccount {
 
     return animalType;
   }
+
   public boolean isKing() {
 
     return isKing;

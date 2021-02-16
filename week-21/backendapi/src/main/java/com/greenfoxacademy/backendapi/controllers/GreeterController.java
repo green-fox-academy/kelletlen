@@ -34,7 +34,7 @@ public class GreeterController {
     } else if (name != null) {
       return ResponseEntity.badRequest().body(new Error("Please provide a title!"));
     } else {
-      return ResponseEntity.badRequest().body(new Error ("Please provide a name and a title!"));
+      return ResponseEntity.badRequest().body(new Error("Please provide a name and a title!"));
     }
   }
 }

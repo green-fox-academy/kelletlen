@@ -1,4 +1,5 @@
 package com.greenfoxacademy.movieapp.services;
+
 import com.greenfoxacademy.movieapp.retrofit.MovieInterface;
 import com.greenfoxacademy.movieapp.models.Result;
 import com.greenfoxacademy.movieapp.models.Movie;
@@ -11,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.io.IOException;
 
 @Service
-public class MovieService{
+public class MovieService {
 
   private final String token = "Bearer " + System.getenv("MOVIE_TOKEN");
   private final String baseURL = "https://api.themoviedb.org/4/";
@@ -28,7 +29,7 @@ public class MovieService{
     return result.body();
   }
 
-  public Result potPerson() throws IOException {
+  public Result postPerson() throws IOException {
     Call<Result> fetch = movieService.addMovie(this.token, new Movie());
     Response<Result> result = fetch.execute();
     return result.body();

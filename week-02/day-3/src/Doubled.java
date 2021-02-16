@@ -13,10 +13,10 @@ public class Doubled {
       List<String> newContent = new ArrayList<>();
       Path filePath2 = Paths.get("assets/chars.txt");
       StringBuilder sb = new StringBuilder();
-      for (int i = 0; i < content.size() ; i++) {
+      for (int i = 0; i < content.size(); i++) {
         String line = content.get(i);
         for (int j = 0; j < line.length(); j++) {
-          if (j%2 == 0) {
+          if (j % 2 == 0) {
             sb.append(line.charAt(j));
           }
         }

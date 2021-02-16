@@ -19,32 +19,36 @@ public class MainController {
     this.studentService = studentService;
   }
 
-  @GetMapping(path="/gfa")
-  public String main (Model model) {
+  @GetMapping(path = "/gfa")
+  public String main(Model model) {
     model.addAttribute("number", studentService.count());
     return "gfa";
   }
-  @GetMapping(path="/gfa/list")
-  public String listStudents (Model model) {
+
+  @GetMapping(path = "/gfa/list")
+  public String listStudents(Model model) {
     model.addAttribute("names", studentService.findAll());
     return "list";
   }
-  @GetMapping(path="/gfa/add")
-  public String addStudent () {
+
+  @GetMapping(path = "/gfa/add")
+  public String addStudent() {
     return "add";
   }
 
-  @PostMapping(path="/gfa/save")
-  public String saveStudent (@RequestParam(name="name") String name) {
+  @PostMapping(path = "/gfa/save")
+  public String saveStudent(@RequestParam(name = "name") String name) {
     studentService.save(name);
     return "redirect:/gfa/list";
   }
-  @GetMapping(path="/gfa/check")
-  public String studentChecker () {
+
+  @GetMapping(path = "/gfa/check")
+  public String studentChecker() {
     return "checker";
   }
-  @PostMapping(path="/gfa/check")
-  public String checkStudent (@RequestParam(name="name") String name, Model model) {
+
+  @PostMapping(path = "/gfa/check")
+  public String checkStudent(@RequestParam(name = "name") String name, Model model) {
     if (studentService.checkIfInList(name)) {
       model.addAttribute("result", "The student is on the list.");
     } else {

@@ -27,7 +27,8 @@ public class Garden {
 
     }
   }
-  public void getState () {
+
+  public void getState() {
     for (Plant p : plants) {
       if (p.needsWater()) {
         System.out.println("The " + p.getColor() + " " + p.getKind() + " needs water");

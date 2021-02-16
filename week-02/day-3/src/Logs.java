@@ -15,7 +15,7 @@ public class Logs {
     // Write a function that returns the GET / POST request ratio.
 
     //System.out.println(getIPAddresses(readFile("log.txt")).toString());
-    List <String> IPAddresses = getFragment(readFile("log.txt"), 8);
+    List<String> IPAddresses = getFragment(readFile("log.txt"), 8);
 
     //for (int i = 0; i < IPAddresses.size(); i++) {
     //}
@@ -23,10 +23,10 @@ public class Logs {
     System.out.println(uniqueAddresses.toString());
 
     System.out.println(getFragment(readFile("log.txt"), 11));
-    List <String> postAndGet = getFragment(readFile("log.txt"), 11);
-    ArrayList <String> post = new ArrayList<>();
-    ArrayList <String> get = new ArrayList<>();
-    for (int i = 0; i < postAndGet.size() ; i++) {
+    List<String> postAndGet = getFragment(readFile("log.txt"), 11);
+    ArrayList<String> post = new ArrayList<>();
+    ArrayList<String> get = new ArrayList<>();
+    for (int i = 0; i < postAndGet.size(); i++) {
       if (postAndGet.get(i).equals("POST")) {
         post.add(postAndGet.get(i));
       } else if (postAndGet.get(i).equals("GET")) {
@@ -37,7 +37,7 @@ public class Logs {
     System.out.println(get);
   }
 
-  public static List<String> getFragment (List<String> content, int index) {
+  public static List<String> getFragment(List<String> content, int index) {
     List<String> IPAddresses = new ArrayList<>();
     for (int i = 0; i < content.size(); i++) {
       String line = content.get(i);

@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class StockAverageRESTController {
   ItemList itemList = new ItemList();
 
-  @RequestMapping(value="/webshop/stockaverage")
-  public String getStockAverage (Model model) {
-      model.addAttribute("item", "Average stock:" + itemList.getStockAverage());
+  @RequestMapping(value = "/webshop/stockaverage")
+  public String getStockAverage(Model model) {
+    model.addAttribute("item", "Average stock:" + itemList.getStockAverage());
     return "forSingleData";
   }
 }

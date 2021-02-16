@@ -5,9 +5,10 @@ public class Violin extends StringedInstrument {
     numberOfStrings = 4;
     name = "Violin";
   }
-  public Violin (int Strings) {
+
+  public Violin(int Strings) {
     numberOfStrings = Strings;
-    name= "Violin";
+    name = "Violin";
   }
 
   @Override

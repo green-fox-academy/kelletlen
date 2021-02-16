@@ -21,7 +21,7 @@ public class WriteMultipleLines {
 
   public static void writeIntoAFile(String path, String word, int lines) {
     List<String> content = new ArrayList();
-    for (int i = 0; i < lines ; i++) {
+    for (int i = 0; i < lines; i++) {
       content.add(word);
     }
     try {

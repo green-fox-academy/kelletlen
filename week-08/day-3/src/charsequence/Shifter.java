@@ -12,7 +12,7 @@ public class Shifter implements CharSequence {
   @Override
   public int length() {
 
-    return toBeShifted.length()- shiftWith;
+    return toBeShifted.length() - shiftWith;
   }
 
   @Override
@@ -23,6 +23,6 @@ public class Shifter implements CharSequence {
 
   @Override
   public CharSequence subSequence(int start, int end) {
-    return toBeShifted.subSequence(start +shiftWith, end + shiftWith);
+    return toBeShifted.subSequence(start + shiftWith, end + shiftWith);
   }
 }

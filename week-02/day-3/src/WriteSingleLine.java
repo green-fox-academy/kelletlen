@@ -15,7 +15,8 @@ public class WriteSingleLine {
     // It should print the following error message: "Unable to write file: my-file.txt"
 
   }
-  public static void writeNameToFile (String fileName) {
+
+  public static void writeNameToFile(String fileName) {
     List<String> content = new ArrayList();
     content.add("kelletlen");
     try {

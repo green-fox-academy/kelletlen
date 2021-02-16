@@ -21,13 +21,13 @@ public class ProductDatabase {
     Integer[] prices = new Integer[array.length];
 
     for (int i = 0; i < array.length; i++) {
-      prices[i] = (Integer)array[i];
+      prices[i] = (Integer) array[i];
     }
     Arrays.sort(prices);
-    int mostExpensive = prices[prices.length -1];
+    int mostExpensive = prices[prices.length - 1];
 
-    for (Map.Entry<String, Integer> entry: productDatabase.entrySet()) {
-      if (entry.getValue().equals (mostExpensive)) {
+    for (Map.Entry<String, Integer> entry : productDatabase.entrySet()) {
+      if (entry.getValue().equals(mostExpensive)) {
         System.out.println("The most expensive product is: " + entry.getKey());
       }
     }
@@ -36,30 +36,30 @@ public class ProductDatabase {
     for (int i = 0; i < prices.length; i++) {
       sum += prices[i];
     }
-    int average = sum/prices.length;
+    int average = sum / prices.length;
     System.out.println("The average price is: " + average);
 
     int below300 = 0;
 
     for (int i = 0; i < prices.length; i++) {
-      if (prices[i]  < 300) {
-        below300 = below300 +1;
+      if (prices[i] < 300) {
+        below300 = below300 + 1;
       }
     }
     System.out.println("Products below 300: " + below300);
 
-   List<Integer> pricesList = Arrays.asList(prices);
+    List<Integer> pricesList = Arrays.asList(prices);
 
-   if(pricesList.contains(125)) {
-     System.out.println("Yes, there is something we can buy for exactly 125.");
-   } else {
-     System.out.println("No, we can't buy anything for exactly 125.");
-   }
+    if (pricesList.contains(125)) {
+      System.out.println("Yes, there is something we can buy for exactly 125.");
+    } else {
+      System.out.println("No, we can't buy anything for exactly 125.");
+    }
 
-   int cheapest = prices[0];
+    int cheapest = prices[0];
 
-    for (Map.Entry<String, Integer> entry: productDatabase.entrySet()) {
-      if (entry.getValue().equals (cheapest)) {
+    for (Map.Entry<String, Integer> entry : productDatabase.entrySet()) {
+      if (entry.getValue().equals(cheapest)) {
         System.out.println("The cheapest product is: " + entry.getKey());
       }
     }

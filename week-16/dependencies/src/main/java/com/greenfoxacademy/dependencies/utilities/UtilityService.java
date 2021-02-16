@@ -38,6 +38,7 @@ public class UtilityService {
     }
     return result;
   }
+
   public String validateEmail(String s) {
     if (s.contains(".") && s.contains("@")) {
       return s + " is a valid e-mail address";

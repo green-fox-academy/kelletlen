@@ -3,8 +3,10 @@ import javax.swing.*;
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+
 public class SierpinskyCarpet {
   private static final int LIMIT = 4;
+
   public static void mainDraw(Graphics graphics) {
 
     int x = WIDTH / 3;
@@ -25,19 +27,20 @@ public class SierpinskyCarpet {
 
 
   }
-  public static void drawSierpienskyCarpet (Graphics graphics, int x, int y, int size, int counter){
+
+  public static void drawSierpienskyCarpet(Graphics graphics, int x, int y, int size, int counter) {
     if (counter > LIMIT) {
       return;
     }
     graphics.fillRect(x, y, size, size);
-    drawSierpienskyCarpet(graphics, x - ((size / 3) * 2), y - ((size / 3) * 2), size / 3, counter+1);
-    drawSierpienskyCarpet(graphics, x + (size / 3), y - ((size / 3) * 2), size / 3, counter+1);
-    drawSierpienskyCarpet(graphics, x + (size + size/3), y - ((size / 3) * 2), size / 3, counter+1);
-    drawSierpienskyCarpet(graphics,x - ((size / 3) * 2), y + (size / 3), size / 3, counter+1);
-    drawSierpienskyCarpet(graphics, x - ((size / 3) * 2), y + (size + size/3), size / 3, counter+1);
-    drawSierpienskyCarpet(graphics,x + (size / 3), y + (size + size/3), size / 3, counter+1 );
-    drawSierpienskyCarpet(graphics, x + (size + size/3), y + (size + size/3), size / 3, counter+1);
-    drawSierpienskyCarpet(graphics, x + (size + size/3), y + (size / 3), size / 3, counter+1);
+    drawSierpienskyCarpet(graphics, x - ((size / 3) * 2), y - ((size / 3) * 2), size / 3, counter + 1);
+    drawSierpienskyCarpet(graphics, x + (size / 3), y - ((size / 3) * 2), size / 3, counter + 1);
+    drawSierpienskyCarpet(graphics, x + (size + size / 3), y - ((size / 3) * 2), size / 3, counter + 1);
+    drawSierpienskyCarpet(graphics, x - ((size / 3) * 2), y + (size / 3), size / 3, counter + 1);
+    drawSierpienskyCarpet(graphics, x - ((size / 3) * 2), y + (size + size / 3), size / 3, counter + 1);
+    drawSierpienskyCarpet(graphics, x + (size / 3), y + (size + size / 3), size / 3, counter + 1);
+    drawSierpienskyCarpet(graphics, x + (size + size / 3), y + (size + size / 3), size / 3, counter + 1);
+    drawSierpienskyCarpet(graphics, x + (size + size / 3), y + (size / 3), size / 3, counter + 1);
 
   }
 

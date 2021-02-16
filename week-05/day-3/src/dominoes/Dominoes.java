@@ -14,9 +14,7 @@ public class Dominoes {
     List<Domino> dominoSnake = new ArrayList<>();
 
 
-
-
-    }
+  }
 
 
   static List<Domino> initializeDominoes() {

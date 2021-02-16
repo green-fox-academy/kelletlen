@@ -10,7 +10,7 @@ public class ListOnlyAvailableController {
   ItemList itemList = new ItemList();
 
 
-  @RequestMapping(value="/webshop/listavailable")
+  @RequestMapping(value = "/webshop/listavailable")
   public String renderAvailable(Model model) {
     model.addAttribute("item", itemList.getAvailableItems());
     return "webShop";

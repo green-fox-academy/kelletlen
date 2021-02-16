@@ -20,6 +20,7 @@ public class Person {
   public void introduce() {
     System.out.println("Hi, I'm " + name + ", a " + age + " year old " + gender + ".");
   }
+
   public void getGoal() {
     System.out.println("My goal is: live for the moment!");
   }

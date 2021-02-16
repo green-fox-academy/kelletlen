@@ -4,7 +4,8 @@ public class stringsAgain {
     System.out.println(removeX("asdasdaxxxxxxasdxxasd"));
 
   }
-  public static String removeX (String input) {
+
+  public static String removeX(String input) {
     if (input.isEmpty()) return "";
     char c = input.charAt(0);
     if (c != 'x') {

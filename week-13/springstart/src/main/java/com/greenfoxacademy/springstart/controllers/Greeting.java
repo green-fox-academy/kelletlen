@@ -27,7 +27,8 @@ public class Greeting {
 
     return greetCount;
   }
-  public static void incrementGreetCount () {
+
+  public static void incrementGreetCount() {
 
     greetCount.getAndIncrement();
   }

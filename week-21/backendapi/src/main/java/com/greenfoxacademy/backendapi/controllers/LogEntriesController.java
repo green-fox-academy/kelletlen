@@ -15,8 +15,8 @@ public class LogEntriesController {
     this.logService = logService;
   }
 
-  @GetMapping(value="/log")
-  public ResponseEntity <Object> getLogs () {
+  @GetMapping(value = "/log")
+  public ResponseEntity<Object> getLogs() {
 
     return ResponseEntity.ok().body(logService.getLogEntries());
   }

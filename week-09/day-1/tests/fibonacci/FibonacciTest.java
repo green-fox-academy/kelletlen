@@ -7,8 +7,9 @@ import static org.junit.Assert.*;
 
 public class FibonacciTest {
   Fibonacci f;
+
   @Before
-  public void setup () {
+  public void setup() {
     f = new Fibonacci();
   }
 
@@ -16,10 +17,12 @@ public class FibonacciTest {
   public void fibonacciWhenNegative() {
     assertEquals(f.fibonacci(-3), 0);
   }
+
   @Test
-  public void fibonacciWhenZero () {
+  public void fibonacciWhenZero() {
     assertEquals(f.fibonacci(0), 0);
   }
+
   @Test
   public void fibonacciWhenPositive() {
     assertEquals(f.fibonacci(5), 5);

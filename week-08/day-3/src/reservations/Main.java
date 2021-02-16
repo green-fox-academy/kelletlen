@@ -7,13 +7,13 @@ public class Main {
     Reservation reservation1 = new Reservation();
     System.out.println(reservation1.getReservation());
 
-    ArrayList <Reservation> reservations = new ArrayList<>();
+    ArrayList<Reservation> reservations = new ArrayList<>();
 
-    for (int i = 0; i < 10 ; i++) {
+    for (int i = 0; i < 10; i++) {
       reservations.add(new Reservation());
     }
-    for (Reservation r: reservations) {
-     System.out.println(r.getReservation());
+    for (Reservation r : reservations) {
+      System.out.println(r.getReservation());
     }
   }
 }

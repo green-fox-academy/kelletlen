@@ -27,16 +27,16 @@ public class DoUntilController {
     this.logService = logService;
   }
 
-  @PostMapping(value="/dountil/{action}")
-  public ResponseEntity<Object> doUntil (@PathVariable String action, @RequestBody DoUntil dountil) {
-      if (action.equals("sum")) {
-        logService.save(new Log("/dountil/sum", "input=" + String.valueOf(dountil.getUntil())));
-        return ResponseEntity.ok().body(new DoUntil(doUntilService.sum(dountil.getUntil())));
-      } else if (action.equals("factor")) {
-        logService.save(new Log("/dountil/factor","input=" + String.valueOf(dountil.getUntil())));
-        return ResponseEntity.ok().body(new DoUntil(doUntilService.factor(dountil.getUntil())));
-      } else {
-        return ResponseEntity.badRequest().body(new Error("Please provide a number!"));
-      }
+  @PostMapping(value = "/dountil/{action}")
+  public ResponseEntity<Object> doUntil(@PathVariable String action, @RequestBody DoUntil dountil) {
+    if (action.equals("sum")) {
+      logService.save(new Log("/dountil/sum", "input=" + String.valueOf(dountil.getUntil())));
+      return ResponseEntity.ok().body(new DoUntil(doUntilService.sum(dountil.getUntil())));
+    } else if (action.equals("factor")) {
+      logService.save(new Log("/dountil/factor", "input=" + String.valueOf(dountil.getUntil())));
+      return ResponseEntity.ok().body(new DoUntil(doUntilService.factor(dountil.getUntil())));
+    } else {
+      return ResponseEntity.badRequest().body(new Error("Please provide a number!"));
+    }
   }
 }

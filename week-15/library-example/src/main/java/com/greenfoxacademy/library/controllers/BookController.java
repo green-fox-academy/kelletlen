@@ -19,7 +19,7 @@ public class BookController {
   }
 
   @RequestMapping(path = "/books", method = RequestMethod.GET)
-  public String showBooks(Model model, @RequestParam(name="author", required=false) String author) {
+  public String showBooks(Model model, @RequestParam(name = "author", required = false) String author) {
 
     List<Book> queriedBooks;
 
@@ -51,18 +51,21 @@ public class BookController {
 
     return "details";
   }
+
   private List<Book> filterBooksByAuthor(String author) {
     return books.stream()
         .filter(book -> book.getAuthor().equals(author))
         .collect(Collectors.toList());
   }
+
   @RequestMapping(path = "/books/add", method = RequestMethod.GET)
-  public String addBookForm(Model model, @ModelAttribute(name="book") Book book) {
+  public String addBookForm(Model model, @ModelAttribute(name = "book") Book book) {
     model.addAttribute("book", book);
     return "create";
   }
+
   @RequestMapping(path = "/books/add", method = RequestMethod.POST)
-  public String addBook(@ModelAttribute(name="book") Book book) {
+  public String addBook(@ModelAttribute(name = "book") Book book) {
     books.add(book);
     return "redirect:/books";
   }

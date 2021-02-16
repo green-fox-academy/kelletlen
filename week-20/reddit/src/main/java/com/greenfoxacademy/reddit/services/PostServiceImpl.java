@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PostServiceImpl implements PostService{
+public class PostServiceImpl implements PostService {
 
   private final
   PostRepository postRepository;
@@ -34,8 +34,8 @@ public class PostServiceImpl implements PostService{
 
   @Override
   public void upVote(long id) {
-  Post post = postRepository.findAllById(id);
-  post.increaseScore();
+    Post post = postRepository.findAllById(id);
+    post.increaseScore();
   }
 
   @Override

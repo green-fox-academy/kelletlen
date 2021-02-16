@@ -25,10 +25,12 @@ public class StudentService {
 
     names.add(student);
   }
+
   public int count() {
     return names.size();
   }
-  public boolean checkIfInList (String student) {
+
+  public boolean checkIfInList(String student) {
     return names.contains(student);
   }
 }

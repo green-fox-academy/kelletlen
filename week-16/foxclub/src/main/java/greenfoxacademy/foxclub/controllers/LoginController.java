@@ -24,15 +24,16 @@ public class LoginController {
     this.foxService = foxService;
     this.userService = userService;
   }
-  @GetMapping(path="/")
-  public String getLogin (@RequestParam(name = "warn", required = false, defaultValue = "false") boolean warn, Model model) {
+
+  @GetMapping(path = "/")
+  public String getLogin(@RequestParam(name = "warn", required = false, defaultValue = "false") boolean warn, Model model) {
     model.addAttribute("warn", warn);
     return "login";
   }
 
-  @PostMapping(path="/")
-  public String postLogin (@RequestParam(name="username") String username,
-                           @RequestParam(name="password")String password) {
+  @PostMapping(path = "/")
+  public String postLogin(@RequestParam(name = "username") String username,
+                          @RequestParam(name = "password") String password) {
     User user = userService.findByUsernameAndPassword(username, password);
     if (user == null) {
       return "redirect:/?warn=true";

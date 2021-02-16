@@ -8,14 +8,15 @@ public abstract class Aircraft {
   int allDamage;
   int toFill = maxAmmo - ammo;
 
-  protected int fight () {
-    int damage = baseDamage*ammo;
+  protected int fight() {
+    int damage = baseDamage * ammo;
     this.ammo = 0;
     allDamage += damage;
     return damage;
 
   }
-  protected int refill (int number) {
+
+  protected int refill(int number) {
     if (number > toFill) {
       ammo = maxAmmo;
       return number - toFill;
@@ -24,9 +25,13 @@ public abstract class Aircraft {
     }
     return 0;
   }
-  protected abstract String getType ();
-  protected abstract String getStatus ();
-  protected abstract boolean isPriority ();
+
+  protected abstract String getType();
+
+  protected abstract String getStatus();
+
+  protected abstract boolean isPriority();
+
   protected int getToFill() {
     return toFill;
   }

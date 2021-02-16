@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HelloResource {
 
-  @GetMapping(path="/hello")
+  @GetMapping(path = "/hello")
   public String hello() {
     return "Hello World";
   }

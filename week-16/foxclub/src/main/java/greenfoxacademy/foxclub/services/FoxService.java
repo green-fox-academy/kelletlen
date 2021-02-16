@@ -21,6 +21,7 @@ public class FoxService {
 
     return foxRepository.save(fox);
   }
+
   public Fox findByName(String name) {
     return foxRepository.findByName(name);
   }

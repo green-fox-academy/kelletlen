@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class Search {
   ItemList itemList = new ItemList();
 
-  @PostMapping(path= "/webshop/search")
-  public String searchShop (Model model, @RequestParam(name = "search")String searchWord) {
+  @PostMapping(path = "/webshop/search")
+  public String searchShop(Model model, @RequestParam(name = "search") String searchWord) {
     model.addAttribute("item", itemList.search(searchWord));
     return "webshop";
   }

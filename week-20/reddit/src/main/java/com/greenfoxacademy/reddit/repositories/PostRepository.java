@@ -10,6 +10,7 @@ import java.util.List;
 public interface PostRepository extends CrudRepository<Post, Long> {
 
   Post findAllById(long id);
+
   List<Post> findAllByOrderByScoreDesc();
 
 }

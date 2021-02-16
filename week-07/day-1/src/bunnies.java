@@ -4,8 +4,9 @@ public class bunnies {
     System.out.println(countBunnyEars(6));
 
   }
-  public static int countBunnyEars( int numberOfBunnies) {
-    if (numberOfBunnies < 0 ) return 0;
+
+  public static int countBunnyEars(int numberOfBunnies) {
+    if (numberOfBunnies < 0) return 0;
     if (numberOfBunnies == 0) return 0;
     if (numberOfBunnies == 1) return 2;
     return numberOfBunnies * countBunnyEars(1);

@@ -21,12 +21,13 @@ public class MainController {
     this.foxService = foxService;
     this.actionService = actionService;
   }
+
   final
   ActionService actionService;
 
   @GetMapping(path = "/main")
   public String root(Model model, @RequestParam(name = "name", required = false) String name,
-                     @RequestParam (name="username") String username) {
+                     @RequestParam(name = "username") String username) {
     if (name == null || name.isEmpty()) {
       return "redirect:/login";
     } else {

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class ItemList {
-  ArrayList <ShopItem> shopItems = new ArrayList();
+  ArrayList<ShopItem> shopItems = new ArrayList();
 
 
   public ItemList() {
@@ -21,22 +21,28 @@ public class ItemList {
 
     return shopItems;
   }
+
   public ArrayList<ShopItem> getAvailableItems() {
-    return shopItems.stream().filter(p ->p.getQuantityOfStock() > 0).collect(Collectors.toCollection(ArrayList:: new));
+    return shopItems.stream().filter(p -> p.getQuantityOfStock() > 0).collect(Collectors.toCollection(ArrayList::new));
   }
-  public ArrayList <ShopItem> orderByCheapest() {
+
+  public ArrayList<ShopItem> orderByCheapest() {
     return shopItems.stream().sorted().collect(Collectors.toCollection(ArrayList::new));
   }
-  public ArrayList <ShopItem> containsNike() {
-    return shopItems.stream().filter(p -> p.getName().contains("Nike") || p.getDescription().contains("Nike")).collect(Collectors.toCollection(ArrayList:: new));
+
+  public ArrayList<ShopItem> containsNike() {
+    return shopItems.stream().filter(p -> p.getName().contains("Nike") || p.getDescription().contains("Nike")).collect(Collectors.toCollection(ArrayList::new));
   }
+
   public double getStockAverage() {
-    return shopItems.stream().map(p -> p.getQuantityOfStock()).mapToInt((p) ->p).summaryStatistics().getAverage();
+    return shopItems.stream().map(p -> p.getQuantityOfStock()).mapToInt((p) -> p).summaryStatistics().getAverage();
   }
+
   public String getMostExpensive() {
-    return shopItems.stream().sorted().map(p ->p.getName()).reduce((first, second) -> second).orElse(null);
+    return shopItems.stream().sorted().map(p -> p.getName()).reduce((first, second) -> second).orElse(null);
   }
-  public ArrayList <ShopItem> search(String searchWord) {
-    return shopItems.stream().filter(p -> p.getName().contains(searchWord) || p.getDescription().contains(searchWord)).collect(Collectors.toCollection(ArrayList:: new));
+
+  public ArrayList<ShopItem> search(String searchWord) {
+    return shopItems.stream().filter(p -> p.getName().contains(searchWord) || p.getDescription().contains(searchWord)).collect(Collectors.toCollection(ArrayList::new));
   }
 }

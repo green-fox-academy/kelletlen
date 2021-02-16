@@ -11,14 +11,15 @@ import java.util.concurrent.atomic.AtomicLong;
 public class HelloWebController {
 
   private static AtomicLong loadCounter = new AtomicLong();
-  public static void incrementLoadCounter () {
+
+  public static void incrementLoadCounter() {
 
     loadCounter.getAndIncrement();
   }
 
 
   @RequestMapping("/web/greeting")
-  public String greeting(@RequestParam(name="name", required = false) String name, Model model) {
+  public String greeting(@RequestParam(name = "name", required = false) String name, Model model) {
     model.addAttribute("name", name);
     model.addAttribute("counter", loadCounter);
     incrementLoadCounter();

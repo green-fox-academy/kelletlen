@@ -22,7 +22,7 @@ public class Triangles {
         b = b + 20;
         c = c + 20;
       }
-      for (int k = 0; k < 20; i = i+2) {
+      for (int k = 0; k < 20; i = i + 2) {
         int[] xPoints = {a, b, c};
         int[] yPoints = {getHeight(20), 0, getHeight(20)};
         graphics.setColor(Color.black);
@@ -32,7 +32,6 @@ public class Triangles {
         c = c + 20;
 
       }
-
 
 
     }

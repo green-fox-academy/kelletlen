@@ -68,11 +68,13 @@ public class Post {
 
     return creation;
   }
-  public void increaseScore () {
-    this.score = this.score +1;
+
+  public void increaseScore() {
+    this.score = this.score + 1;
   }
-  public void decreaseScore () {
-    this.score = this.score-1;
+
+  public void decreaseScore() {
+    this.score = this.score - 1;
   }
 
   public void setUser(User user) {
@@ -82,7 +84,8 @@ public class Post {
   public User getUser() {
     return user;
   }
-  public String getUserName () {
+
+  public String getUserName() {
     return user.getUsername();
   }
 }

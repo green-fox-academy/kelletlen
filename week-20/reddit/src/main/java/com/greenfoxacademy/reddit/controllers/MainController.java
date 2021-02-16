@@ -19,8 +19,8 @@ public class MainController {
   final
   UserServiceImpl userService;
 
- final
- PostServiceImpl postService;
+  final
+  PostServiceImpl postService;
 
   public MainController(PostServiceImpl postService, UserServiceImpl userService) {
     this.postService = postService;
@@ -28,9 +28,9 @@ public class MainController {
   }
 
 
-  @GetMapping(value="/")
-  public String getPosts (Model model, @RequestParam(name="id" , required= false) Long id) {
-    if(id==null) {
+  @GetMapping(value = "/")
+  public String getPosts(Model model, @RequestParam(name = "id", required = false) Long id) {
+    if (id == null) {
       return "redirect:/login";
     }
     model.addAttribute("posts", postService.findAllByScoreDesc());
@@ -39,26 +39,26 @@ public class MainController {
     return "index";
   }
 
-  @GetMapping(value="/submit")
-  public String getSubmit (@RequestParam(name="id") long id, Model model) {
+  @GetMapping(value = "/submit")
+  public String getSubmit(@RequestParam(name = "id") long id, Model model) {
     model.addAttribute("id", id);
     return "submit";
   }
 
-  @PostMapping(value="/submit")
-  public String postSubmit (@RequestParam(name="title") String title,
-                            @RequestParam(name="url") String url,
-                            @RequestParam(name="id") long id) {
+  @PostMapping(value = "/submit")
+  public String postSubmit(@RequestParam(name = "title") String title,
+                           @RequestParam(name = "url") String url,
+                           @RequestParam(name = "id") long id) {
     Post post = new Post(title, url);
     post.setUser(userService.findById(id));
     postService.save(post);
     return "redirect:/?id=" + id;
   }
-  
-  @GetMapping(value="/upVote/{postId}")
-  public String upVote (@PathVariable long postId,
-                        @RequestParam(name="id") long id) {
-    if(userService.isInUpVoted(id, postId)) {
+
+  @GetMapping(value = "/upVote/{postId}")
+  public String upVote(@PathVariable long postId,
+                       @RequestParam(name = "id") long id) {
+    if (userService.isInUpVoted(id, postId)) {
       return "redirect:/?id=" + id;
     } else {
       postService.upVote(postId);
@@ -69,9 +69,9 @@ public class MainController {
     return "redirect:/?id=" + id;
   }
 
-  @GetMapping(value="/downVote/{postId}")
-  public String downVote (@PathVariable long postId,
-                          @RequestParam(name="id") long id) {
+  @GetMapping(value = "/downVote/{postId}")
+  public String downVote(@PathVariable long postId,
+                         @RequestParam(name = "id") long id) {
     if (userService.isInDownVoted(id, postId)) {
       return "redirect:/?id=" + id;
     } else {
@@ -83,27 +83,30 @@ public class MainController {
     return "redirect:/?id=" + id;
   }
 
-  @GetMapping (value="/register")
-  public String getRegister () {
+  @GetMapping(value = "/register")
+  public String getRegister() {
     return "register";
   }
-  @PostMapping (value="/register")
-  public String postRegister (@RequestParam(name="username") String name,
-                              @RequestParam(name="password") String password) {
+
+  @PostMapping(value = "/register")
+  public String postRegister(@RequestParam(name = "username") String name,
+                             @RequestParam(name = "password") String password) {
     User user = new User(name, password);
     userService.save(user);
     long id = userService.findIdByUsernameAndPassword(name, password);
     return "redirect:/?id=" + id;
   }
-  @GetMapping(value="/login")
-  public String getLogin () {
+
+  @GetMapping(value = "/login")
+  public String getLogin() {
     return "login";
   }
-  @PostMapping(value="/login")
-  public String postLogin (@RequestParam(name="username") String name,
-                           @RequestParam(name="password") String password,
-                           Model model) {
-    if(userService.findByUsernameAndPassword(name, password) == null) {
+
+  @PostMapping(value = "/login")
+  public String postLogin(@RequestParam(name = "username") String name,
+                          @RequestParam(name = "password") String password,
+                          Model model) {
+    if (userService.findByUsernameAndPassword(name, password) == null) {
       model.addAttribute("fail", "Wrong username or password!");
       return "login";
     } else {

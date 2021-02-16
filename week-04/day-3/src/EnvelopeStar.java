@@ -12,7 +12,7 @@ public class EnvelopeStar {
     int x2 = 160;
     int y2 = 0;
 
-    for ( int i = 0; i < 16; i++) {
+    for (int i = 0; i < 16; i++) {
       graphics.setColor(Color.GREEN);
       graphics.drawLine(x1, y1, x2, y2);
       x1 = x1 + 10;
@@ -24,7 +24,7 @@ public class EnvelopeStar {
     int a2 = 160;
     int b2 = 0;
 
-    for (int i = 0; i < 16 ; i++) {
+    for (int i = 0; i < 16; i++) {
       graphics.setColor(Color.GREEN);
       graphics.drawLine(a1, b1, a2, b2);
       a1 = a1 - 10;
@@ -49,15 +49,12 @@ public class EnvelopeStar {
     int e2 = 160;
     int f2 = 320;
 
-    for (int i = 0; i < 16 ; i++) {
+    for (int i = 0; i < 16; i++) {
       graphics.setColor(Color.GREEN);
       graphics.drawLine(e1, f1, e2, f2);
       e1 = e1 + 10;
-      f2 = f2 -10;
+      f2 = f2 - 10;
     }
-
-
-
 
 
   }

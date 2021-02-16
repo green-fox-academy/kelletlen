@@ -14,7 +14,8 @@ public class Pokemon {
   boolean isEffectiveAgainst(Pokemon anotherPokemon) {
     return this.effectiveAgainst.equals(anotherPokemon.type);
   }
-  public String getName () {
+
+  public String getName() {
 
     return name;
   }

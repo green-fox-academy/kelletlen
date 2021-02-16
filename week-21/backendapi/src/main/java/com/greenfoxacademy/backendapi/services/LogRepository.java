@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface LogRepository extends CrudRepository<Log, Long> {
-    List<Log> findAll();
+  List<Log> findAll();
 }

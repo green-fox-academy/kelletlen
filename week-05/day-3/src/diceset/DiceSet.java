@@ -1,4 +1,5 @@
 package diceset;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -51,14 +52,14 @@ public class DiceSet {
     int counter = 0;
 
     for (int i = 0; i < 6; i++) {
-      while (diceSet.getCurrent(i) !=6) {
+      while (diceSet.getCurrent(i) != 6) {
         diceSet.reroll(i);
-        counter +=1;
+        counter += 1;
       }
     }
     System.out.println(diceSet.getCurrent());
 
 
   }
-  }
+}
 

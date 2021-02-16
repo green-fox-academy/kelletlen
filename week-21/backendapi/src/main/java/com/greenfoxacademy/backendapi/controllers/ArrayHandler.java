@@ -26,8 +26,8 @@ public class ArrayHandler {
     this.logService = logService;
   }
 
-  @PostMapping(value="/arrays")
-  public ResponseEntity<Object> handleArray (@RequestBody Array array) {
+  @PostMapping(value = "/arrays")
+  public ResponseEntity<Object> handleArray(@RequestBody Array array) {
     if (array.getNumbers() == null || array.getWhat().equals(" ")) {
       return ResponseEntity.badRequest().body(new Error("Please provide what to do with the numbers!"));
     }

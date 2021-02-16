@@ -5,11 +5,12 @@ public class fibonacci {
     //Define a recursive fibonacci(n) method that returns the nth fibonacci number, with n=0 representing the start of the sequence.
     System.out.println(fibonacci(6));
   }
-  public static int fibonacci (int n) {
+
+  public static int fibonacci(int n) {
     if (n < 0) return 0;
     if (n == 0) return 0;
     if (n == 1) return 1;
-    return fibonacci (n-1) + fibonacci(n-2);
+    return fibonacci(n - 1) + fibonacci(n - 2);
 
   }
 }

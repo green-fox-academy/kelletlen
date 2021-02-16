@@ -10,21 +10,21 @@
 <img src="greenfox.png" alt="Mr. Fox">
 <div th:object="${fox}">
     <p th:text="'This is ' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} + '. He knows ' + *{tricks.size()} + ' tricks.'">
-    <div>
-    <h1>Known tricks</h1>
+        <div>
+            <h1>Known tricks</h1>
     <p th:if="*{tricks.size() < 1}">You know no tricks, yet. Go and learn some.</p>
-        <ul th:if="*{tricks.size() > 0}">
-            <li th:each="trick : *{tricks}" th:text="${trick}"/>
-        </ul>
-    </div>
+    <ul th:if="*{tricks.size() > 0}">
+        <li th:each="trick : *{tricks}" th:text="${trick}"/>
+    </ul>
+</div>
 <div>
     <h1>Action history</h1>
     <p th:if="${listSize} < 1">No actions have been made, yet.</p>
     <ul th:if="${listSize} > 0">
-        <li th:each= "action: ${actions}" th:text="${action}"></li>
+        <li th:each="action: ${actions}" th:text="${action}"></li>
     </ul>
 </div>
-    </p>
+</p>
 </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 package flyable;
 
-public class Helicopter extends Vehicle implements Flyable{
+public class Helicopter extends Vehicle implements Flyable {
   @Override
   public void fly() {
 

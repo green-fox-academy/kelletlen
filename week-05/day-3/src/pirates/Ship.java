@@ -50,7 +50,8 @@ public class Ship {
       return false;
     } else {
       this.battle(enemy);
-    } return false;
+    }
+    return false;
   }
 
   public void lose() {

@@ -15,21 +15,23 @@ public class Plant {
 
     return waterAmount;
   }
+
   public String getColor() {
 
     return color;
   }
+
   public boolean needsWater() {
 
     return waterAmount < 1;
   }
 
-  public void absorb (float water) {
+  public void absorb(float water) {
 
     waterAmount += water;
   }
 
-  public String getKind () {
+  public String getKind() {
 
     return "Plant";
   }

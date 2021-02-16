@@ -2,7 +2,7 @@ package fleetofthings;
 
 import java.util.Comparator;
 
-public class Thing implements Comparable <Thing> {
+public class Thing implements Comparable<Thing> {
   private String name;
   private boolean completed;
 
@@ -21,7 +21,7 @@ public class Thing implements Comparable <Thing> {
 
   @Override
   public int compareTo(Thing other) {
-    int result = - Boolean.compare(this.completed, other.isCompleted());
+    int result = -Boolean.compare(this.completed, other.isCompleted());
     if (result != 0) {
       return result;
     }

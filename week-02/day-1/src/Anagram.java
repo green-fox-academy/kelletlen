@@ -4,7 +4,7 @@ public class Anagram {
   public static void main(String[] args) {
     System.out.println(isAnagram("silent", "listen"));
     System.out.println(isAnagram("silent", "apple"));
-    System.out.println(isAnagram("silent","purple"));
+    System.out.println(isAnagram("silent", "purple"));
   }
 
   public static boolean isAnagram(String string1, String string2) {

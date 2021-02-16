@@ -1,6 +1,6 @@
 package com.greenfoxacademy.shop.models;
 
-public class ShopItem implements Comparable <ShopItem> {
+public class ShopItem implements Comparable<ShopItem> {
   private String name;
   private String description;
   private double price;

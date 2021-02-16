@@ -11,8 +11,8 @@ public class Exercise9 {
     String s = "asdddddasd";
     Map<Character, Long> frequency =
         s.chars()
-        .mapToObj(c ->(char)c)
-        .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+            .mapToObj(c -> (char) c)
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
     System.out.println(frequency);
   }

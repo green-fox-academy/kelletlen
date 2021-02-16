@@ -2,6 +2,7 @@ package greenfoxacademy.foxclub.models;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+
 @Entity
 public class Fox {
   @Id
@@ -63,6 +64,7 @@ public class Fox {
 
     this.drink = drink;
   }
+
   public void addTrick(String trick) {
     tricks.add(trick);
   }

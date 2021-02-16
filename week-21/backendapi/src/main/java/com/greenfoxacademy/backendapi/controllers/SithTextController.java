@@ -19,8 +19,8 @@ public class SithTextController {
     this.sithTextService = sithTextService;
   }
 
-  @PostMapping(value="/sith")
-  public ResponseEntity<Object> getSithText (@RequestBody Text text) {
+  @PostMapping(value = "/sith")
+  public ResponseEntity<Object> getSithText(@RequestBody Text text) {
     if (text == null) {
       return ResponseEntity.badRequest().body(new Error("Feed me some text you have to, padawan young you are. Hmmm."));
     }

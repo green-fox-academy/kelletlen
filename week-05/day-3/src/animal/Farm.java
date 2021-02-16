@@ -18,7 +18,7 @@ slaughter() -> removes the least hungry animal*/
     animals = new Animal[slots];
   }
 
-  public void breed (Animal animal) {
+  public void breed(Animal animal) {
     for (int i = 0; i < slots; i++) {
       if (animals[i] == null) {
         animals[i] = animal;

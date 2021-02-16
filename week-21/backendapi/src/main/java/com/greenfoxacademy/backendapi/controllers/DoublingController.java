@@ -18,16 +18,16 @@ public class DoublingController {
     this.logService = logService;
   }
 
-  @GetMapping(value="/doubling")
-  public Object getDouble (@RequestParam(name="input", required = false) Integer input) {
-  if (input != null) {
-    Number number = new Number();
-    number.setInput(input);
-    number.setOutput(input*2);
-    logService.save(new Log("/doubling", "input=" + input));
-    return number;
-  } else {
-    return new Error("Please provide an input!");
+  @GetMapping(value = "/doubling")
+  public Object getDouble(@RequestParam(name = "input", required = false) Integer input) {
+    if (input != null) {
+      Number number = new Number();
+      number.setInput(input);
+      number.setOutput(input * 2);
+      logService.save(new Log("/doubling", "input=" + input));
+      return number;
+    } else {
+      return new Error("Please provide an input!");
+    }
   }
-}
 }

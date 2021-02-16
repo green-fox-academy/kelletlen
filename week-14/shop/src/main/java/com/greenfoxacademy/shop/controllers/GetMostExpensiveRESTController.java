@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class GetMostExpensiveRESTController {
   ItemList itemList = new ItemList();
 
-  @RequestMapping(value="/webshop/mostexpensive")
-  public String getMostExpensive (Model model) {
+  @RequestMapping(value = "/webshop/mostexpensive")
+  public String getMostExpensive(Model model) {
     model.addAttribute("item", "Most expensive item: " + itemList.getMostExpensive());
     return "forSingleData";
   }

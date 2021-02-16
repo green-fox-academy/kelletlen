@@ -16,7 +16,7 @@ public class Main {
     Pokemon wildPokemon = new Pokemon("Oddish", "leaf", "water");
 
     // Which pokemon should Ash use?
-    for (int i = 0; i < pokemonOfAsh.size() ; i++) {
+    for (int i = 0; i < pokemonOfAsh.size(); i++) {
       if (pokemonOfAsh.get(i).isEffectiveAgainst(wildPokemon) == true) {
         System.out.print("I choose you, " + pokemonOfAsh.get(i).getName());
       }

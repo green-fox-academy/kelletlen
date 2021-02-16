@@ -4,14 +4,14 @@ import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Rainbow {
-  public static void mainDraw(Graphics g){
+  public static void mainDraw(Graphics g) {
     int rainbowWidth = 100;
 
     for (int i = 0; i < rainbowWidth; i++) {
-      float blue = i / (float)rainbowWidth * 255;
-      float red = (1 - i / (float)rainbowWidth) * 255;
+      float blue = i / (float) rainbowWidth * 255;
+      float red = (1 - i / (float) rainbowWidth) * 255;
 
-      g.setColor(new Color((int)red, 0, (int)blue));
+      g.setColor(new Color((int) red, 0, (int) blue));
       g.drawArc(i, HEIGHT / 2 + i, WIDTH - 2 * i, HEIGHT - 2 * i, 0, 180);
     }
 

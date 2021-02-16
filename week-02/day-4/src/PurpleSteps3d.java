@@ -6,21 +6,22 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class PurpleSteps3d {
   public static void mainDraw(Graphics graphics) {
-    int x =10;
+    int x = 10;
     int y = 10;
     int size = 10;
 
     for (int i = 0; i < 6; i++) {
       drawPurpleRectangles(x, y, size, graphics);
-      x = x+size;
-      y = y+size;
-      size = size+10;
+      x = x + size;
+      y = y + size;
+      size = size + 10;
     }
     // Reproduce this:
     // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/assets/r4.png]
 
   }
-  public static void drawPurpleRectangles (int x, int y, int size, Graphics g) {
+
+  public static void drawPurpleRectangles(int x, int y, int size, Graphics g) {
     g.setColor(Color.MAGENTA);
     g.fillRect(x, y, size, size);
     g.setColor(Color.black);

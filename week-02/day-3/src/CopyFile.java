@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CopyFile {
-  public static void main(String[] args){
+  public static void main(String[] args) {
     System.out.println(copyFile("my-file.txt", "copy-to.txt"));
 
   }
-  public static boolean copyFile (String copyFrom, String copyTo) {
+
+  public static boolean copyFile(String copyFrom, String copyTo) {
     try {
       Path filePath = Paths.get("assets/" + copyFrom);
       List<String> content = Files.readAllLines(filePath);

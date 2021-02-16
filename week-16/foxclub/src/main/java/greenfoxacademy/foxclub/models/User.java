@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class User {
   @Id
   @GeneratedValue
-   long id;
+  long id;
 
   @Column
   String username;

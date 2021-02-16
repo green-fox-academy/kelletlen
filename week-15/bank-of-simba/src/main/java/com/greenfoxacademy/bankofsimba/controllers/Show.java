@@ -15,24 +15,25 @@ public class Show {
 
   BankAccountList list = new BankAccountList();
 
-  @GetMapping(path="/")
-  public String showAccount (Model model) {
+  @GetMapping(path = "/")
+  public String showAccount(Model model) {
     model.addAttribute("accounts", list.getAccounts());
     return "index";
   }
 
-  @PostMapping(path="/raise")
-  public String raiseAccount (Model model, @RequestParam(name="name") String accountToIncrease) {
+  @PostMapping(path = "/raise")
+  public String raiseAccount(Model model, @RequestParam(name = "name") String accountToIncrease) {
     list.raise(accountToIncrease);
     model.addAttribute("accounts", list.getAccounts());
     return "index";
   }
-  @PostMapping(path="/add")
-  public String addAccount (@RequestParam(name="name") String name,
-                            @RequestParam(name="balance") double balance,
-                            @RequestParam(name="animalType") String animalType,
-                            @RequestParam(name="isKing") boolean isKing,
-                            @RequestParam(name="moral") String moral) {
+
+  @PostMapping(path = "/add")
+  public String addAccount(@RequestParam(name = "name") String name,
+                           @RequestParam(name = "balance") double balance,
+                           @RequestParam(name = "animalType") String animalType,
+                           @RequestParam(name = "isKing") boolean isKing,
+                           @RequestParam(name = "moral") String moral) {
     list.add(new BankAccount(name, balance, animalType, isKing, moral));
     return "redirect:/";
   }

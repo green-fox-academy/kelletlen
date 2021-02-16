@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ShoppingList2 {
-  public static void main (String [] args) {
+  public static void main(String[] args) {
     HashMap<String, Double> products = new HashMap<>();
 
     products.put("Milk", 1.07);
@@ -36,7 +36,7 @@ public class ShoppingList2 {
 
     double bobsBill = 0;
 
-    for (Map.Entry<String, Integer> entry: bobsList.entrySet()) {
+    for (Map.Entry<String, Integer> entry : bobsList.entrySet()) {
       for (Map.Entry<String, Double> product : products.entrySet()) {
         if (entry.getKey().equals(product.getKey())) {
           double partAmount = entry.getValue() * product.getValue();
@@ -49,9 +49,9 @@ public class ShoppingList2 {
     double alicesBill = 0;
 
     for (Map.Entry<String, Integer> entry : alicesList.entrySet()) {
-      for (Map.Entry<String, Double> product: products.entrySet()) {
+      for (Map.Entry<String, Double> product : products.entrySet()) {
         if (entry.getKey().equals(product.getKey())) {
-          double partAmount = entry.getValue()*product.getValue();
+          double partAmount = entry.getValue() * product.getValue();
           alicesBill = alicesBill + partAmount;
         }
       }
@@ -86,7 +86,7 @@ public class ShoppingList2 {
       billsProducts += entry.getValue();
     }
     int alicesProducts = 0;
-    for (Map.Entry<String, Integer> entry: alicesList.entrySet()) {
+    for (Map.Entry<String, Integer> entry : alicesList.entrySet()) {
       alicesProducts += entry.getValue();
     }
     if (billsProducts > alicesProducts) {

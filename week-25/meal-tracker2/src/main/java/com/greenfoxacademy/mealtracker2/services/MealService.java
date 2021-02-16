@@ -21,27 +21,31 @@ public class MealService {
   }
 
   public Meal save(Meal entity) {
-     return mealRepository.save(entity);
+    return mealRepository.save(entity);
   }
-  public List<Meal> listMeals () {
+
+  public List<Meal> listMeals() {
     return mealRepository.findAll();
   }
+
   public Meal findById(long id) {
     return mealRepository.findById(id);
   }
+
   public void deleteById(long id) {
     mealRepository.deleteById(id);
   }
+
   public List<Meal> findAllByDate(Date date) {
     return mealRepository.findAllByDate(date);
   }
 
-  public int getCaloriesForADay (Date date) throws ParseException {
+  public int getCaloriesForADay(Date date) throws ParseException {
     //Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date);
     List<Meal> meals = mealRepository.findAllByDate(date);
     int sum = 0;
-    for(Meal m : meals) {
-      sum +=m.getCalories();
+    for (Meal m : meals) {
+      sum += m.getCalories();
     }
     return sum;
   }

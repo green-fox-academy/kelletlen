@@ -1,4 +1,5 @@
 package greenfoxacademy.foxclub.services;
+
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -11,10 +12,11 @@ public class ActionService {
   Date date = new Date();
   SimpleDateFormat formatter = new SimpleDateFormat("yyyy. MMMM dd. HH:mm:ss");
 
-  public ArrayList<String> getActionList () {
+  public ArrayList<String> getActionList() {
     return actionList;
   }
-  public void addToList (String action) {
+
+  public void addToList(String action) {
     actionList.add(formatter.format(date) + " : " + action);
   }
 }

@@ -1,7 +1,7 @@
 package charsequence;
 
 public class Gnirts implements CharSequence {
-protected String string;
+  protected String string;
 
   public Gnirts(String string) {
     this.string = string;

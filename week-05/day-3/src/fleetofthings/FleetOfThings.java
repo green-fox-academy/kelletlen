@@ -33,7 +33,7 @@ public class FleetOfThings {
     thing3.complete();
     thing4.complete();
 
-    ArrayList <Thing> things = new ArrayList<>();
+    ArrayList<Thing> things = new ArrayList<>();
     things.add(thing1);
     things.add(thing2);
     things.add(thing3);

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>SingleData</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
@@ -16,9 +16,9 @@
 </header>
 <form action="/webshop/search" method="POST">
     <label for="search">Search for:</label>
-    <input id="search" type="text" name="search" placeholder="...something like nike" />
+    <input id="search" type="text" name="search" placeholder="...something like nike"/>
     <button type="submit">Search</button>
 </form>
-<p th:text= "${item}"/>
+<p th:text="${item}"/>
 </body>
 </html>

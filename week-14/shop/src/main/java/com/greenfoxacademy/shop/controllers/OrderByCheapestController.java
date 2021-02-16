@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class OrderByCheapestController {
   ItemList itemList = new ItemList();
 
-  @RequestMapping(value="/webshop/orderbycheapest")
+  @RequestMapping(value = "/webshop/orderbycheapest")
   public String renderByCheapest(Model model) {
     model.addAttribute("item", itemList.orderByCheapest());
     return "webShop";

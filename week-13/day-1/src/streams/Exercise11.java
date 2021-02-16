@@ -18,7 +18,7 @@ public class Exercise11 {
         .map(line -> line.replaceAll("[^a-zA-Z ]", "").split(" "))
         .collect(Collectors.toList());
 
-    ArrayList <String> words = new ArrayList<>();
+    ArrayList<String> words = new ArrayList<>();
 
 
     /*Path filePath = Paths.get("assets/text.txt");

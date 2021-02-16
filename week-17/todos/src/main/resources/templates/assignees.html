@@ -9,12 +9,16 @@
 <h1>Assignees</h1>
 <table>
     <tbody>
-<tr th:each="assignee : ${assignees}">
-    <td th:text="${assignee.getId()}"></td>
-    <td><a th:href="@{/todo/assignee/{id}(id=${assignee.getId()})}" th:text="${assignee.getName()}"/></td>
-    <td><button type="submit"><a th:href="@{/todo/editAssignee/{id}(id=${assignee.getId()})}">Edit</a></button></td>
-    <td><button type="submit"><a th:href="@{/todo/removeAssignee/{id}(id=${assignee.getId()})}">Remove</a></button></td>
-</tr>
+    <tr th:each="assignee : ${assignees}">
+        <td th:text="${assignee.getId()}"></td>
+        <td><a th:href="@{/todo/assignee/{id}(id=${assignee.getId()})}" th:text="${assignee.getName()}"/></td>
+        <td>
+            <button type="submit"><a th:href="@{/todo/editAssignee/{id}(id=${assignee.getId()})}">Edit</a></button>
+        </td>
+        <td>
+            <button type="submit"><a th:href="@{/todo/removeAssignee/{id}(id=${assignee.getId()})}">Remove</a></button>
+        </td>
+    </tr>
     </tbody>
 </table>
 <form method="post" th:action="@{/todo/addAssignee}">

@@ -37,7 +37,8 @@ public class Reservation implements Reservationy {
     }
     return sb.toString();
   }
-  public String getReservation () {
+
+  public String getReservation() {
     return "Booking# " + this.code + " for " + this.dow;
   }
 }

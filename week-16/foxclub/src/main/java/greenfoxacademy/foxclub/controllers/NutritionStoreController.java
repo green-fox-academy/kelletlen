@@ -26,10 +26,10 @@ public class NutritionStoreController {
   final
   ActionService actionService;
 
-  @GetMapping(path="/nutritionStore")
-  public String getNutritionStore (Model model, @RequestParam(name="name", required = false) String name) {
+  @GetMapping(path = "/nutritionStore")
+  public String getNutritionStore(Model model, @RequestParam(name = "name", required = false) String name) {
     Fox fox = foxService.findByName(name);
-    if (fox!= null) {
+    if (fox != null) {
       model.addAttribute("fox", fox);
       model.addAttribute("name", name);
       return "nutritionStore";
@@ -37,8 +37,9 @@ public class NutritionStoreController {
       return "redirect:/login";
     }
   }
-  @PostMapping(path="/nutritionStore")
-  public String postNutritionStore (Model model, @RequestParam(name="name", required = false) String name, @ModelAttribute("fox") Fox fox) {
+
+  @PostMapping(path = "/nutritionStore")
+  public String postNutritionStore(Model model, @RequestParam(name = "name", required = false) String name, @ModelAttribute("fox") Fox fox) {
     Fox fox1 = foxService.findByName(name);
     String previousFood = fox1.getFood();
     String previousDrink = fox1.getDrink();

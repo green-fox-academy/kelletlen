@@ -9,9 +9,12 @@ public abstract class Animal {
   public String getName() {
     return name;
   }
-  protected abstract String breed ();
+
+  protected abstract String breed();
+
   protected abstract void move();
-  protected abstract void eat ();
+
+  protected abstract void eat();
 
 
 }

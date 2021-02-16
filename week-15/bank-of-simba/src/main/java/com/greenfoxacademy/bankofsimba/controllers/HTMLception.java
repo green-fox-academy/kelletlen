@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HTMLception {
   String s = "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>";
 
-  @GetMapping(path="/string")
-  public String displayString (Model model) {
+  @GetMapping(path = "/string")
+  public String displayString(Model model) {
     model.addAttribute("string", s);
     return "index";
   }

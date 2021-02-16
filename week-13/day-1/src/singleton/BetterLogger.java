@@ -15,24 +15,25 @@ public class BetterLogger {
     try {
       FileWriter fw = new FileWriter(logFile);
       writer = new PrintWriter(fw, true);
-    } catch (IOException e) {}
+    } catch (IOException e) {
+    }
   }
 
-  public static synchronized BetterLogger getInstance(){
-    if(logger == null)
+  public static synchronized BetterLogger getInstance() {
+    if (logger == null)
       logger = new BetterLogger();
     return logger;
   }
 
-  public void logWithdraw (String account, double amount) {
+  public void logWithdraw(String account, double amount) {
     writer.println("WITHDRAW (" + account + "): " + amount + "$");
   }
 
-  public void logDeposit (String account, double amount) {
+  public void logDeposit(String account, double amount) {
     writer.println("DEPOSIT (" + account + "): " + amount + "$");
   }
 
-  public void logTransfer (String fromAccount, String toAccount, double amount) {
+  public void logTransfer(String fromAccount, String toAccount, double amount) {
     writer.println("TRANSFER (" + fromAccount + "->" + toAccount + "): " + amount + "$");
   }
 }

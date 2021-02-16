@@ -24,13 +24,13 @@ public class ActionHistory {
   final
   ActionService actionService;
 
-  @GetMapping(path="/actionHistory")
-  public String getActionHistory(Model model, @RequestParam(name="name", required = false) String name) {
+  @GetMapping(path = "/actionHistory")
+  public String getActionHistory(Model model, @RequestParam(name = "name", required = false) String name) {
     Fox fox = foxService.findByName(name);
     model.addAttribute("fox", fox);
     model.addAttribute("name", name);
     model.addAttribute("actions", actionService.getActionList());
     model.addAttribute("listSize", actionService.getActionList().size());
-    return"actionHistory";
+    return "actionHistory";
   }
 }

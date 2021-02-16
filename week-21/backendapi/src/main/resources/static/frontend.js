@@ -11,11 +11,11 @@ class EndpointValidation {
         this.path = path;
         this.resolve = resolve;
         this.errors = [];
-        this.data = { request: {} };
+        this.data = {request: {}};
     }
 
     requestBody(requestBody) {
-        this.data = { request: requestBody }
+        this.data = {request: requestBody}
         return this;
     }
 
@@ -46,7 +46,7 @@ class EndpointValidation {
     createRequestOptions() {
         let options = {
             method: this.method,
-            headers: { 'content-type': 'application/json' }
+            headers: {'content-type': 'application/json'}
         };
         if (this.method === 'post') {
             options.body = JSON.stringify(this.data.request);
@@ -57,7 +57,7 @@ class EndpointValidation {
     validate() {
         for (let [field, expected] of Object.entries(this.validations)) {
             console.log(`Validating ${field} must be`, expected);
-            if(this.data[field] !== expected && this.data.response[field] !== expected) {
+            if (this.data[field] !== expected && this.data.response[field] !== expected) {
                 this.errors.push(field);
             }
         }
@@ -72,8 +72,8 @@ class EndpointValidation {
     }
 
     getContent(error) {
-        const { request, response } = this.data;
-        const { method, path, errors, validations } = this;
+        const {request, response} = this.data;
+        const {method, path, errors, validations} = this;
         const message = this.getMessage();
 
         let content = `<code>${method.toUpperCase()} ${path}</code> `;
@@ -82,7 +82,7 @@ class EndpointValidation {
         content += Object.keys(response).length !== 0 ? `Received response: ${JSON.stringify(response)}` : '';
 
         content += '<ul>';
-        if(error) {
+        if (error) {
             content += `<li>${error}</li>`;
         } else {
             content += errors.map(key => `<li><code>${key}</code> is not equal to ${validations[key]}</li>`).join('')
@@ -239,7 +239,7 @@ find('#dountil').toggleClass('disabled').on('click', () => {
     validateEndpoint({
         method: 'post',
         path: '/dountil/sum',
-        requestBody: { until: 7 },
+        requestBody: {until: 7},
         expected: {
             result: 28,
             status: 200
@@ -249,7 +249,7 @@ find('#dountil').toggleClass('disabled').on('click', () => {
     validateEndpoint({
         method: 'post',
         path: '/dountil/factor',
-        requestBody: { until: 4 },
+        requestBody: {until: 4},
         expected: {
             result: 24,
             status: 200

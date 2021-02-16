@@ -1,6 +1,6 @@
 package printable;
 
-public class Todo implements Printable{
+public class Todo implements Printable {
   String task;
   String priority;
   boolean isItDone;

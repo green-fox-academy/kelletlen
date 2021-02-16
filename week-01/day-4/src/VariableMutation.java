@@ -17,7 +17,7 @@ public class VariableMutation {
     System.out.println(d);
 
     int e = 8;
-    e = 8*8*8;
+    e = 8 * 8 * 8;
     System.out.println(e);
 
     int f1 = 123;

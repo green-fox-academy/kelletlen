@@ -7,23 +7,23 @@
     <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<div class ="container justify-content-center">
-<p th:text="'Welcome ' + ${name} + '!'"></p>
-<a th:href="@{/submit(id=${id})}">Submit new post</a>
-<h1 class="text-center m-3">Trending posts</h1>
-<table class="table table-striped">
-    <tbody>
-    <tr th:each="post : ${posts}">
-        <td scope="row" th:text="${post.getScore()}"></td>
-        <td><a th:href="@{/upVote/{postId}(id=${id},postId=${post.getId()})}">+</a></td>
-        <td><a th:href="@{/downVote/{postId}(id=${id},postId=${post.getId()})}">-</a></td>
-        <td th:text="${post.getTitle()}"></td>
-        <td th:text="${post.getCreation()}"></td>
-        <td th:if="${post.getUser()!=null}" th:text="'by ' + ${post.getUserName()}"></td>
-        <td th:unless="${post.getUser()!=null}" th:text="'by unknown author'"></td>
-    </tr>
-    </tbody>
-</table>
+<div class="container justify-content-center">
+    <p th:text="'Welcome ' + ${name} + '!'"></p>
+    <a th:href="@{/submit(id=${id})}">Submit new post</a>
+    <h1 class="text-center m-3">Trending posts</h1>
+    <table class="table table-striped">
+        <tbody>
+        <tr th:each="post : ${posts}">
+            <td scope="row" th:text="${post.getScore()}"></td>
+            <td><a th:href="@{/upVote/{postId}(id=${id},postId=${post.getId()})}">+</a></td>
+            <td><a th:href="@{/downVote/{postId}(id=${id},postId=${post.getId()})}">-</a></td>
+            <td th:text="${post.getTitle()}"></td>
+            <td th:text="${post.getCreation()}"></td>
+            <td th:if="${post.getUser()!=null}" th:text="'by ' + ${post.getUserName()}"></td>
+            <td th:unless="${post.getUser()!=null}" th:text="'by unknown author'"></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>

@@ -12,7 +12,8 @@ public class Pirate {
     this.asleep = false;
     this.name = name;
   }
-  public Pirate () {
+
+  public Pirate() {
     this.intoxication = 0;
     this.isAlive = true;
     this.asleep = false;
@@ -20,11 +21,12 @@ public class Pirate {
 
   public void drinkSomeRum() {
     if (isAlive) {
-      intoxication ++;
+      intoxication++;
     } else {
       System.out.println("He's dead");
     }
   }
+
   public void howsItGoingMate() {
     if (isAlive && intoxication < 5) {
       System.out.println("Pour me anudder!");
@@ -35,11 +37,13 @@ public class Pirate {
       System.out.println("He's dead");
     }
   }
+
   public void die() {
     isAlive = false;
   }
+
   public void brawl(Pirate enemy) {
-    int chance = (int) (Math.random()* 3 +1);
+    int chance = (int) (Math.random() * 3 + 1);
     if (chance == 1) {
       this.die();
     } else if (chance == 2) {

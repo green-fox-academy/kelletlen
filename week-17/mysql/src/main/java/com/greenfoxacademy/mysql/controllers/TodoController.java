@@ -21,7 +21,7 @@ public class TodoController {
   }
 
   @GetMapping(value = {"list", "/"})
-  public String list(Model model, @RequestParam(name="isActive", defaultValue = "false") boolean isActive) {
+  public String list(Model model, @RequestParam(name = "isActive", defaultValue = "false") boolean isActive) {
     if (isActive) {
       ArrayList<Todo> actives = new ArrayList();
       for (Todo item : todoRepository.findAll()) {
@@ -36,12 +36,13 @@ public class TodoController {
     return "todoList";
   }
 
-  @GetMapping(value="add")
-  public String addTask () {
+  @GetMapping(value = "add")
+  public String addTask() {
     return "add";
   }
-  @PostMapping(value="add")
-  public String postAddTask (@RequestParam(name="task") String task, @RequestParam(name="urgency") boolean urgency) {
+
+  @PostMapping(value = "add")
+  public String postAddTask(@RequestParam(name = "task") String task, @RequestParam(name = "urgency") boolean urgency) {
     Todo newTodo = new Todo(task, urgency);
     todoRepository.save(newTodo);
     return "redirect:/todo/list?isActive=false";

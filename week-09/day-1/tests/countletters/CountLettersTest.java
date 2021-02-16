@@ -18,7 +18,7 @@ public class CountLettersTest {
 
   @Test
   public void countLetters() {
-    HashMap <Character, Integer> hashmap1 = new HashMap<>();
+    HashMap<Character, Integer> hashmap1 = new HashMap<>();
     hashmap1.put('c', 2);
     hashmap1.put('i', 1);
     hashmap1.put('a', 1);

@@ -1,7 +1,7 @@
 package com.greenfoxacademy.backendapi.models;
 
 public class ArrayResult2 {
-  int [] result;
+  int[] result;
 
   public ArrayResult2(int[] result) {
     this.result = result;

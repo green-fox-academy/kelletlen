@@ -87,6 +87,7 @@ public class Todo {
   public Assignee getAssignee() {
     return assignee;
   }
+
   public String getAssigneeName() {
     return this.assignee.getName();
   }
@@ -101,7 +102,7 @@ public class Todo {
     this.dueDate = dueDate;
   }
 
-  public String getDueDateString () {
+  public String getDueDateString() {
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     return formatter.format(this.dueDate);
   }

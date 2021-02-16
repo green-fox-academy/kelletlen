@@ -26,15 +26,16 @@ public class SumTest {
   }
 
   @Test
-  public void testSumofArrayWithMultipleElements () {
+  public void testSumofArrayWithMultipleElements() {
     ArrayList<Integer> numbers = new ArrayList();
     numbers.add(1);
     numbers.add(2);
     int result = sum.sum(numbers);
     assertEquals(3, result);
   }
+
   @Test
-  public void testSumofArrayWithNull () {
+  public void testSumofArrayWithNull() {
     ArrayList<Integer> numbers = new ArrayList();
     numbers.add(0);
     int result = sum.sum(numbers);

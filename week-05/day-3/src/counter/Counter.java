@@ -25,18 +25,21 @@ Then run the tests with the green play button before the lines (run all of them 
     this.originalValue = 0;
   }
 
-  public void add (int number) {
+  public void add(int number) {
     value += number;
 
 
   }
-  public void add () {
+
+  public void add() {
     value += 1;
   }
-  public int get () {
+
+  public int get() {
     return value;
   }
-  public void reset () {
+
+  public void reset() {
     value = originalValue;
   }
-  }
+}

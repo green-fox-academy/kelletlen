@@ -5,5 +5,5 @@ public class Main {
     Anagram anagram1 = new Anagram();
     System.out.println(anagram1.isAnagram("listen", "silent"));
 
-}
+  }
 }

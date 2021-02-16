@@ -14,12 +14,13 @@ public class Armada {
 
     return ships;
   }
-  public void addShip (Ship ship) {
+
+  public void addShip(Ship ship) {
 
     ships.add(ship);
   }
 
-  public boolean armadaWar (Armada enemy) {
+  public boolean armadaWar(Armada enemy) {
     while (!this.ships.isEmpty() || !enemy.getShips().isEmpty()) {
       for (int i = 0; i < ships.size(); i++) {
         Ship currentShip = ships.get(i);

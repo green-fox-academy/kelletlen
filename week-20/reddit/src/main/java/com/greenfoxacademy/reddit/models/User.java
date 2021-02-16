@@ -56,10 +56,12 @@ public class User {
   public List<Post> getDownVoted() {
     return downVoted;
   }
-  public void addToUpVoted (Post post) {
+
+  public void addToUpVoted(Post post) {
     upVoted.add(post);
   }
-  public void addToDownVoted (Post post) {
+
+  public void addToDownVoted(Post post) {
     downVoted.add(post);
   }
 }

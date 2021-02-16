@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) {
-    Domino domino1 = new Domino(3,4);
+    Domino domino1 = new Domino(3, 4);
     Domino domino2 = new Domino(2, 5);
     Domino domino3 = new Domino(1, 6);
 

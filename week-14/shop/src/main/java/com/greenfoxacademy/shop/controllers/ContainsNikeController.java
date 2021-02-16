@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ContainsNikeController {
   ItemList itemList = new ItemList();
 
-  @RequestMapping(value="/webshop/containsnike")
-  public String listContainsNike (Model model) {
+  @RequestMapping(value = "/webshop/containsnike")
+  public String listContainsNike(Model model) {
     model.addAttribute("item", itemList.containsNike());
     return "webShop";
   }
