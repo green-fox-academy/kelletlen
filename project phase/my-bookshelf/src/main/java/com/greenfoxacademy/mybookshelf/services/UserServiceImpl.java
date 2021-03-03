@@ -17,4 +17,9 @@ private final UserRepository userRepository;
   public User addUser(User user) {
     return userRepository.save(user);
   }
+
+  @Override
+  public boolean existsByUsername(String username) {
+    return userRepository.existsByUsername(username);
+  }
 }
