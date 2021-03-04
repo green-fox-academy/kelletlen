@@ -4,6 +4,8 @@ import com.greenfoxacademy.mybookshelf.models.Book;
 import com.greenfoxacademy.mybookshelf.repositories.BookRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookServiceImpl implements BookService {
 
@@ -21,5 +23,20 @@ public class BookServiceImpl implements BookService {
   @Override
   public boolean existsByTitleAndAuthor(String title, String author) {
     return bookRepository.existsByTitleAndAuthor(title, author);
+  }
+
+  @Override
+  public List<Book> findAllByAuthor(String string) {
+    return bookRepository.findAllByAuthorContainingIgnoreCase(string);
+  }
+
+  @Override
+  public List<Book> findAllByTitle(String string) {
+    return bookRepository.findAllByTitleContainingIgnoreCase(string);
+  }
+
+  @Override
+  public List<Book> findAllByDescription(String string) {
+    return bookRepository.findAllByDescriptionContainingIgnoreCase(string);
   }
 }
