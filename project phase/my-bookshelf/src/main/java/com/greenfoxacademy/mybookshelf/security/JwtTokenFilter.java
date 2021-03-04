@@ -28,14 +28,16 @@ public class JwtTokenFilter extends OncePerRequestFilter {
   }
 
   @Override
-  protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+  protected void doFilterInternal(HttpServletRequest request,
+                                  HttpServletResponse response,
+                                  FilterChain filterChain) throws ServletException, IOException {
     String header = "Authorization";
     getToken(request.getHeader(header)).flatMap(jwtService::extractUsernameFromToken).ifPresent(username -> {
       if (SecurityContextHolder.getContext().getAuthentication() == null) {
         User user = userRepository.findByUsername(username);
         if (user.getUsername().equals(username)) {
           UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-              user, null);
+              user, null, user.getAuthorities());
           authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
           SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         }

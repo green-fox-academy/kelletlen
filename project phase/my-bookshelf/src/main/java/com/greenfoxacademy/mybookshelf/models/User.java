@@ -1,12 +1,11 @@
 package com.greenfoxacademy.mybookshelf.models;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 @Setter
@@ -30,4 +29,9 @@ public class User {
 
   @ManyToMany
   private Set<User> friends = new HashSet<>();
+
+  public Collection<? extends GrantedAuthority> getAuthorities() {
+    List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+    return authorities;
+  }
 }
