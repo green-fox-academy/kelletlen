@@ -1,0 +1,7 @@
+package com.greenfoxacademy.mybookshelf.services;
+
+import com.greenfoxacademy.mybookshelf.models.Copy;
+
+public interface CopyService {
+  Copy addCopy (Copy copy);
+}

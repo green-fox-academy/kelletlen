@@ -32,6 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers(HttpMethod.POST, "/users/login").permitAll()
         .antMatchers(HttpMethod.POST, "/books/add").permitAll()
         .antMatchers(HttpMethod.GET, "/books/search/*").permitAll()
+        .antMatchers(HttpMethod.POST, "/copy/add/*").permitAll()
         .anyRequest().authenticated()
         .and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

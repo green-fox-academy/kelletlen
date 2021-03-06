@@ -16,6 +16,7 @@ import java.util.*;
 public class User {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
 
   @Column
@@ -24,7 +25,7 @@ public class User {
   @Column
   private String password;
 
-  @OneToMany
+  @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
   private List<Copy> bookShelf = new ArrayList<>();
 
   @ManyToMany
@@ -33,5 +34,9 @@ public class User {
   public Collection<? extends GrantedAuthority> getAuthorities() {
     List<SimpleGrantedAuthority> authorities = new ArrayList<>();
     return authorities;
+  }
+
+  public void addToBookShelf (Copy copy) {
+    this.bookShelf.add(copy);
   }
 }

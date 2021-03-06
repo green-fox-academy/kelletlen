@@ -39,4 +39,9 @@ public class BookServiceImpl implements BookService {
   public List<Book> findAllByDescription(String string) {
     return bookRepository.findAllByDescriptionContainingIgnoreCase(string);
   }
+
+  @Override
+  public Book findById(long id) {
+    return bookRepository.findById(id);
+  }
 }

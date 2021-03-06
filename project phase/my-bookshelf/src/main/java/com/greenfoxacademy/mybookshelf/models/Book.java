@@ -1,5 +1,6 @@
 package com.greenfoxacademy.mybookshelf.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,6 +32,7 @@ public class Book {
   @Column
   private int year;
 
+  @JsonIgnore
   @OneToMany
   private List<Copy> copies = new ArrayList<>();
 }

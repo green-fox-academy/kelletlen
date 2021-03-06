@@ -10,4 +10,5 @@ public interface BookService {
   List<Book> findAllByAuthor (String string);
   List<Book> findAllByTitle (String string);
   List<Book> findAllByDescription (String string);
+  Book findById (long id);
 }
