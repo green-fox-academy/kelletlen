@@ -14,7 +14,12 @@ public class CopyServiceImpl implements CopyService {
   }
 
   @Override
-  public Copy addCopy(Copy copy) {
+  public Copy saveCopy(Copy copy) {
     return copyRepository.save(copy);
+  }
+
+  @Override
+  public Copy findById(long id) {
+    return copyRepository.findById(id);
   }
 }

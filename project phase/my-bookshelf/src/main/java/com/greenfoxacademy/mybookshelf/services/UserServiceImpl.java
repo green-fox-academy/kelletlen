@@ -2,6 +2,7 @@ package com.greenfoxacademy.mybookshelf.services;
 
 import com.greenfoxacademy.mybookshelf.dtos.LoggedInUserDTO;
 import com.greenfoxacademy.mybookshelf.dtos.UserRegistrationDTO;
+import com.greenfoxacademy.mybookshelf.models.Copy;
 import com.greenfoxacademy.mybookshelf.models.User;
 import com.greenfoxacademy.mybookshelf.repositories.UserRepository;
 import org.springframework.cache.annotation.Cacheable;
@@ -24,7 +25,7 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public User addUser(User user) {
+  public User saveUser(User user) {
     return userRepository.save(user);
   }
 
@@ -45,5 +46,21 @@ public class UserServiceImpl implements UserService {
   @Override
   public User findByUsername(String username) {
     return userRepository.findByUsername(username);
+  }
+
+  @Override
+  public boolean doesUserOwnCopy(long userId, long copyId) {
+    User user = userRepository.findById(userId);
+    for (Copy copy : user.getBookShelf()) {
+      if (copy.getId() == copyId) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @Override
+  public User findById(long id) {
+    return userRepository.findById(id);
   }
 }

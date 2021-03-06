@@ -5,8 +5,10 @@ import com.greenfoxacademy.mybookshelf.dtos.UserRegistrationDTO;
 import com.greenfoxacademy.mybookshelf.models.User;
 
 public interface UserService {
-  User addUser(User user);
+  User saveUser(User user);
   boolean existsByUsername (String username);
   LoggedInUserDTO validateUser(UserRegistrationDTO login);
   User findByUsername(String username);
+  boolean doesUserOwnCopy (long userId, long copyId);
+  User findById(long id);
 }

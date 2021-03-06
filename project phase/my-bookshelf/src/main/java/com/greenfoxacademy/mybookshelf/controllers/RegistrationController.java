@@ -37,7 +37,7 @@ public class RegistrationController {
           .username(newUser.getUsername())
           .password(bCryptPasswordEncoder.encode(newUser.getPassword()))
           .build();
-      userService.addUser(user);
+      userService.saveUser(user);
       return ResponseEntity.ok().body(new ResponseState("Success."));
     }
   }
