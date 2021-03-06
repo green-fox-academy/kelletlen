@@ -36,6 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers(HttpMethod.POST, "/copy/loan").permitAll()
         .antMatchers(HttpMethod.DELETE, "/copy/loan/delete/*").permitAll()
         .antMatchers(HttpMethod.GET, "/loans/list/*").permitAll()
+        .antMatchers(HttpMethod.POST, "/books/review").permitAll()
         .anyRequest().authenticated()
         .and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
