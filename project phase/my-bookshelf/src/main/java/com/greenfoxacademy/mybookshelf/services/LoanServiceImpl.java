@@ -22,4 +22,19 @@ public class LoanServiceImpl implements LoanService {
   public Loan findByCopyId(long copyId) {
     return loanRepository.findByCopyId(copyId);
   }
+
+  @Override
+  public Loan findById(long id) {
+    return loanRepository.findById(id);
+  }
+
+  @Override
+  public Loan findByLoanerId(long loanerId) {
+    return loanRepository.findByLoanerId(loanerId);
+  }
+
+  @Override
+  public void deleteById(long id) {
+    loanRepository.deleteById(id);
+  }
 }

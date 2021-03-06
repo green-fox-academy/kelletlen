@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LoanRepository extends CrudRepository <Loan, Long> {
   Loan findByCopyId (long copyId);
+  Loan findById (long id);
+  Loan findByLoanerId (long loanerId);
+  void deleteById (long id);
 }

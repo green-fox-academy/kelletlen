@@ -10,10 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CopyController {
@@ -70,6 +67,23 @@ public class CopyController {
           .build();
       loanService.saveLoan(newLoan);
       return ResponseEntity.status(HttpStatus.CREATED).body(newLoan);
+    }
+  }
+
+  @DeleteMapping(path = "/copy/loan/delete/{id}")
+  public ResponseEntity<Object> deleteLoan(@PathVariable long id) {
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    User authenticatedUser = (User) auth.getPrincipal();
+    Loan loan = loanService.findById(id);
+    if (authenticatedUser == null) {
+      return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    } else if (loan == null) {
+      return ResponseEntity.badRequest().body(new ResponseError("The loan does not exist."));
+    } else if (loan.getLoanerId() != authenticatedUser.getId()) {
+      return ResponseEntity.badRequest().body(new ResponseError("You are not the loaner of this loan."));
+    } else {
+      loanService.deleteById(id);
+      return ResponseEntity.status(HttpStatus.OK).body(new ResponseState("Loan is deleted."));
     }
   }
 }
