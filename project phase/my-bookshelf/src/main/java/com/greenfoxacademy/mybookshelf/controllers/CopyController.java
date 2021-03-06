@@ -86,4 +86,26 @@ public class CopyController {
       return ResponseEntity.status(HttpStatus.OK).body(new ResponseState("Loan is deleted."));
     }
   }
+
+  @GetMapping(path = "/loans/list/loaned")
+  public ResponseEntity<Object> listLoansWhereLoaner () {
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    User authenticatedUser = (User) auth.getPrincipal();
+    if (authenticatedUser == null) {
+      return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    } else {
+      return ResponseEntity.status(HttpStatus.OK).body(loanService.findAllByLoanerId(authenticatedUser.getId()));
+    }
+  }
+
+  @GetMapping(path = "/loans/list/borrowed")
+  public ResponseEntity<Object> listLoansWhereBorrower () {
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    User authenticatedUser = (User) auth.getPrincipal();
+    if (authenticatedUser == null) {
+      return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    } else {
+      return ResponseEntity.status(HttpStatus.OK).body(loanService.findAllByBorrowerId(authenticatedUser.getId()));
+    }
+  }
 }

@@ -4,6 +4,8 @@ import com.greenfoxacademy.mybookshelf.models.Loan;
 import com.greenfoxacademy.mybookshelf.repositories.LoanRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LoanServiceImpl implements LoanService {
 
@@ -36,5 +38,15 @@ public class LoanServiceImpl implements LoanService {
   @Override
   public void deleteById(long id) {
     loanRepository.deleteById(id);
+  }
+
+  @Override
+  public List<Loan> findAllByLoanerId(long id) {
+    return loanRepository.findAllByLoanerId(id);
+  }
+
+  @Override
+  public List<Loan> findAllByBorrowerId(long id) {
+    return loanRepository.findAllByBorrowerId(id);
   }
 }
