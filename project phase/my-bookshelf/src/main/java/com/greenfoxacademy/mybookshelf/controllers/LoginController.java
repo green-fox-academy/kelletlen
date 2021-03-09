@@ -20,12 +20,12 @@ public class LoginController {
 
   @PostMapping(path = "/users/login")
   public ResponseEntity<?> login (@RequestBody UserRegistrationDTO login) {
-    if (login.getUsername() == null) {
-      return ResponseEntity.badRequest().body(new ResponseError("username must be set"));
+    if (login.getUsername() == null && login.getPassword() == null) {
+      return ResponseEntity.badRequest().body(new ResponseError("username and password must be set"));
     } else if (login.getPassword() == null) {
       return ResponseEntity.badRequest().body(new ResponseError("password must be set"));
-    } else if (login.getUsername() == null && login.getPassword() == null) {
-      return ResponseEntity.badRequest().body(new ResponseError("username and password must be set"));
+    } else if (login.getUsername() == null) {
+      return ResponseEntity.badRequest().body(new ResponseError("username must be set"));
     } else if (!userService.existsByUsername(login.getUsername())) {
       return ResponseEntity.badRequest()
           .body(new ResponseError("user does not exists with the given username password combination"));
