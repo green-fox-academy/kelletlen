@@ -24,12 +24,12 @@ public class RegistrationController {
 
   @PostMapping(value="/users/register")
   public ResponseEntity<?> register (@RequestBody UserRegistrationDTO newUser) {
-    if (newUser.getUsername() == null) {
-      return ResponseEntity.badRequest().body(new ResponseError("username cannot be empty"));
+    if (newUser.getUsername() == null && newUser.getPassword() == null) {
+      return ResponseEntity.badRequest().body(new ResponseError("username and password cannot be empty"));
     } else if (newUser.getPassword() == null) {
       return ResponseEntity.badRequest().body(new ResponseError("password cannot be empty"));
-    } else if (newUser.getUsername() == null && newUser.getPassword() == null) {
-      return ResponseEntity.badRequest().body(new ResponseError("username and password cannot be empty"));
+    } else if (newUser.getUsername() == null) {
+      return ResponseEntity.badRequest().body(new ResponseError("username cannot be empty"));
     } else if (userService.existsByUsername(newUser.getUsername())) {
       return ResponseEntity.badRequest().body(new ResponseError("username already exists"));
     } else {
@@ -38,7 +38,7 @@ public class RegistrationController {
           .password(bCryptPasswordEncoder.encode(newUser.getPassword()))
           .build();
       userService.saveUser(user);
-      return ResponseEntity.ok().body(new ResponseState("Success."));
+      return ResponseEntity.ok().body(new ResponseState("success"));
     }
   }
 
