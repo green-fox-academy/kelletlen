@@ -15,10 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
-
-import java.awt.*;
-import java.util.HashSet;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
@@ -70,15 +66,6 @@ public class LoginControllerTest {
     storedUser.setUsername(user.getUsername());
     when(userService.validateUser(user)).thenReturn(storedUser);
     assertEquals(userService.validateUser(user), storedUser);
-  }
-
-  @Test
-  public void createToken() {
-    UserRegistrationDTO user = new UserRegistrationDTO();
-    user.setUsername("username");
-    String token = "";
-    when(jwtServiceMock.createToken(user.getUsername())).thenReturn(token);
-    assertEquals(jwtServiceMock.createToken("username"), "");
   }
 
   @Test

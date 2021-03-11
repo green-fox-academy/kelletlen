@@ -3,6 +3,7 @@ package com.greenfoxacademy.mybookshelf.services;
 import com.greenfoxacademy.mybookshelf.dtos.LoggedInUserDTO;
 import com.greenfoxacademy.mybookshelf.dtos.UserRegistrationDTO;
 import com.greenfoxacademy.mybookshelf.models.Copy;
+import com.greenfoxacademy.mybookshelf.models.Role;
 import com.greenfoxacademy.mybookshelf.models.User;
 import com.greenfoxacademy.mybookshelf.repositories.UserRepository;
 import org.springframework.cache.annotation.Cacheable;
@@ -62,5 +63,20 @@ public class UserServiceImpl implements UserService {
   @Override
   public User findById(long id) {
     return userRepository.findById(id);
+  }
+
+  @Override
+  public boolean existsById(long id) {
+    return userRepository.existsById(id);
+  }
+
+  @Override
+  public User updateUserRole(Role role, long id) {
+    User oldUser = userRepository.findById(id);
+    if (oldUser.getRoles().stream().filter(p -> p.getName().equals(role.getName())).findAny().orElse(null) == null) {
+      oldUser.addToRoles(role);
+      userRepository.save(oldUser);
+    }
+    return oldUser;
   }
 }

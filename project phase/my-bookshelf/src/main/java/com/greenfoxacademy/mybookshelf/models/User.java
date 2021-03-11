@@ -31,12 +31,23 @@ public class User {
   @ManyToMany
   private Set<User> friends = new HashSet<>();
 
+  @ManyToMany
+  private Set<Role> roles = new HashSet<>();
+
   public Collection<? extends GrantedAuthority> getAuthorities() {
+    Set<Role> roles = this.getRoles();
     List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+    for (Role role : roles) {
+      authorities.add(new SimpleGrantedAuthority(role.getName()));
+    }
     return authorities;
   }
 
   public void addToBookShelf (Copy copy) {
     this.bookShelf.add(copy);
+  }
+
+  public void addToRoles(Role newRole) {
+    this.roles.add(newRole);
   }
 }
