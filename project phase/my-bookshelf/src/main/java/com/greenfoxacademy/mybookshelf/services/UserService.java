@@ -14,4 +14,6 @@ public interface UserService {
   User findById(long id);
   boolean existsById (long id);
   User updateUserRole(Role role, long id);
+  long getIdByUsername(String username);
+  void deleteById(long id);
 }

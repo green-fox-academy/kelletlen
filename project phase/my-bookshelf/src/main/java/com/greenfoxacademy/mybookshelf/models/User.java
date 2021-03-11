@@ -31,7 +31,7 @@ public class User {
   @ManyToMany
   private Set<User> friends = new HashSet<>();
 
-  @ManyToMany
+  @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   private Set<Role> roles = new HashSet<>();
 
   public Collection<? extends GrantedAuthority> getAuthorities() {
