@@ -15,12 +15,12 @@ public class Loan {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
 
-  @Column
-  private long loanerId;
+  @ManyToOne
+  private User loaner;
 
-  @Column
-  private long borrowerId;
+  @ManyToOne
+  private User borrower;
 
-  @Column
-  private long copyId;
+  @OneToOne
+  private Copy copy;
 }

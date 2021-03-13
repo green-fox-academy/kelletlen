@@ -20,6 +20,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.HashSet;
+
 import static org.hamcrest.core.Is.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -38,7 +40,7 @@ public class RegistrationControllerTest {
   @Autowired
   ObjectMapper objectMapper;
 
-  @Mock
+  @Autowired
   UserService userService;
 
   @Autowired
@@ -49,21 +51,7 @@ public class RegistrationControllerTest {
     userRepository.deleteAll();
   }
 
-  @Test
-  public void saveUser () {
-    User newUser = new User();
-    when(userService.saveUser(any(User.class))).thenReturn(newUser);
-  }
 
-  @Test
-  public void existsByUsername () {
-    User user = User.builder()
-        .username("username")
-        .password("pw")
-        .build();
-    userService.saveUser(user);
-    when(userService.existsByUsername("username")).thenReturn(true);
-  }
 
   @Test
   public void noUsernameAdded() throws Exception {
@@ -109,11 +97,14 @@ public class RegistrationControllerTest {
     User user = User.builder()
         .username("username")
         .password("pw")
+        .roles(new HashSet<>())
         .build();
     userService.saveUser(user);
+    System.out.println(userService.existsByUsername("username"));
     User newUser = User.builder()
         .username("username")
         .password("password")
+        .roles(new HashSet<>())
         .build();
     mockMvc.perform(post("/users/register")
         .contentType(MediaType.APPLICATION_JSON)

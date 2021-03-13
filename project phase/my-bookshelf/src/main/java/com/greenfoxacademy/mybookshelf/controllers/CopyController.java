@@ -61,12 +61,12 @@ public class CopyController {
       return ResponseEntity.badRequest().body(new ResponseError("User does not exist."));
     } else {
       Loan newLoan = Loan.builder()
-          .loanerId(authenticatedUser.getId())
-          .borrowerId(loan.getBorrowerId())
-          .copyId(loan.getCopyId())
+          .loaner(authenticatedUser)
+          .borrower(userService.findById(loan.getBorrowerId()))
+          .copy(copyService.findById(loan.getCopyId()))
           .build();
       loanService.saveLoan(newLoan);
-      return ResponseEntity.status(HttpStatus.CREATED).body(newLoan);
+      return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseState("The copy is loaned successfully."));
     }
   }
 
@@ -79,7 +79,7 @@ public class CopyController {
       return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     } else if (loan == null) {
       return ResponseEntity.badRequest().body(new ResponseError("The loan does not exist."));
-    } else if (loan.getLoanerId() != authenticatedUser.getId()) {
+    } else if (loan.getLoaner().getId() != authenticatedUser.getId()) {
       return ResponseEntity.badRequest().body(new ResponseError("You are not the loaner of this loan."));
     } else {
       loanService.deleteById(id);

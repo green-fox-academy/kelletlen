@@ -43,6 +43,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers(HttpMethod.POST, "/books/review").permitAll()
         .antMatchers(HttpMethod.DELETE, "/books/review/delete/*").permitAll()
         .antMatchers(HttpMethod.PATCH, "/users/updateRole/*").hasAuthority("admin")
+        .antMatchers(HttpMethod.POST, "/wishlist/add/*").permitAll()
+        .antMatchers(HttpMethod.DELETE, "/wishlist/delete/*").permitAll()
         .anyRequest().authenticated()
         .and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

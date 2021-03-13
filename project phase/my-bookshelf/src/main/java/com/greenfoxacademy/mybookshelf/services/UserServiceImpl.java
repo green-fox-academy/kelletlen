@@ -2,6 +2,7 @@ package com.greenfoxacademy.mybookshelf.services;
 
 import com.greenfoxacademy.mybookshelf.dtos.LoggedInUserDTO;
 import com.greenfoxacademy.mybookshelf.dtos.UserRegistrationDTO;
+import com.greenfoxacademy.mybookshelf.models.Book;
 import com.greenfoxacademy.mybookshelf.models.Copy;
 import com.greenfoxacademy.mybookshelf.models.Role;
 import com.greenfoxacademy.mybookshelf.models.User;
@@ -88,6 +89,17 @@ public class UserServiceImpl implements UserService {
   @Override
   public void deleteById(long id) {
     userRepository.deleteById(id);
+  }
+
+  @Override
+  public boolean isBookInUsersWishlist(long userId, long bookId) {
+    User user = userRepository.findById(userId);
+    for (Book b: user.getWishlist()) {
+      if (b.getId() == bookId) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }

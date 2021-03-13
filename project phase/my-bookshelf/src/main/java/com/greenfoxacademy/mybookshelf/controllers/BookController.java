@@ -2,8 +2,10 @@ package com.greenfoxacademy.mybookshelf.controllers;
 
 import com.greenfoxacademy.mybookshelf.models.Book;
 import com.greenfoxacademy.mybookshelf.models.ResponseError;
+import com.greenfoxacademy.mybookshelf.models.ResponseState;
 import com.greenfoxacademy.mybookshelf.models.User;
 import com.greenfoxacademy.mybookshelf.services.BookService;
+import com.greenfoxacademy.mybookshelf.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -14,9 +16,11 @@ import org.springframework.web.bind.annotation.*;
 public class BookController {
 
   final BookService bookService;
+  final UserService userService;
 
-  public BookController(BookService bookService) {
+  public BookController(BookService bookService, UserService userService) {
     this.bookService = bookService;
+    this.userService = userService;
   }
 
   @PostMapping(path = "/books/add")
@@ -75,6 +79,39 @@ public class BookController {
       return ResponseEntity.badRequest().body(new ResponseError("There is no book in our database that matches this keyword."));
     } else {
       return ResponseEntity.ok(bookService.findAllByDescription(keyword));
+    }
+  }
+
+  @PostMapping(path="/wishlist/add/{id}")
+  public ResponseEntity<Object> addBookToWishlist (@PathVariable long id) {
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    User authenticatedUser = (User) auth.getPrincipal();
+    if (authenticatedUser == null) {
+      return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    } else if (bookService.findById(id) == null) {
+      return ResponseEntity.badRequest().body(new ResponseError("There is no book in the database with this id."));
+    } else {
+      Book book = bookService.findById(id);
+      authenticatedUser.addToWishlist(book);
+      userService.saveUser(authenticatedUser);
+      return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseState("The book is now added to your wishlist."));
+    }
+  }
+
+  @DeleteMapping(path="/wishlist/delete/{id}")
+  public ResponseEntity<Object> deleteBookFromWishlist (@PathVariable long id) {
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    User authenticatedUser = (User) auth.getPrincipal();
+    Book book = bookService.findById(id);
+    if (authenticatedUser == null) {
+      return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    } else if (!userService.isBookInUsersWishlist(authenticatedUser.getId(), id)) {
+      return ResponseEntity.badRequest().body(new ResponseError("This book is not in your wishlist."));
+    } else {
+      authenticatedUser.removeFromWishlist(book);
+      userService.saveUser(authenticatedUser);
+      return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseState("The book is now removed from your wishlist."));
+
     }
   }
 }

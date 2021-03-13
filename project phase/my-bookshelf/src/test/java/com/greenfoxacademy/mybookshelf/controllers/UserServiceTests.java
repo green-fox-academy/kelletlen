@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 public class UserServiceTests {
@@ -23,15 +24,37 @@ public class UserServiceTests {
   private final BCryptPasswordEncoder bCryptPasswordEncoder = Mockito.mock(BCryptPasswordEncoder.class);
 
   @Test
-  public void validateUserShouldValidateCorrectPassword () {
+  public void saveUser() {
+    UserServiceImpl userService = new UserServiceImpl(userRepository, jwtService, bCryptPasswordEncoder);
+    User newUser = new User();
+    Mockito.when(userRepository.save(newUser)).thenReturn(newUser);
+    User user = userService.saveUser(newUser);
+    Assert.assertEquals(user, newUser);
+
+  }
+
+  @Test
+  public void existsByUsername() {
+    UserServiceImpl userService = new UserServiceImpl(userRepository, jwtService, bCryptPasswordEncoder);
+    User user = User.builder()
+        .username("username")
+        .build();
+    Mockito.when(userRepository.existsByUsername(user.getUsername())).thenReturn(true);
+    Mockito.when(userRepository.existsByUsername("asd")).thenReturn(false);
+    Assert.assertTrue(userService.existsByUsername(user.getUsername()));
+    Assert.assertFalse(userService.existsByUsername("asd"));
+  }
+
+  @Test
+  public void validateUserShouldValidateCorrectPassword() {
     UserServiceImpl userService = new UserServiceImpl(userRepository, jwtService, bCryptPasswordEncoder);
     UserRegistrationDTO userRegDTO = new UserRegistrationDTO();
-    User storedUser = new User();
-    String token = "abba";
-    LoggedInUserDTO loggedInUserDTO = userService.validateUser(userRegDTO);
+    User storedUser = User.builder().build();
+    String token = "asd";
     Mockito.when(userRepository.findByUsername(userRegDTO.getUsername())).thenReturn(storedUser);
     Mockito.when(jwtService.createToken(storedUser.getUsername())).thenReturn(token);
-    Mockito.when(bCryptPasswordEncoder.matches(userRegDTO.getPassword(),storedUser.getPassword())).thenReturn(true);
+    Mockito.when(bCryptPasswordEncoder.matches(userRegDTO.getPassword(), storedUser.getPassword())).thenReturn(true);
+    LoggedInUserDTO loggedInUserDTO = userService.validateUser(userRegDTO);
     Assert.assertEquals(userRegDTO.getUsername(), loggedInUserDTO.getUsername());
   }
 }

@@ -16,4 +16,6 @@ public interface UserService {
   User updateUserRole(Role role, long id);
   long getIdByUsername(String username);
   void deleteById(long id);
+  boolean isBookInUsersWishlist (long userId, long bookId);
+  User saveAndHashPassword (String username, String password);
 }
