@@ -102,4 +102,14 @@ public class UserServiceImpl implements UserService {
     return false;
   }
 
+  @Override
+  public User saveAndHashPassword(String username, String password) {
+    User user = User.builder()
+        .username(username)
+        .password(bCryptPasswordEncoder.encode(password))
+        .build();
+    this.saveUser(user);
+    return user;
+  }
+
 }

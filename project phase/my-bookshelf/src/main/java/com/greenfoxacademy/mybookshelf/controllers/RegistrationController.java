@@ -33,13 +33,8 @@ public class RegistrationController {
     } else if (userService.existsByUsername(newUser.getUsername())) {
       return ResponseEntity.badRequest().body(new ResponseError("username already exists"));
     } else {
-      User user = User.builder()
-          .username(newUser.getUsername())
-          .password(bCryptPasswordEncoder.encode(newUser.getPassword()))
-          .build();
-      userService.saveUser(user);
+      userService.saveAndHashPassword(newUser.getUsername(), newUser.getPassword());
       return ResponseEntity.ok().body(new ResponseState("success"));
     }
   }
-
 }

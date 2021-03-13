@@ -111,7 +111,6 @@ public class BookController {
       authenticatedUser.removeFromWishlist(book);
       userService.saveUser(authenticatedUser);
       return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseState("The book is now removed from your wishlist."));
-
     }
   }
 }

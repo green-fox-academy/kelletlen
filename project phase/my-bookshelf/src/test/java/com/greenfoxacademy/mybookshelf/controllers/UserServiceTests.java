@@ -5,16 +5,11 @@ import com.greenfoxacademy.mybookshelf.dtos.UserRegistrationDTO;
 import com.greenfoxacademy.mybookshelf.models.User;
 import com.greenfoxacademy.mybookshelf.repositories.UserRepository;
 import com.greenfoxacademy.mybookshelf.services.JwtServiceImpl;
-import com.greenfoxacademy.mybookshelf.services.UserService;
 import com.greenfoxacademy.mybookshelf.services.UserServiceImpl;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 
 public class UserServiceTests {
   private final UserRepository userRepository = Mockito.mock(UserRepository.class);
@@ -24,7 +19,7 @@ public class UserServiceTests {
   private final BCryptPasswordEncoder bCryptPasswordEncoder = Mockito.mock(BCryptPasswordEncoder.class);
 
   @Test
-  public void saveUser() {
+  public void saveUserShouldSaveUser() {
     UserServiceImpl userService = new UserServiceImpl(userRepository, jwtService, bCryptPasswordEncoder);
     User newUser = new User();
     Mockito.when(userRepository.save(newUser)).thenReturn(newUser);
@@ -34,7 +29,7 @@ public class UserServiceTests {
   }
 
   @Test
-  public void existsByUsername() {
+  public void existsByUsernameShouldReturnCorrectly() {
     UserServiceImpl userService = new UserServiceImpl(userRepository, jwtService, bCryptPasswordEncoder);
     User user = User.builder()
         .username("username")
@@ -56,5 +51,20 @@ public class UserServiceTests {
     Mockito.when(bCryptPasswordEncoder.matches(userRegDTO.getPassword(), storedUser.getPassword())).thenReturn(true);
     LoggedInUserDTO loggedInUserDTO = userService.validateUser(userRegDTO);
     Assert.assertEquals(userRegDTO.getUsername(), loggedInUserDTO.getUsername());
+  }
+
+  @Test
+  public void saveAndHashPassword () {
+    UserServiceImpl userService = new UserServiceImpl(userRepository, jwtService, bCryptPasswordEncoder);
+    String username = "username";
+    String password = "password";
+    User user = User.builder()
+        .username(username)
+        .password(password)
+        .build();
+    Mockito.when(userRepository.save(user)).thenReturn(user);
+    Mockito.when(bCryptPasswordEncoder.encode(password)).thenReturn("encodedPw");
+    User newUser = userService.saveAndHashPassword(username, password);
+    Assert.assertEquals(newUser.getUsername(), username);
   }
 }
